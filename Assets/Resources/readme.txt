@@ -1,0 +1,1 @@
+README: This is a temporary file for the /Users/adrtk/Documents/_game_Design/DefaultProjectTemplate/Assets/Resources folder to be saved in version control
