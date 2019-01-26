@@ -85,7 +85,7 @@ public class GameController : MonoBehaviour {
 
 	public static void PlayerGainLife()
 	{
-		if (playerLives > 0)
+		if (playerLives < 3)
 		{
 			playerLives++;
 		}
