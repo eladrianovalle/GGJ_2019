@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
 
 	public static Action<bool> OnHandheldMoveLeft;
 	public static Action<bool> OnHandheldMoveRight;
-	public static Action<bool> OnCharacterJump;
+	public static Action<bool> OnHandheldButtonPress;
 
 	public static Action OnPlayerLoseLife;
 	public static Action OnPlayerGainLife;
@@ -41,9 +41,9 @@ public class GameController : MonoBehaviour {
 		}
 		else if (Input.GetKeyDown (KeyCode.UpArrow))
 		{
-			if (OnCharacterJump != null)
+			if (OnHandheldButtonPress != null)
 			{
-				OnCharacterJump (true);
+				OnHandheldButtonPress (true);
 			}
 		}
 
