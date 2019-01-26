@@ -682,5 +682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce335a6b8cb824bff85de7d242b55984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwableObjects: []
+  throwableObjects:
+  - {fileID: 1688872438940234, guid: 247ab2015ac8b4c2fbb88b74128ef7cb, type: 2}
+  - {fileID: 1364700905616594, guid: b1769acc321274855a53368bcee0b16d, type: 2}
+  - {fileID: 1916479594170564, guid: c9df1dbea9467491ba3f2411e70a74ed, type: 2}
   throwInterval: 3
