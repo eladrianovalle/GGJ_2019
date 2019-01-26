@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour {
 	float timeLimit = 30f;
 	float timer;
 
+	public static bool gameOver = false;
+
 	void Start () 
 	{
 		timer = timeLimit;
@@ -52,6 +54,7 @@ public class GameController : MonoBehaviour {
 			if (OnPlayerLoseGame != null)
 			{
 				OnPlayerLoseGame ();
+				gameOver = true;
 			}
 		}
 
@@ -61,6 +64,7 @@ public class GameController : MonoBehaviour {
 			if (OnPlayerWinGame != null)
 			{
 				OnPlayerWinGame ();
+				gameOver = true;
 			}
 		}
 	}
@@ -80,6 +84,10 @@ public class GameController : MonoBehaviour {
 		if (playerLives > 0)
 		{
 			playerLives--;
+			if (OnPlayerLoseLife != null)
+			{
+				OnPlayerLoseLife ();
+			}
 		}
 	}
 

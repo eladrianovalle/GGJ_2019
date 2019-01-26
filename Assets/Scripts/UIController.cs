@@ -36,6 +36,7 @@ public class UIController : MonoBehaviour {
 		hasTriggered = true;
 
 		LeanTween.moveY (text.rectTransform, 0, 2f).setEase(LeanTweenType.easeOutBounce);
+		text.color = Color.green;
 		text.text = "YOU\nWIN";
 	}
 
@@ -48,6 +49,7 @@ public class UIController : MonoBehaviour {
 		hasTriggered = true;
 
 		LeanTween.moveY (text.rectTransform, 0, 2f).setEase(LeanTweenType.easeOutBounce);
+		text.color = Color.red;
 		text.text = "YOU\nLOSE";
 	}
 
