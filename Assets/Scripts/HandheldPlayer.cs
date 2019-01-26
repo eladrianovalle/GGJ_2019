@@ -28,22 +28,6 @@ public class HandheldPlayer : MonoBehaviour {
 	{
 		
 	}
-	
-//	void Update () 
-//	{
-//		if (Input.GetKeyDown (KeyCode.LeftArrow))
-//		{
-//			
-//		}
-//		else if (Input.GetKeyDown (KeyCode.RightArrow))
-//		{
-//			
-//		}
-//		else if (Input.GetKeyDown (KeyCode.UpArrow))
-//		{
-//			
-//		}
-//	}
 
 	void MoveLeft(bool isMovingLeft)
 	{
