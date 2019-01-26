@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HandheldGame : MonoBehaviour
@@ -13,7 +14,13 @@ public class HandheldGame : MonoBehaviour
 	[Tooltip("Frames per GameLoop update")]
 	protected int frames = 20;
 
+	// Events
+	public static Action OnCharacterJump;
+	public static Action OnCharacterFall;
+	public static Action OnGameStart;
+	public static Action OnGameOver;
 
+	// Properties
 	protected HandheldCharacter character;
 	protected Queue<int> floor;
 
@@ -37,6 +44,11 @@ public class HandheldGame : MonoBehaviour
 		floor = new Queue<int>(startingFloor);
 	}
 
+	void Update()
+	{
+		
+	}
+
 	public void RunGameLoop()
 	{
 		// Update Game Loop
@@ -52,17 +64,25 @@ public class HandheldGame : MonoBehaviour
 		}
 
 		bool fall = false;
-		if (!jump)
+		if (jump)
+		{
+			OnCharacterJump();
+		}
+		else
 		{
 			fall = character.TryFall();
 		}
 
 		if (fall)
 		{
-			// Game Over
+			OnCharacterFall();
+			// Lives/Game Over
 		}
 
 		buttonPressed = false;
+
+		// Draw state?
+
 	}
 
 	private void ButtonPress(bool b)
