@@ -76,3 +76,4 @@
 /Users/adrianovalle/Documents/_gameDesign/GGJ_2019/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/adrianovalle/Documents/_gameDesign/GGJ_2019/Temp/bin/Debug/Unity.Cecil.Pdb.dll
 /Users/adrianovalle/Documents/_gameDesign/GGJ_2019/Temp/bin/Debug/Unity.Cecil.Mdb.dll
+/Users/adrianovalle/Documents/_gameDesign/GGJ_2019/Temp/bin/Debug/UnityEditor.UI.dll
