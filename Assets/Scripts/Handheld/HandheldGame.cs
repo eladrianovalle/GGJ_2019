@@ -30,12 +30,12 @@ public class HandheldGame : MonoBehaviour
 
 	void OnEnable()
 	{
-		GameController.OnCharacterJump += ButtonPress;
+		GameController.OnHandheldButtonPress += ButtonPress;
 	}
 
 	void OnDisable()
 	{
-		GameController.OnCharacterJump -= ButtonPress;
+		GameController.OnHandheldButtonPress -= ButtonPress;
 	}
 
 	public void Init()
