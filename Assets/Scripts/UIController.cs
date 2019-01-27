@@ -6,7 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
-
+	public AK.Wwise.Event winSound;
+	public AK.Wwise.Event loseSound;
 	public TextMeshProUGUI text;
 	public float startPosition_y = -1200;
 	bool hasTriggered = false;
@@ -40,8 +41,9 @@ public class UIController : MonoBehaviour {
 		{
 			return;
 		}
-		hasTriggered = true;
 
+		winSound.Post(gameObject);
+		hasTriggered = true;
 		text.color = Color.green;
 		text.text = "YOU\nWIN";
 		LeanTween.moveY (text.rectTransform, 0, 2f).setEase(LeanTweenType.easeOutBounce).setOnComplete(()=>{
@@ -55,8 +57,9 @@ public class UIController : MonoBehaviour {
 		{
 			return;
 		}
+		
+		loseSound.Post(gameObject);
 		hasTriggered = true;
-
 		text.color = Color.red;
 		text.text = "YOU\nLOSE";
 		LeanTween.moveY (text.rectTransform, 0, 2f).setEase(LeanTweenType.easeOutBounce).setOnComplete(()=>{
