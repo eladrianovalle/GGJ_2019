@@ -21,7 +21,7 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: c7f150e37a7c7b4ea104c430c07484c0
-    m_lastTime: -8586530804004775808
+    m_lastTime: -8586530540724775808
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
@@ -42,8 +42,22 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 4546677f5663af4fa2548342762f53d7
-    m_lastTime: -8586530669704775808
+    m_lastTime: -8586530540714775808
     List:
+    - name: MX_GameState_YouWin
+      guid: a6c1eb4948bdfd4c9bbedfea83aa3335
+      id: 216451844
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: MX
+        ObjectType: 4
+      - ElementName: MX_GameState_YouWin
+        ObjectType: 3
+      Path: Default Work Unit/MX/MX_GameState_YouWin
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: MX_Theme_HandheldGame
       guid: c37be65a34bc0848ad86500c7c32adc0
       id: 2197157295
@@ -55,6 +69,46 @@ MonoBehaviour:
       - ElementName: MX_Theme_HandheldGame
         ObjectType: 3
       Path: Default Work Unit/MX/MX_Theme_HandheldGame
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: SFX_ImpactPlayer_Bad
+      guid: e0ad9e131d86df46a8e5b0f28e6e02d1
+      id: 1746823504
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_ImpactPlayer_Bad
+        ObjectType: 3
+      Path: Default Work Unit/SFX/SFX_ImpactPlayer_Bad
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: SFX_Player_Jump
+      guid: ba8edbab75306b428cfaca29447d47fe
+      id: 648313621
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_Player_Jump
+        ObjectType: 3
+      Path: Default Work Unit/SFX/SFX_Player_Jump
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Stop_All
+      guid: 36f6a9fb23001d4fa11f29decb51f3c0
+      id: 452547817
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Stop_All
+        ObjectType: 3
+      Path: Default Work Unit/Stop_All
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0

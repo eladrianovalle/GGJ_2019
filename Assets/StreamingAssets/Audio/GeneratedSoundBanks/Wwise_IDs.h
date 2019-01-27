@@ -13,7 +13,11 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID MX_GAMESTATE_YOUWIN = 216451844U;
         static const AkUniqueID MX_THEME_HANDHELDGAME = 2197157295U;
+        static const AkUniqueID SFX_IMPACTPLAYER_BAD = 1746823504U;
+        static const AkUniqueID SFX_PLAYER_JUMP = 648313621U;
+        static const AkUniqueID STOP_ALL = 452547817U;
     } // namespace EVENTS
 
     namespace BANKS
@@ -25,6 +29,8 @@ namespace AK
     namespace BUSSES
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
+        static const AkUniqueID MX = 1685527054U;
+        static const AkUniqueID SFX = 393239870U;
     } // namespace BUSSES
 
     namespace AUDIO_DEVICES
