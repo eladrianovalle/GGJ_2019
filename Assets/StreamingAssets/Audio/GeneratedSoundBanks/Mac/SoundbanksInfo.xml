@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="132">
+	<RootPaths>
+		<ProjectRoot>/Users/lucasedwards/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/Documents/GGJ_AudioSessions/GGJ_2019_WwiseProject/</ProjectRoot>
+		<SourceFilesRoot>/Users/lucasedwards/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/Documents/GGJ_AudioSessions/GGJ_2019_WwiseProject/.cache/Mac/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/lucasedwards/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/Documents/GGJ_AudioSessions/GGJ_2019_WwiseProject/GeneratedSoundBanks/Mac/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/lucasedwards/Library/Application Support/Wwise2018/Bottles/wwise/dosdevices/y:/Documents/GGJ_AudioSessions/GGJ_2019_WwiseProject/GeneratedSoundBanks/Mac</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="2841340823" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\GameSounds</ObjectPath>
+			<ShortName>GameSounds</ShortName>
+			<Path>GameSounds.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3682433579" Name="AMB_RoomTone" ObjectPath="\Events\Default Work Unit\SFX\AMB_RoomTone"/>
+				<Event Id="2564758585" Name="MX_GameState_YouLose" ObjectPath="\Events\Default Work Unit\MX\MX_GameState_YouLose"/>
+				<Event Id="216451844" Name="MX_GameState_YouWin" ObjectPath="\Events\Default Work Unit\MX\MX_GameState_YouWin"/>
+				<Event Id="2197157295" Name="MX_Theme_HandheldGame" ObjectPath="\Events\Default Work Unit\MX\MX_Theme_HandheldGame"/>
+				<Event Id="607923225" Name="SFX_DoorOpen" ObjectPath="\Events\Default Work Unit\SFX\SFX_DoorOpen"/>
+				<Event Id="2381417022" Name="SFX_DoorSlam" ObjectPath="\Events\Default Work Unit\SFX\SFX_DoorSlam"/>
+				<Event Id="124309723" Name="SFX_Impact_Bad" ObjectPath="\Events\Default Work Unit\SFX\SFX_Impact_Bad"/>
+				<Event Id="343228125" Name="SFX_Impact_Good" ObjectPath="\Events\Default Work Unit\SFX\SFX_Impact_Good"/>
+				<Event Id="648313621" Name="SFX_Player_Jump" ObjectPath="\Events\Default Work Unit\SFX\SFX_Player_Jump"/>
+				<Event Id="452547817" Name="Stop_All" ObjectPath="\Events\Default Work Unit\Stop_All" MaxAttenuation="0.000000"/>
+				<Event Id="929851918" Name="VO_MomDialogue" ObjectPath="\Events\Default Work Unit\VOX\VO_MomDialogue"/>
+				<Event Id="3454957193" Name="VO_MomOutside" ObjectPath="\Events\Default Work Unit\VOX\VO_MomOutside"/>
+				<Event Id="3869464583" Name="VO_Title" ObjectPath="\Events\Default Work Unit\VOX\VO_Title"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="38706297" Language="SFX">
+					<ShortName>VO_Mom_8.wav</ShortName>
+					<Path>SFX/VO_Mom_8_56D34C19.wem</Path>
+				</File>
+				<File Id="60871622" Language="SFX">
+					<ShortName>SFX_DoorSlam.wav</ShortName>
+					<Path>SFX/SFX_DoorSlam_56D34C19.wem</Path>
+				</File>
+				<File Id="165786838" Language="SFX">
+					<ShortName>VO_Mom_OutsideRoom1.wav</ShortName>
+					<Path>SFX/VO_Mom_OutsideRoom1_56D34C19.wem</Path>
+				</File>
+				<File Id="169620848" Language="SFX">
+					<ShortName>VO_Mom_7.wav</ShortName>
+					<Path>SFX/VO_Mom_7_56D34C19.wem</Path>
+				</File>
+				<File Id="192232336" Language="SFX">
+					<ShortName>SFX_Player_Jump.wav</ShortName>
+					<Path>SFX/SFX_Player_Jump_56D34C19.wem</Path>
+				</File>
+				<File Id="226539728" Language="SFX">
+					<ShortName>AMB_RoomTone.wav</ShortName>
+					<Path>SFX/AMB_RoomTone_56D34C19.wem</Path>
+				</File>
+				<File Id="232367687" Language="SFX">
+					<ShortName>GGJ_Theme_HandheldGame.wav</ShortName>
+					<Path>SFX/GGJ_Theme_HandheldGame_8956FC97.wem</Path>
+				</File>
+				<File Id="327917931" Language="SFX">
+					<ShortName>VO_Mom_3.wav</ShortName>
+					<Path>SFX/VO_Mom_3_56D34C19.wem</Path>
+				</File>
+				<File Id="342378419" Language="SFX">
+					<ShortName>VO_Mom_OutsideRoom3.wav</ShortName>
+					<Path>SFX/VO_Mom_OutsideRoom3_56D34C19.wem</Path>
+				</File>
+				<File Id="349446425" Language="SFX">
+					<ShortName>VO_Mom_OutsideRoom2.wav</ShortName>
+					<Path>SFX/VO_Mom_OutsideRoom2_56D34C19.wem</Path>
+				</File>
+				<File Id="361312921" Language="SFX">
+					<ShortName>SFX_ImpactPlayer_Good.wav</ShortName>
+					<Path>SFX/SFX_ImpactPlayer_Good_56D34C19.wem</Path>
+				</File>
+				<File Id="391144328" Language="SFX">
+					<ShortName>VO_Mom_2.wav</ShortName>
+					<Path>SFX/VO_Mom_2_56D34C19.wem</Path>
+				</File>
+				<File Id="403582757" Language="SFX">
+					<ShortName>VO_Mom_12.wav</ShortName>
+					<Path>SFX/VO_Mom_12_56D34C19.wem</Path>
+				</File>
+				<File Id="405049083" Language="SFX">
+					<ShortName>VO_Mom_17.wav</ShortName>
+					<Path>SFX/VO_Mom_17_56D34C19.wem</Path>
+				</File>
+				<File Id="407846076" Language="SFX">
+					<ShortName>VO_Mom_16.wav</ShortName>
+					<Path>SFX/VO_Mom_16_56D34C19.wem</Path>
+				</File>
+				<File Id="459721442" Language="SFX">
+					<ShortName>VO_Mom_1.wav</ShortName>
+					<Path>SFX/VO_Mom_1_56D34C19.wem</Path>
+				</File>
+				<File Id="534231049" Language="SFX">
+					<ShortName>GameState_YouWin.wav</ShortName>
+					<Path>SFX/GameState_YouWin_8956FC97.wem</Path>
+				</File>
+				<File Id="544501070" Language="SFX">
+					<ShortName>GameState_YouLose.wav</ShortName>
+					<Path>SFX/GameState_YouLose_8956FC97.wem</Path>
+				</File>
+				<File Id="581037606" Language="SFX">
+					<ShortName>VO_Mom_18.wav</ShortName>
+					<Path>SFX/VO_Mom_18_56D34C19.wem</Path>
+				</File>
+				<File Id="645968624" Language="SFX">
+					<ShortName>VO_Mom_11.wav</ShortName>
+					<Path>SFX/VO_Mom_11_56D34C19.wem</Path>
+				</File>
+				<File Id="659340963" Language="SFX">
+					<ShortName>VO_Mom_14.wav</ShortName>
+					<Path>SFX/VO_Mom_14_56D34C19.wem</Path>
+				</File>
+				<File Id="661494450" Language="SFX">
+					<ShortName>SFX_ImpactPlayer_Bad.wav</ShortName>
+					<Path>SFX/SFX_ImpactPlayer_Bad_56D34C19.wem</Path>
+				</File>
+				<File Id="774902356" Language="SFX">
+					<ShortName>VO_Mom_10.wav</ShortName>
+					<Path>SFX/VO_Mom_10_56D34C19.wem</Path>
+				</File>
+				<File Id="810527845" Language="SFX">
+					<ShortName>VO_Mom_5.wav</ShortName>
+					<Path>SFX/VO_Mom_5_56D34C19.wem</Path>
+				</File>
+				<File Id="844741346" Language="SFX">
+					<ShortName>VO_Mom_15.wav</ShortName>
+					<Path>SFX/VO_Mom_15_56D34C19.wem</Path>
+				</File>
+				<File Id="865009445" Language="SFX">
+					<ShortName>VO_Mom_6.wav</ShortName>
+					<Path>SFX/VO_Mom_6_56D34C19.wem</Path>
+				</File>
+				<File Id="880104537" Language="SFX">
+					<ShortName>VO_Mom_13.wav</ShortName>
+					<Path>SFX/VO_Mom_13_56D34C19.wem</Path>
+				</File>
+				<File Id="902075261" Language="SFX">
+					<ShortName>VO_Mom_19.wav</ShortName>
+					<Path>SFX/VO_Mom_19_56D34C19.wem</Path>
+				</File>
+				<File Id="911776400" Language="SFX">
+					<ShortName>VO_Mom_4.wav</ShortName>
+					<Path>SFX/VO_Mom_4_56D34C19.wem</Path>
+				</File>
+				<File Id="959436902" Language="SFX">
+					<ShortName>SFX_DoorOpen.wav</ShortName>
+					<Path>SFX/SFX_DoorOpen_56D34C19.wem</Path>
+				</File>
+				<File Id="1054114328" Language="SFX">
+					<ShortName>VO_Title.wav</ShortName>
+					<Path>SFX/VO_Title_56D34C19.wem</Path>
+				</File>
+				<File Id="1065126371" Language="SFX">
+					<ShortName>VO_Mom_9.wav</ShortName>
+					<Path>SFX/VO_Mom_9_56D34C19.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
