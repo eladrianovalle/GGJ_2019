@@ -465,13 +465,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114336712652791078, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: momPositions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4437432511023972, guid: 341634eb60044418da506a4fda813aa8, type: 2}
       propertyPath: m_LocalPosition.x
       value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 4437432511023972, guid: 341634eb60044418da506a4fda813aa8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4437432511023972, guid: 341634eb60044418da506a4fda813aa8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -502,6 +507,42 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1242200305}
+    - target: {fileID: 212565685666315750, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1f9e31082155d4ff09b0b4016432c25f,
+        type: 3}
+    - target: {fileID: 114336712652791078, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: momPositions.Array.data[1].x
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336712652791078, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: momPositions.Array.data[1].y
+      value: 9.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336712652791078, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: momPositions.Array.data[1].z
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336712652791078, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: momPositions.Array.data[0].x
+      value: -34
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336712652791078, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: momPositions.Array.data[0].y
+      value: 9.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336712652791078, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: momPositions.Array.data[0].z
+      value: 37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 341634eb60044418da506a4fda813aa8, type: 2}
   m_IsPrefabParent: 0
