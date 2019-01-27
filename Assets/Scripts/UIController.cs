@@ -6,15 +6,17 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
+	public AK.Wwise.Event titleOpeningSound;
 	public AK.Wwise.Event winSound;
 	public AK.Wwise.Event loseSound;
 	public TextMeshProUGUI text;
+
 	public float startPosition_y = -1200;
 	bool hasTriggered = false;
 
 	public CanvasGroup retryPanel;
 	public Button retryButton;
-//	float originalPanelAlpha;
+	TextMeshProUGUI buttonText;
 
 	void OnEnable()
 	{
@@ -32,7 +34,19 @@ public class UIController : MonoBehaviour {
 	{
 		Vector3 startingPos = new Vector3 (this.transform.position.x, startPosition_y, this.transform.position.z);
 		text.transform.position = startingPos;
-		HideRetryPanel ();
+		buttonText = retryButton.GetComponentInChildren<TextMeshProUGUI> ();
+		SetupButtons ();
+
+		titleOpeningSound.Post(gameObject);
+	}
+
+	void SetupButtons()
+	{
+		buttonText.text = "START";
+		retryButton.onClick.RemoveAllListeners();
+		retryButton.onClick.AddListener(()=>{
+			HideRetryPanel();
+		});
 	}
 
 	void ShowWinText()
@@ -63,20 +77,23 @@ public class UIController : MonoBehaviour {
 		text.color = Color.red;
 		text.text = "YOU\nLOSE";
 		LeanTween.moveY (text.rectTransform, 0, 2f).setEase(LeanTweenType.easeOutBounce).setOnComplete(()=>{
-			ShowRetryPanel();
+			LeanTween.delayedCall(1f, ()=>{
+				ShowRetryPanel();
+			});
 		});	
 	}
 
 	void HideRetryPanel()
 	{
-		retryPanel.alpha = 0;
-		retryButton.interactable = false;
+		LeanTween.alphaCanvas (retryPanel, 0f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
+			retryButton.interactable = false;
+		});
 	}
 
 	void ShowRetryPanel()
 	{
+		buttonText.text = "RETRY";
 		LeanTween.alphaCanvas (retryPanel, 1f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
-//			retryPanel.blocksRaycasts = false;
 			retryButton.interactable = true;
 
 			retryButton.onClick.RemoveAllListeners();

@@ -14,6 +14,8 @@ ModelImporter:
     100016: trash
     100018: windows
     100020: tv
+    100022: rug
+    100024: rug_shadow
     400000: boombox
     400002: clock
     400004: desk
@@ -25,7 +27,10 @@ ModelImporter:
     400016: trash
     400018: windows
     400020: tv
+    400022: rug
+    400024: rug_shadow
     2100000: Material
+    2100002: No Name
     2300000: boombox
     2300002: clock
     2300004: desk
@@ -36,6 +41,8 @@ ModelImporter:
     2300014: trash
     2300016: windows
     2300018: tv
+    2300020: rug
+    2300022: rug_shadow
     3300000: boombox
     3300002: clock
     3300004: desk
@@ -46,6 +53,8 @@ ModelImporter:
     3300014: trash
     3300016: windows
     3300018: tv
+    3300020: rug
+    3300022: rug_shadow
     4300000: clock
     4300002: trash
     4300004: windows
@@ -56,6 +65,8 @@ ModelImporter:
     4300014: desk
     4300016: room
     4300018: tv
+    4300020: rug
+    4300022: rug_shadow
   externalObjects: {}
   materials:
     importMaterials: 1
