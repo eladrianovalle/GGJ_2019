@@ -9,6 +9,8 @@ public class HandheldPlayer : MonoBehaviour {
 
 	Rigidbody rBody;
 	public float moveSpeed = 2.0f;
+	float moveLimit = 3.0f;
+	public GameObject handheldWrapper;
 
 	void OnEnable()
 	{
@@ -32,11 +34,22 @@ public class HandheldPlayer : MonoBehaviour {
 		rBody = GetComponent<Rigidbody> ();
 	}
 
+	void Update()
+	{
+		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, Time.deltaTime * 5f);
+	}
+
 	void MoveLeft(bool isMovingLeft)
 	{
 		leftBtnAnimator.Play("Lbtn_GoDown");
 		Debug.Log ("Move Left");
-		Vector3 movePosition = this.rBody.transform.position += (Vector3.left * moveSpeed) * Time.deltaTime;
+		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 15, 0);
+
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
+		if (movePosition.x <= -moveLimit)
+		{
+			movePosition.x = -moveLimit;
+		}
 		rBody.MovePosition (movePosition);
 	}
 
@@ -44,7 +57,14 @@ public class HandheldPlayer : MonoBehaviour {
 	{
 		rightBtnAnimator.Play("Btn_GoDown");
 		Debug.Log ("Move Right");
-		Vector3 movePosition = this.rBody.transform.position += (Vector3.right * moveSpeed) * Time.deltaTime;
+		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -15, 0);
+
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
+		if (movePosition.x >= moveLimit)
+		{
+			movePosition.x = moveLimit;
+		}
+
 		rBody.MovePosition (movePosition);
 	}
 
