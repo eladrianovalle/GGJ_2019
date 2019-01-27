@@ -53,7 +53,14 @@ public class UIController : MonoBehaviour {
 		}
 		if (Input.GetKey (KeyCode.Space))
 		{
-			HideRetryPanel();
+			if (buttonText.text == "START")
+			{
+				HideRetryPanel();
+			}
+			else if (buttonText.text == "RETRY")
+			{
+				RestartGame();
+			}
 		}
 	}
 
@@ -112,6 +119,7 @@ public class UIController : MonoBehaviour {
 
 	void ShowRetryPanel()
 	{
+		panelShowing = true;
 		buttonText.text = "RETRY";
 		LeanTween.alphaCanvas (retryPanel, 1f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
 			retryButton.interactable = true;
