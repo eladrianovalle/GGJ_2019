@@ -44,7 +44,11 @@
          {
              // Albedo comes from a texture tinted by color
              fixed4 vColor =  fixed4(IN.vertexColor.r, IN.vertexColor.g, IN.vertexColor.b, 1);
-             fixed4 c = (tex2D (_MainTex, IN.uv_MainTex) * _Color * vColor) + _Brightness;
+             fixed4 texColor = tex2D (_MainTex, IN.uv_MainTex);
+             fixed4 c = texColor * (_Color * vColor) + _Brightness;
+
+             c = texColor.a < 0.01 ? c : texColor * c;
+
              o.Albedo = c.rgb * IN.vertexColor; // Combine normal color with the vertex color
              o.Alpha = c.a;
          }
