@@ -54,11 +54,12 @@ public class MomLauncher : MonoBehaviour {
 
 			if (throwTimer < 0)
 			{
-				MomEnterRoom ();
-
+				timerRunning = false;
 				float newThrowInterval = throwInterval * 0.95f;
 				throwInterval = newThrowInterval;
 				throwTimer = throwInterval;
+
+				MomEnterRoom ();
 			}
 
 		}
@@ -81,6 +82,8 @@ public class MomLauncher : MonoBehaviour {
 		LeanTween.moveLocal (this.gameObject, momPositions[0], momMoveSpeed).setEase(LeanTweenType.easeInQuint).setOnComplete(()=>{
 			//close door and screenshake
 			// closed door at rotation y 120f
+			timerRunning = true;
+
 			OnDoorClosed();
 		});
 	}
