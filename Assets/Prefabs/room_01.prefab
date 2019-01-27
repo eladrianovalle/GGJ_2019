@@ -1181,4 +1181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4d528a194114f76acd6b50e18b7596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpenSound:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 0}
+  doorCloseSound:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 0}
   door: {fileID: 1328913706531930}
