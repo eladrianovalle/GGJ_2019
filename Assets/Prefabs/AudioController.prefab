@@ -86,6 +86,10 @@ MonoBehaviour:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 77ae23299cabf405aa5c19bf05ccc2f0,
       type: 2}
+  MaternityHeave:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: e5e9ec5fe55b1482795954fc9803d3fe,
+      type: 2}
 --- !u!114 &114213255385132956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,7 +108,7 @@ MonoBehaviour:
   enableActionOnEvent: 0
   data:
     valueGuid: 
-    WwiseObjectReference: {fileID: 11400000, guid: 1e67817a1d16b4e73bd00b8514cc4aba,
+    WwiseObjectReference: {fileID: 11400000, guid: a88126a47b2be415b95eed927d2077f6,
       type: 2}
   m_callbackData: {fileID: 0}
   playingId: 0

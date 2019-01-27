@@ -12,6 +12,7 @@ public class AudioController : MonoBehaviour {
 	public AK.Wwise.Event MomDialogue;
 	public AK.Wwise.Event MomOutside;
 	public AK.Wwise.Event PlayerJump;
+	public AK.Wwise.Event MaternityHeave;
 
 
 	void OnEnable()
@@ -52,6 +53,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 
+
 	// Impact Sounds
 
 	void PlayHitSound(bool isGood)
@@ -78,6 +80,8 @@ public class AudioController : MonoBehaviour {
 		MomOutside.Post (gameObject);
 	}
 
+
+
 	// SFX
 
 	void PlayJumpSound ()
@@ -85,6 +89,10 @@ public class AudioController : MonoBehaviour {
 		PlayerJump.Post (gameObject);
 	}
 
+	void PlayTitle ()
+	{
+		MaternityHeave.Post (gameObject);
+	}
 
 
 

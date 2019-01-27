@@ -1255,8 +1255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorOpenSound:
     valueGuid: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 95a80cc3bcdeb48f5abf5b52950a19a7,
+      type: 2}
   doorCloseSound:
     valueGuid: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 4d5b1c1570d8c4b27842162dd8372abe,
+      type: 2}
   door: {fileID: 1328913706531930}
