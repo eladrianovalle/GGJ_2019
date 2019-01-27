@@ -49,7 +49,7 @@ public class HandheldPlayer : MonoBehaviour {
 		HighlightButtonColor(leftBtnMat);
 
 		Debug.Log ("Move Left");
-		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 15, -3);
+		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 9, -3);
 
 		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
 		if (movePosition.x <= -moveLimit)
@@ -65,7 +65,7 @@ public class HandheldPlayer : MonoBehaviour {
 		HighlightButtonColor(rightBtnMat);
 
 		Debug.Log ("Move Right");
-		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -15, 3);
+		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -9, 3);
 
 		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
 		if (movePosition.x >= moveLimit)
