@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
+	public AK.Wwise.Event titleOpeningSound;
 	public AK.Wwise.Event winSound;
 	public AK.Wwise.Event loseSound;
 	public TextMeshProUGUI text;
@@ -33,6 +34,8 @@ public class UIController : MonoBehaviour {
 		Vector3 startingPos = new Vector3 (this.transform.position.x, startPosition_y, this.transform.position.z);
 		text.transform.position = startingPos;
 		SetupButtons ();
+
+		titleOpeningSound.Post(gameObject);
 	}
 
 	void SetupButtons()
