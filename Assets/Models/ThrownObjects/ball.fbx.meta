@@ -1,42 +1,14 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 4aa94ab8893ed634b9c483c8218d8c75
-=======
-guid: 73c5f0694d86e4ddeb06e9147ffa8cc6
->>>>>>> 208ee177332824e736835a8841a58ebf7513e07b
+guid: 5a737897861b1d64eba5c358e0960771
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Btn_Center
-    100004: Btn_Left
-    100006: Btn_Right
-    100008: Tiger_Console
     400000: //RootNode
-    400002: Btn_Center
-    400004: Btn_Left
-    400006: Btn_Right
-    400008: Tiger_Console
     2100000: No Name
-    2100002: Btn_Center_Mat
-    2100004: Btn_Rght_Mat
-    2100006: Btn_Left_Mat
-    2100008: Tiger_Console_Mat
     2300000: //RootNode
-    2300002: Btn_Center
-    2300004: Btn_Left
-    2300006: Btn_Right
-    2300008: Tiger_Console
     3300000: //RootNode
-    3300002: Btn_Center
-    3300004: Btn_Left
-    3300006: Btn_Right
-    3300008: Tiger_Console
-    4300000: Cube
-    4300002: Btn_Center
-    4300004: Btn_Right
-    4300006: Btn_Left
-    4300008: Tiger_Console
+    4300000: Sphere
   externalObjects: {}
   materials:
     importMaterials: 1
