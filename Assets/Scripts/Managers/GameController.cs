@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour {
 	public static Action<bool> OnHandheldMoveRight;
 	public static Action<bool> OnHandheldButtonPress;
 
+	public static Action OnRightButtonUp;
+	public static Action OnLeftButtonUp;
+
+
 	public static Action OnPlayerLoseLife;
 	public static Action OnPlayerGainLife;
 	public static Action OnPlayerLoseGame;
@@ -58,6 +62,24 @@ public class GameController : MonoBehaviour {
 			if (OnHandheldButtonPress != null)
 			{
 				OnHandheldButtonPress (true);
+			}
+		}
+		
+		if (!Input.GetKey(KeyCode.RightArrow))
+		{
+			// Right button animation to play
+			if (OnRightButtonUp != null)
+			{
+				OnRightButtonUp();
+			}
+		}
+
+		if (!Input.GetKey(KeyCode.LeftArrow))
+		{
+			// Left button animation to play
+			if (OnLeftButtonUp != null)
+			{
+				OnLeftButtonUp();
 			}
 		}
 
