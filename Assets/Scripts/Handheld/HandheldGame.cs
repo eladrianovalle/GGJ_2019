@@ -12,7 +12,7 @@ public class HandheldGame : MonoBehaviour
 	private int currFrames = 0;
 	private int endFrames = 6;
 	private int currEndFrames = 0;
-	private int startFrames = 3;
+	private int startFrames = 6;
 	private int currStartFrames = 0;
 
 	[SerializeField]
