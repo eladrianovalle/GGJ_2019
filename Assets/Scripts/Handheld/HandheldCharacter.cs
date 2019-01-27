@@ -18,13 +18,15 @@ public class HandheldCharacter : MonoBehaviour
 	public CharacterState CurrentState { get; private set; }
 
 	/// <summary>
-	/// Initializes a new instance of the <see cref="HandheldCharacter"/> class.
+	/// Init the startState.
 	/// </summary>
 	/// <param name="startState">Start state.</param>
-	public HandheldCharacter(CharacterState startState = START_STATE)
+	public void Init(CharacterState startState = START_STATE)
 	{
 		CurrentState = startState;
 	}
+
+
 
 	/// <summary>
 	/// Sets the state.
