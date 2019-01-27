@@ -7,6 +7,7 @@ public class HandheldPlayer : MonoBehaviour {
 	Rigidbody rBody;
 
 	public float moveSpeed = 2.0f;
+	float moveLimit = 3.0f;
 
 	public GameObject handheldWrapper;
 
@@ -36,7 +37,13 @@ public class HandheldPlayer : MonoBehaviour {
 	{
 		Debug.Log ("Move Left");
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 15, 0);
-		Vector3 movePosition = this.rBody.transform.position += (Vector3.left * moveSpeed) * Time.deltaTime;
+
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
+		if (movePosition.x <= -moveLimit)
+		{
+			movePosition.x = -moveLimit;
+		}
+
 		rBody.MovePosition (movePosition);
 	}
 
@@ -45,7 +52,12 @@ public class HandheldPlayer : MonoBehaviour {
 		Debug.Log ("Move Right");
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -15, 0);
 
-		Vector3 movePosition = this.rBody.transform.position += (Vector3.right * moveSpeed) * Time.deltaTime;
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
+		if (movePosition.x >= moveLimit)
+		{
+			movePosition.x = moveLimit;
+		}
+
 		rBody.MovePosition (movePosition);
 	}
 }
