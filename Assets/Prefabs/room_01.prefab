@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 4990877746927386}
   - component: {fileID: 33228171572635916}
   - component: {fileID: 23280565976211042}
+  - component: {fileID: 64016236518348734}
   m_Layer: 0
   m_Name: room
   m_TagString: Untagged
@@ -1081,6 +1082,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1337873503780576}
   m_Mesh: {fileID: 4300000, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64016236518348734
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1494443989467732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300016, guid: 03767bccaa2afdf419796a0e88d9fb8e, type: 3}
 --- !u!64 &64389951381647814
 MeshCollider:
   m_ObjectHideFlags: 1
