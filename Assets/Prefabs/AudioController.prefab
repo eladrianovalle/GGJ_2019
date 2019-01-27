@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114728979882486698}
   - component: {fileID: 114522956614881288}
   - component: {fileID: 114213255385132956}
+  - component: {fileID: 114071558680598042}
   m_Layer: 0
   m_Name: AudioController
   m_TagString: Untagged
@@ -42,6 +43,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114071558680598042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375886548520692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8db8af70d1047718a00d24d9c188f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameMusic:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1e67817a1d16b4e73bd00b8514cc4aba,
+      type: 2}
+  YouWin:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 03600737b360a482e880bbbbb4f01f24,
+      type: 2}
+  YouLose:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 76acf3f9fcb03468b9eb15d5fea55fc2,
+      type: 2}
+  ImpactGood:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 858354dde66524655a25610303356201,
+      type: 2}
+  ImpactBad:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0481a1b824e5e466ab13557bd1a4df07,
+      type: 2}
+  MomDialogue:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 349773c8602ce46c0a828973c00ed1b7,
+      type: 2}
+  MomOutside:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 01eb28dc2f5644c1db4a3ae5fc08c2b4,
+      type: 2}
+  PlayerJump:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 77ae23299cabf405aa5c19bf05ccc2f0,
+      type: 2}
 --- !u!114 &114213255385132956
 MonoBehaviour:
   m_ObjectHideFlags: 1
