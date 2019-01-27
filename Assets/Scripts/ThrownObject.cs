@@ -10,11 +10,18 @@ public class ThrownObject : MonoBehaviour {
 		BAD
 	}
 	public GoodOrBad isGoodOrBad;
+	public bool canAffect = true; 
 
 	void OnCollisionEnter(Collision collision)
 	{
 		if (collision.collider.tag == "Player")
 		{
+			if (!canAffect)
+			{
+				return;
+			}
+			canAffect = false;
+
 			if (isGoodOrBad == GoodOrBad.GOOD)
 			{
 				GameController.PlayerGainLife ();

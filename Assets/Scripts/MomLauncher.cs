@@ -11,8 +11,8 @@ public class MomLauncher : MonoBehaviour {
 	SpriteRenderer sRenderer;
 	public Sprite[] momsprites;
 
-	float momDelay = 3f;
-	public float throwInterval = 3.0f;
+	float momDelay = 15f;
+	float throwInterval = 10.0f;
 	float throwTimer;
 	bool timerRunning = false;
 
