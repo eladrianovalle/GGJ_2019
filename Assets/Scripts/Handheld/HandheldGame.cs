@@ -27,7 +27,11 @@ public class HandheldGame : MonoBehaviour
 	[SerializeField] private GameObject NinjaStand;
 	[SerializeField] private GameObject NinjaFall;
 
-	[SerializeField] private GameObject[] Buildings = new GameObject[COLUMNS];
+	[SerializeField] private SpriteRenderer[] Buildings = new SpriteRenderer[COLUMNS];
+
+	[SerializeField] private Sprite buildingSprite;
+	[SerializeField] private Sprite pitSprite;
+
 
 	// Properties
 	protected HandheldCharacter character;
@@ -80,8 +84,11 @@ public class HandheldGame : MonoBehaviour
 			{
 				buttonPressed = false;
 				CurrentGameState = HandheldGameState.PLAYING;
+				Debug.Log("Handheld game start");
 			}
 		}
+
+		DrawScreen();
 	}
 
 	public void RunGameLoop()
@@ -89,40 +96,51 @@ public class HandheldGame : MonoBehaviour
 		// Update Game Loop
 
 		// GameState?
-
-		// Check input
-		// if input, then try actions (jump)
-		bool jump = false;
-		if (buttonPressed)
+		if (CurrentGameState == HandheldGameState.PLAYING)
 		{
-			jump = character.TryJump();
-		}
+			// Check input
+			// if input, then try actions (jump)
+			bool jump = false;
+			if (buttonPressed)
+			{
+				jump = character.TryJump();
+			}
 
-		bool fall = false;
-		if (jump)
-		{
-			OnCharacterJump();
-		}
-		else
-		{
-			fall = character.TryFall();
-		}
+			bool fall = false;
+			if (jump)
+			{
+				OnCharacterJump();
+			}
+			else
+			{
+				fall = character.TryFall();
+			}
 
-		if (fall)
-		{
-			OnCharacterFall();
-			// Lives/Game Over
+			if (fall)
+			{
+				OnCharacterFall();
+				// Lives/Game Over
+			}
+
+			buttonPressed = false;
+
+			// Draw state?
+			DrawScreen();
 		}
-
-		buttonPressed = false;
-
-		// Draw state?
-		DrawScreen();
 	}
 
 	private void DrawScreen()
 	{
-		
+		NinjaJump.SetActive(character.CurrentState == HandheldCharacter.CharacterState.JUMPING);
+		NinjaStand.SetActive(character.CurrentState == HandheldCharacter.CharacterState.STANDING);
+		NinjaFall.SetActive(character.CurrentState == HandheldCharacter.CharacterState.FALLING);
+
+		int index = 0;
+		foreach (int val in platformValues)
+		{
+			Buildings[index].sprite = (val != 0) ? buildingSprite : pitSprite;
+		}
+
 	}
 
 	private void ButtonPress(bool b)
