@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Room
-  m_Shader: {fileID: 4800000, guid: d3d8ae0603238d74a9570965b930c9e3, type: 3}
+  m_Name: StandardVertex_Mat
+  m_Shader: {fileID: 4800000, guid: 1da95350a22074c4fb194f28ac2161fb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -60,7 +60,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.453
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
