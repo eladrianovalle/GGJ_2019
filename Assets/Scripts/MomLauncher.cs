@@ -10,7 +10,8 @@ public class MomLauncher : MonoBehaviour {
 	public float throwInterval = 3.0f;
 	float force = 1.5f;
 	float heightMult = 3.0f;
-
+	public float throwTorqueForce = 5.0f;
+	public Vector2 minMaxThrowTorque;
 	void Start () 
 	{
 		InvokeRepeating ("ThrowObject", throwInterval, throwInterval);
@@ -28,9 +29,19 @@ public class MomLauncher : MonoBehaviour {
 
 		objToThrow.transform.position = throwStart.transform.position;
 		Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
+
+		AddTorque(objToThrowRbody);
 		Vector3 throwDirection = player.transform.position - objToThrow.transform.position;
 		Vector3 throwTarget = (Vector3.up * heightMult) + throwDirection;
 
 		objToThrowRbody.AddForce (throwTarget * force, ForceMode.Impulse);
+	}
+
+	private void AddTorque(Rigidbody rb)
+	{
+		var x = UnityEngine.Random.Range(minMaxThrowTorque.x, minMaxThrowTorque.y);
+		var y = UnityEngine.Random.Range(minMaxThrowTorque.x, minMaxThrowTorque.y);
+		var z = UnityEngine.Random.Range(minMaxThrowTorque.x, minMaxThrowTorque.y);
+		rb.AddTorque(new Vector3(x,y,z) * throwTorqueForce);
 	}
 }
