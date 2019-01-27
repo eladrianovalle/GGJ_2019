@@ -10,12 +10,13 @@ public class UIController : MonoBehaviour {
 	public AK.Wwise.Event winSound;
 	public AK.Wwise.Event loseSound;
 	public TextMeshProUGUI text;
+
 	public float startPosition_y = -1200;
 	bool hasTriggered = false;
 
 	public CanvasGroup retryPanel;
 	public Button retryButton;
-//	float originalPanelAlpha;
+	TextMeshProUGUI buttonText;
 
 	void OnEnable()
 	{
@@ -33,6 +34,7 @@ public class UIController : MonoBehaviour {
 	{
 		Vector3 startingPos = new Vector3 (this.transform.position.x, startPosition_y, this.transform.position.z);
 		text.transform.position = startingPos;
+		buttonText = retryButton.GetComponentInChildren<TextMeshProUGUI> ();
 		SetupButtons ();
 
 		titleOpeningSound.Post(gameObject);
@@ -40,6 +42,7 @@ public class UIController : MonoBehaviour {
 
 	void SetupButtons()
 	{
+		buttonText.text = "START";
 		retryButton.onClick.RemoveAllListeners();
 		retryButton.onClick.AddListener(()=>{
 			HideRetryPanel();
@@ -74,7 +77,9 @@ public class UIController : MonoBehaviour {
 		text.color = Color.red;
 		text.text = "YOU\nLOSE";
 		LeanTween.moveY (text.rectTransform, 0, 2f).setEase(LeanTweenType.easeOutBounce).setOnComplete(()=>{
-			ShowRetryPanel();
+			LeanTween.delayedCall(1f, ()=>{
+				ShowRetryPanel();
+			});
 		});	
 	}
 
@@ -87,8 +92,8 @@ public class UIController : MonoBehaviour {
 
 	void ShowRetryPanel()
 	{
+		buttonText.text = "RETRY";
 		LeanTween.alphaCanvas (retryPanel, 1f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
-//			retryPanel.blocksRaycasts = false;
 			retryButton.interactable = true;
 
 			retryButton.onClick.RemoveAllListeners();
