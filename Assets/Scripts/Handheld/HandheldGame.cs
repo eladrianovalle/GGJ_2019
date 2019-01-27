@@ -162,9 +162,18 @@ public class HandheldGame : MonoBehaviour
 				currEndFrames = 0;
 
 				buttonPressed = false;
-				GameOver.SetActive(false);
-				Init();
-				CurrentGameState = HandheldGameState.PLAYING;
+
+				if (GameController.playerLives > 0)
+				{
+					GameOver.SetActive(false);
+					Init();
+					CurrentGameState = HandheldGameState.PLAYING;
+				}
+				else
+				{
+					NinjaFall.SetActive(true);
+					GameOver.SetActive(true);
+				}
 			}
 
 //			if (buttonPressed)
