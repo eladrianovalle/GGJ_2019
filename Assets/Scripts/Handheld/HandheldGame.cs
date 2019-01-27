@@ -147,15 +147,20 @@ public class HandheldGame : MonoBehaviour
 			currFrames = 0;
 
 			//RunGameLoop();
-
 			if (++currStartFrames >= startFrames)
 			{
 				currEndFrames = 0;
 
 				buttonPressed = false;
 				GameOver.SetActive(false);
+				Timer.gameObject.SetActive(false);
 				Init();
 				CurrentGameState = HandheldGameState.PLAYING;
+			}
+			if (startFrames - currStartFrames <= 3)
+			{
+				Timer.gameObject.SetActive((startFrames - currStartFrames) != 0);
+				Timer.sprite = numberSprites[startFrames - currStartFrames];
 			}
 		}
 	}
