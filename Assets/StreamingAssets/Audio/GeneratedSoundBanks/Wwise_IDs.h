@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID MX_GAMESTATE_YOULOSE = 2564758585U;
         static const AkUniqueID MX_GAMESTATE_YOUWIN = 216451844U;
         static const AkUniqueID MX_THEME_HANDHELDGAME = 2197157295U;
         static const AkUniqueID SFX_IMPACTPLAYER_BAD = 1746823504U;

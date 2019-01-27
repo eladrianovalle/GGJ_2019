@@ -42,8 +42,22 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 4546677f5663af4fa2548342762f53d7
-    m_lastTime: -8586530540714775808
+    m_lastTime: -8586530033234775808
     List:
+    - name: MX_GameState_YouLose
+      guid: a586e53e9dfe744ba3a0bd7952bf901c
+      id: 2564758585
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: MX
+        ObjectType: 4
+      - ElementName: MX_GameState_YouLose
+        ObjectType: 3
+      Path: Default Work Unit/MX/MX_GameState_YouLose
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: MX_GameState_YouWin
       guid: a6c1eb4948bdfd4c9bbedfea83aa3335
       id: 216451844
@@ -141,5 +155,6 @@ MonoBehaviour:
   - /GGJ_2019_WwiseProject/Events
   - /GGJ_2019_WwiseProject/Events/Default Work Unit
   - /GGJ_2019_WwiseProject/Events/Default Work Unit/MX
+  - /GGJ_2019_WwiseProject/Events/Default Work Unit/SFX
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
