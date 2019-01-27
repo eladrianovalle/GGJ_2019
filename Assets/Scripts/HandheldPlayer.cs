@@ -34,9 +34,9 @@ public class HandheldPlayer : MonoBehaviour {
 		rBody = GetComponent<Rigidbody> ();
 
 		// Reset all buttton materials to default brightness
-		leftBtnMat.SetVector("_Brightness", defaultBrightnessVector);
-		centerBtnMat.SetVector("_Brightness", defaultBrightnessVector);
-		rightBtnMat.SetVector("_Brightness", defaultBrightnessVector);
+		DefaultButtonColor(leftBtnMat);
+		DefaultButtonColor(centerBtnMat);
+		DefaultButtonColor(rightBtnMat);
 
 
 	}
@@ -49,7 +49,7 @@ public class HandheldPlayer : MonoBehaviour {
 	void MoveLeft(bool isMovingLeft)
 	{
 		leftBtnAnimator.Play("Lbtn_GoDown");
-		leftBtnMat.SetVector("_Brightness", brightnessVector);
+		HighlightButtonColor(leftBtnMat);
 
 		Debug.Log ("Move Left");
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 15, -3);
@@ -65,7 +65,7 @@ public class HandheldPlayer : MonoBehaviour {
 	void MoveRight(bool isMovingRight)
 	{
 		rightBtnAnimator.Play("Btn_GoDown");
-		rightBtnMat.SetVector("_Brightness", brightnessVector);
+		HighlightButtonColor(rightBtnMat);
 
 		Debug.Log ("Move Right");
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -15, 3);
@@ -82,13 +82,24 @@ public class HandheldPlayer : MonoBehaviour {
 	void RightButtonUp()
 	{
 		rightBtnAnimator.Play("Btn_StayUp");
-		rightBtnMat.SetVector("_Brightness", defaultBrightnessVector);
+		DefaultButtonColor(rightBtnMat);
 	}
 
 	void LeftButtonUp()
 	{
 		leftBtnAnimator.Play("Lbtn_StayUp");
-		leftBtnMat.SetVector("_Brightness", defaultBrightnessVector);
+		DefaultButtonColor(leftBtnMat);
+	}
+	
+	private void HighlightButtonColor(Material mat)
+	{
+		mat.SetVector("_Brightness", brightnessVector);
+	}
+
+	private void DefaultButtonColor(Material mat)
+	{
+		mat.SetVector("_Brightness", defaultBrightnessVector);
 
 	}
+
 }

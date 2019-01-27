@@ -581,17 +581,17 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68074614e666e7944b9eb449ac388ed1, type: 2}
+      objectReference: {fileID: 2100000, guid: cc557f5af870296449a4c3ee55e0e14e, type: 2}
     - target: {fileID: 23424104868500800, guid: b7966113adc994051b6a593254b46e9e,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68074614e666e7944b9eb449ac388ed1, type: 2}
+      objectReference: {fileID: 2100000, guid: 8856ea54916e1dc46871b3e2e31ed894, type: 2}
     - target: {fileID: 23046921917990970, guid: b7966113adc994051b6a593254b46e9e,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 68074614e666e7944b9eb449ac388ed1, type: 2}
+      objectReference: {fileID: 2100000, guid: 71b932f0209667841be2bb9b1099ef16, type: 2}
     - target: {fileID: 23721403613058826, guid: b7966113adc994051b6a593254b46e9e,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -612,6 +612,41 @@ Prefab:
       propertyPath: rightBtnAnimator
       value: 
       objectReference: {fileID: 1180679816}
+    - target: {fileID: 114534559935523354, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: leftBtnMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 8856ea54916e1dc46871b3e2e31ed894, type: 2}
+    - target: {fileID: 114534559935523354, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: rightBtnMat
+      value: 
+      objectReference: {fileID: 2100000, guid: cc557f5af870296449a4c3ee55e0e14e, type: 2}
+    - target: {fileID: 114534559935523354, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: centerBtnMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 71b932f0209667841be2bb9b1099ef16, type: 2}
+    - target: {fileID: 114534559935523354, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: brightnessVector.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534559935523354, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: brightnessVector.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534559935523354, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: brightnessVector.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534559935523354, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: brightnessVector.w
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7966113adc994051b6a593254b46e9e, type: 2}
   m_IsPrefabParent: 0
