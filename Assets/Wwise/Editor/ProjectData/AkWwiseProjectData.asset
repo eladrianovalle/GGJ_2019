@@ -11,14 +11,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f313e927fc5024bb4a4d34cefa591552, type: 3}
   m_Name: AkWwiseProjectData
   m_EditorClassIdentifier: 
-  AcousticTextureWwu: []
-  AuxBusWwu: []
-  BankWwu: []
-  EventWwu: []
-  RtpcWwu: []
-  StateWwu: []
-  SwitchWwu: []
-  TriggerWwu: []
-  ExpandedItems: []
+  AcousticTextureWwu:
+  - PhysicalPath: Virtual Acoustics/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: cc6090d98463714b8096de764003f759
+    m_lastTime: -8586530804004775808
+    List: []
+  AuxBusWwu:
+  - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: c7f150e37a7c7b4ea104c430c07484c0
+    m_lastTime: -8586530804004775808
+    List: []
+  BankWwu:
+  - PhysicalPath: SoundBanks/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 705df2d901da9047b3971a80b8b9c682
+    m_lastTime: -8586530669704775808
+    List:
+    - name: GameSounds
+      guid: 0537305213a27449a206c19f7f28ee44
+      id: 2841340823
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: GameSounds
+        ObjectType: 7
+      Path: Default Work Unit/GameSounds
+  EventWwu:
+  - PhysicalPath: Events/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 4546677f5663af4fa2548342762f53d7
+    m_lastTime: -8586530669704775808
+    List:
+    - name: MX_Theme_HandheldGame
+      guid: c37be65a34bc0848ad86500c7c32adc0
+      id: 2197157295
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: MX
+        ObjectType: 4
+      - ElementName: MX_Theme_HandheldGame
+        ObjectType: 3
+      Path: Default Work Unit/MX/MX_Theme_HandheldGame
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  RtpcWwu:
+  - PhysicalPath: Game Parameters/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 788a0b32ad7acf49be2f2f762769c866
+    m_lastTime: -8586530804004775808
+    List: []
+  StateWwu:
+  - PhysicalPath: States/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 05f3c4978e3eed4c99b48b653f9f630d
+    m_lastTime: -8586530804004775808
+    List: []
+  SwitchWwu:
+  - PhysicalPath: Switches/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: d4c2367c169c6a4ba96545b25f56426b
+    m_lastTime: -8586530804004775808
+    List: []
+  TriggerWwu:
+  - PhysicalPath: Triggers/Default Work Unit.wwu
+    ParentPhysicalPath: 
+    guid: 28a61f4b95eff648930372aff92ab4f8
+    m_lastTime: -8586530804004775808
+    List: []
+  ExpandedItems:
+  - /GGJ_2019_WwiseProject
+  - /GGJ_2019_WwiseProject/Events
+  - /GGJ_2019_WwiseProject/Events/Default Work Unit
+  - /GGJ_2019_WwiseProject/Events/Default Work Unit/MX
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
