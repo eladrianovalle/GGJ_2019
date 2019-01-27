@@ -18,13 +18,20 @@ public class GameController : MonoBehaviour {
 	float timeLimit = 30f;
 	float timer;
 
-	public static bool gameOver = false;
+	public static bool gameOver;
 
 	void Start () 
 	{
-		timer = timeLimit;
+		ResetGame ();
 	}
-	
+
+	void ResetGame()
+	{
+		timer = timeLimit;
+		playerLives = 3;
+		gameOver = false;
+	}
+
 	void Update () 
 	{
 		if (gameOver)
