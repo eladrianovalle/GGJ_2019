@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour {
 				OnHandheldMoveRight (true);
 			}
 		}
-		else if (Input.GetKeyDown (KeyCode.UpArrow))
+		else if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))
 		{
 			if (OnHandheldButtonPress != null)
 			{
