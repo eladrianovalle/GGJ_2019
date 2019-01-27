@@ -27,6 +27,11 @@ public class GameController : MonoBehaviour {
 	
 	void Update () 
 	{
+		if (gameOver)
+		{
+			return;
+		}
+
 		if (Input.GetKey (KeyCode.LeftArrow))
 		{
 			if (OnHandheldMoveLeft != null)

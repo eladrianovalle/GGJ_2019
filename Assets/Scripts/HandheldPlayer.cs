@@ -24,11 +24,6 @@ public class HandheldPlayer : MonoBehaviour {
 		rBody = GetComponent<Rigidbody> ();
 	}
 
-	void Start () 
-	{
-		
-	}
-
 	void MoveLeft(bool isMovingLeft)
 	{
 		Debug.Log ("Move Left");
