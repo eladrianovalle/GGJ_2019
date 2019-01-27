@@ -20,6 +20,7 @@ public class HandheldGame : MonoBehaviour
 	[SerializeField]
 	protected int[] startingPlatformValues = new int[COLUMNS]{ 1, 1, 1, 1, 1 };
 
+	bool started = false;
 
 	// Events
 	/// <summary>
@@ -85,11 +86,13 @@ public class HandheldGame : MonoBehaviour
 
 	void OnEnable()
 	{
+		UIController.OnStartGame += StartHandheldGame;
 		GameController.OnHandheldButtonPress += ButtonPress;
 	}
 
 	void OnDisable()
 	{
+		UIController.OnStartGame -= StartHandheldGame;
 		GameController.OnHandheldButtonPress -= ButtonPress;
 	}
 
@@ -111,6 +114,12 @@ public class HandheldGame : MonoBehaviour
 
 	void Update()
 	{
+		DrawScreen();
+
+		if (!started)
+		{
+			return;
+		}
 		switch (CurrentGameState)
 		{
 			case HandheldGameState.START:
@@ -126,7 +135,7 @@ public class HandheldGame : MonoBehaviour
 				break;
 		}
 
-		DrawScreen();
+		//DrawScreen();
 	}
 
 	private void StartUpdate()
@@ -287,6 +296,11 @@ public class HandheldGame : MonoBehaviour
 		}
 
 		Battery.sprite = batterySprites[GameController.playerLives];
+	}
+
+	private void StartHandheldGame()
+	{
+		started = true;
 	}
 
 	private void ButtonPress(bool b)
