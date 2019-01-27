@@ -32,7 +32,15 @@ public class UIController : MonoBehaviour {
 	{
 		Vector3 startingPos = new Vector3 (this.transform.position.x, startPosition_y, this.transform.position.z);
 		text.transform.position = startingPos;
-		HideRetryPanel ();
+		SetupButtons ();
+	}
+
+	void SetupButtons()
+	{
+		retryButton.onClick.RemoveAllListeners();
+		retryButton.onClick.AddListener(()=>{
+			HideRetryPanel();
+		});
 	}
 
 	void ShowWinText()
@@ -69,8 +77,9 @@ public class UIController : MonoBehaviour {
 
 	void HideRetryPanel()
 	{
-		retryPanel.alpha = 0;
-		retryButton.interactable = false;
+		LeanTween.alphaCanvas (retryPanel, 0f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
+			retryButton.interactable = false;
+		});
 	}
 
 	void ShowRetryPanel()
