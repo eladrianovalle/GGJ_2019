@@ -511,6 +511,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ecc613eceb64c8ab0e6bac97e3f50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleOpeningSound:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 0}
   winSound:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 03600737b360a482e880bbbbb4f01f24,

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf96c280ab4994e16a80c0f3da48fbf3, type: 3}
-  m_Name: 139EADE0-861D-46DF-A8E5-B0F28E6E02D1
+  m_Name: 445653CC-F83C-401E-B791-40D53193F607
   m_EditorClassIdentifier: 
-  objectName: SFX_Impact_Bad
-  id: 124309723
-  guid: 139EADE0-861D-46DF-A8E5-B0F28E6E02D1
+  objectName: VO_MomOutside
+  id: 3454957193
+  guid: 445653CC-F83C-401E-B791-40D53193F607
