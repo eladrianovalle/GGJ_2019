@@ -10,6 +10,8 @@ public class HandheldGame : MonoBehaviour
 	[Tooltip("Essentially inner game \"speed\"")]
 	protected int frames = 20;
 	private int currFrames = 0;
+	private int endFrames = 6;
+	private int currEndFrames = 0;
 
 	[SerializeField]
 	protected const int COLUMNS = 5;
@@ -92,6 +94,8 @@ public class HandheldGame : MonoBehaviour
 	public void Init()
 	{
 		character.Init();
+		NinjaJump.SetActive(false);
+		NinjaFall.SetActive(false);
 		platformValues = new List<int>(startingPlatformValues);
 
 		CurrentGameState = HandheldGameState.START;
@@ -139,20 +143,29 @@ public class HandheldGame : MonoBehaviour
 
 	private void EndUpdate()
 	{
-		if (buttonPressed)
+		if (++currFrames >= 5)
 		{
-			buttonPressed = false;
-			GameOver.SetActive(false);
-			//CurrentGameState = HandheldGameState.START;
-			Init();
-		}
-		else
-		{
-			if (++currFrames >= frames)
+			currFrames = 0;
+
+			RunGameLoop();
+
+			if (++currEndFrames >= endFrames)
 			{
-				currFrames = 0;
-				RunGameLoop();
+				currEndFrames = 0;
+
+				buttonPressed = false;
+				GameOver.SetActive(false);
+				Init();
+				CurrentGameState = HandheldGameState.PLAYING;
 			}
+
+//			if (buttonPressed)
+//			{
+//				buttonPressed = false;
+//				GameOver.SetActive(false);
+//				//CurrentGameState = HandheldGameState.START;
+//				Init();
+//			}
 		}
 	}
 
@@ -223,6 +236,9 @@ public class HandheldGame : MonoBehaviour
 				}
 				// Lives/Game Over?
 				CurrentGameState = HandheldGameState.END;
+				GameController.PlayerLoseLife();
+				GameOver.SetActive(true);
+				NinjaFall.SetActive(true);
 				if (OnGameOver != null)
 				{
 					OnGameOver();
@@ -237,7 +253,8 @@ public class HandheldGame : MonoBehaviour
 		}
 		else if (CurrentGameState == HandheldGameState.END)
 		{
-			GameOver.SetActive(!GameOver.activeSelf);
+			//GameOver.SetActive(!GameOver.activeSelf);
+			NinjaFall.SetActive(!NinjaFall.activeSelf);
 		}
 	}
 
@@ -245,7 +262,7 @@ public class HandheldGame : MonoBehaviour
 	{
 		NinjaJump.SetActive(character.CurrentState == HandheldCharacter.CharacterState.JUMPING);
 		NinjaStand.SetActive(character.CurrentState == HandheldCharacter.CharacterState.STANDING);
-		NinjaFall.SetActive(character.CurrentState == HandheldCharacter.CharacterState.FALLING);
+		//NinjaFall.SetActive(character.CurrentState == HandheldCharacter.CharacterState.FALLING);
 
 		for (int i = 0; i < COLUMNS; i++)
 		{
