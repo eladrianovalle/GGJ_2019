@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4552880229507954}
   - component: {fileID: 33473546618669102}
   - component: {fileID: 23197060051169222}
+  - component: {fileID: 64389951381647814}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -38,6 +39,7 @@ GameObject:
   - component: {fileID: 4685104170609500}
   - component: {fileID: 33890166476108742}
   - component: {fileID: 23138337030831840}
+  - component: {fileID: 64809403236712956}
   m_Layer: 0
   m_Name: poster
   m_TagString: Untagged
@@ -55,6 +57,7 @@ GameObject:
   - component: {fileID: 4175191513095946}
   - component: {fileID: 33806923039194674}
   - component: {fileID: 23732973717828082}
+  - component: {fileID: 64717058261620350}
   m_Layer: 0
   m_Name: desk
   m_TagString: Untagged
@@ -70,6 +73,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4214272437957678}
+  - component: {fileID: 114525402164777810}
   m_Layer: 0
   m_Name: room_01
   m_TagString: Untagged
@@ -87,6 +91,7 @@ GameObject:
   - component: {fileID: 4400734700770356}
   - component: {fileID: 33690133842605162}
   - component: {fileID: 23391766594042516}
+  - component: {fileID: 64995964856920796}
   m_Layer: 0
   m_Name: room
   m_TagString: Untagged
@@ -143,13 +148,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1328913706531930}
-  m_LocalRotation: {x: 0, y: 0.6341356, z: -0, w: 0.77322185}
+  m_LocalRotation: {x: 0, y: 0.08289515, z: 0, w: 0.9965583}
   m_LocalPosition: {x: 30.18488, y: 9.542242, z: -15.139136}
   m_LocalScale: {x: 0.9058278, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4214272437957678}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 9.51, z: 0}
 --- !u!4 &4685104170609500
 Transform:
   m_ObjectHideFlags: 1
@@ -327,3 +332,71 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1337873503780576}
   m_Mesh: {fileID: 4300000, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64389951381647814
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328913706531930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64717058261620350
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1603036729163452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64809403236712956
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337873503780576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64995964856920796
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846541543314896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300006, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!114 &114525402164777810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733454403892814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4d528a194114f76acd6b50e18b7596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 1328913706531930}

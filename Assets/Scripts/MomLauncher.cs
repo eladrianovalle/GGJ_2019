@@ -17,11 +17,15 @@ public class MomLauncher : MonoBehaviour {
 	bool timerRunning = false;
 
 	public Vector3[] momPositions;
+	float momMoveSpeed = 0.35f;
 
 	float force = 1.5f;
 	float heightMult = 3.0f;
 	public float throwTorqueForce = 5.0f;
 	public Vector2 minMaxThrowTorque;
+
+	public static System.Action OnDoorOpen;
+	public static System.Action OnDoorClosed;
 
 	void Awake()
 	{
@@ -61,7 +65,10 @@ public class MomLauncher : MonoBehaviour {
 
 	void MomEnterRoom()
 	{
-		LeanTween.moveLocal (this.gameObject, momPositions[1], 2f).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
+		OnDoorOpen ();
+
+		LeanTween.moveLocal (this.gameObject, momPositions[1], momMoveSpeed).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
+			// open door rotation y at 9.5f
 			ThrowObject();
 		});
 	}
@@ -70,8 +77,10 @@ public class MomLauncher : MonoBehaviour {
 	{
 		sRenderer.sprite = momsprites [0];
 
-		LeanTween.moveLocal (this.gameObject, momPositions[0], 2f).setEase(LeanTweenType.easeInQuint).setOnComplete(()=>{
+		LeanTween.moveLocal (this.gameObject, momPositions[0], momMoveSpeed).setEase(LeanTweenType.easeInQuint).setOnComplete(()=>{
 			//close door and screenshake
+			// closed door at rotation y 120f
+			OnDoorClosed();
 		});
 	}
 
