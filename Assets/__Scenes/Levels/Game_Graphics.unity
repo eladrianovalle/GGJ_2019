@@ -323,6 +323,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1001 &299020698
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4410779230119656, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114728979882486698, guid: 5bbb8edba530345b0b84c20c0315e9af,
+        type: 2}
+      propertyPath: data.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: ccc75c63c84d04af4a41525a45c92dcb,
+        type: 2}
+    - target: {fileID: 114213255385132956, guid: 5bbb8edba530345b0b84c20c0315e9af,
+        type: 2}
+      propertyPath: data.WwiseObjectReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e67817a1d16b4e73bd00b8514cc4aba,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5bbb8edba530345b0b84c20c0315e9af, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &338132091 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1846541543314896, guid: 614718ca45379a540a83bb7cdefba459,
@@ -1006,6 +1060,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ecc613eceb64c8ab0e6bac97e3f50c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winSound:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 03600737b360a482e880bbbbb4f01f24,
+      type: 2}
+  loseSound:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 03600737b360a482e880bbbbb4f01f24,
+      type: 2}
   text: {fileID: 1784449098}
   startPosition_y: -1200
   retryPanel: {fileID: 0}

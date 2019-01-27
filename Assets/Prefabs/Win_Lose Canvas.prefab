@@ -469,10 +469,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winSound:
     valueGuid: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 03600737b360a482e880bbbbb4f01f24,
+      type: 2}
   loseSound:
     valueGuid: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: 76acf3f9fcb03468b9eb15d5fea55fc2,
+      type: 2}
   text: {fileID: 114791402625691276}
   startPosition_y: -1200
   retryPanel: {fileID: 225130845821280720}
