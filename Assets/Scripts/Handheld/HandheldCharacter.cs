@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HandheldCharacter : MonoBehaviour
+public class HandheldCharacter// : MonoBehaviour
 {
 	/// <summary>
 	/// Character states.

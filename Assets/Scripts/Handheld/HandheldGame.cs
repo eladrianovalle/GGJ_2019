@@ -251,6 +251,8 @@ public class HandheldGame : MonoBehaviour
 		{
 			Buildings[i].sprite = (platformValues[i] != 0) ? buildingSprite : pitSprite;
 		}
+
+		Battery.sprite = batterySprites[GameController.playerLives];
 	}
 
 	private void ButtonPress(bool b)
