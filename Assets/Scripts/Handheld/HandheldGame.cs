@@ -8,7 +8,7 @@ public class HandheldGame : MonoBehaviour
 	[SerializeField]
 	[Header("Frames per GameLoop update")]
 	[Tooltip("Essentially inner game \"speed\"")]
-	protected int frames = 20;
+	protected int frames = 30;
 	private int currFrames = 0;
 	private int endFrames = 6;
 	private int currEndFrames = 0;
@@ -269,7 +269,7 @@ public class HandheldGame : MonoBehaviour
 				}
 				// Lives/Game Over?
 				CurrentGameState = HandheldGameState.END;
-				GameController.PlayerLoseLife();
+			//	GameController.PlayerLoseLife();
 				GameOver.SetActive(true);
 				NinjaFall.SetActive(true);
 				if (OnGameOver != null)
