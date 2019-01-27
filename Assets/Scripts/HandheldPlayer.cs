@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HandheldPlayer : MonoBehaviour {
-	public Animator leftBtnAnimator;
-	public Animator centerBtnAnimator;
-	public Animator rightBtnAnimator;
-
+	public Animator leftBtnAnimator, centerBtnAnimator, rightBtnAnimator;
+	public Material leftBtnMat, centerBtnMat, rightBtnMat;
+	public Vector4 brightnessVector;
+	private Vector4 defaultBrightnessVector = Vector4.one;
 	Rigidbody rBody;
 	public float moveSpeed = 2.0f;
 	float moveLimit = 3.0f;
@@ -32,6 +32,13 @@ public class HandheldPlayer : MonoBehaviour {
 	void Awake()
 	{
 		rBody = GetComponent<Rigidbody> ();
+
+		// Reset all buttton materials to default brightness
+		leftBtnMat.SetVector("_Brightness", defaultBrightnessVector);
+		centerBtnMat.SetVector("_Brightness", defaultBrightnessVector);
+		rightBtnMat.SetVector("_Brightness", defaultBrightnessVector);
+
+
 	}
 
 	void Update()
@@ -42,6 +49,8 @@ public class HandheldPlayer : MonoBehaviour {
 	void MoveLeft(bool isMovingLeft)
 	{
 		leftBtnAnimator.Play("Lbtn_GoDown");
+		leftBtnMat.SetVector("_Brightness", brightnessVector);
+
 		Debug.Log ("Move Left");
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 15, -3);
 
@@ -56,6 +65,8 @@ public class HandheldPlayer : MonoBehaviour {
 	void MoveRight(bool isMovingRight)
 	{
 		rightBtnAnimator.Play("Btn_GoDown");
+		rightBtnMat.SetVector("_Brightness", brightnessVector);
+
 		Debug.Log ("Move Right");
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -15, 3);
 
@@ -71,10 +82,13 @@ public class HandheldPlayer : MonoBehaviour {
 	void RightButtonUp()
 	{
 		rightBtnAnimator.Play("Btn_StayUp");
+		rightBtnMat.SetVector("_Brightness", defaultBrightnessVector);
 	}
 
 	void LeftButtonUp()
 	{
 		leftBtnAnimator.Play("Lbtn_StayUp");
+		leftBtnMat.SetVector("_Brightness", defaultBrightnessVector);
+
 	}
 }
