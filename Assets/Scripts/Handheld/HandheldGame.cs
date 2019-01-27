@@ -12,6 +12,8 @@ public class HandheldGame : MonoBehaviour
 	private int currFrames = 0;
 	private int endFrames = 6;
 	private int currEndFrames = 0;
+	private int startFrames = 3;
+	private int currStartFrames = 0;
 
 	[SerializeField]
 	protected const int COLUMNS = 5;
@@ -129,14 +131,20 @@ public class HandheldGame : MonoBehaviour
 
 	private void StartUpdate()
 	{
-		if (buttonPressed)
+		if (++currFrames >= frames)
 		{
-			buttonPressed = false;
-			//Init();
-			CurrentGameState = HandheldGameState.PLAYING;
-			if (OnGameStart != null)
+			currFrames = 0;
+
+			//RunGameLoop();
+
+			if (++currStartFrames >= startFrames)
 			{
-				OnGameStart();
+				currEndFrames = 0;
+
+				buttonPressed = false;
+				GameOver.SetActive(false);
+				Init();
+				CurrentGameState = HandheldGameState.PLAYING;
 			}
 		}
 	}
