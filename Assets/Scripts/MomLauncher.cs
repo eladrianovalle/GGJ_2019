@@ -68,6 +68,8 @@ public class MomLauncher : MonoBehaviour {
 
 	void MomLeaveRoom()
 	{
+		sRenderer.sprite = momsprites [0];
+
 		LeanTween.moveLocal (this.gameObject, momPositions[0], 2f).setEase(LeanTweenType.easeInQuint).setOnComplete(()=>{
 			//close door and screenshake
 		});
@@ -80,17 +82,28 @@ public class MomLauncher : MonoBehaviour {
 			return;
 		}
 
-//		Debug.Log ("Mom throws a thing!!!");
-		GameObject objToThrow = Instantiate(throwableObjects [Random.Range(0, throwableObjects.Length)]);
+		sRenderer.sprite = momsprites [1];
 
-		objToThrow.transform.position = throwStart.transform.position;
-		Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
+		LeanTween.delayedCall (0.5f, ()=>{
+			//		Debug.Log ("Mom throws a thing!!!");
+			GameObject objToThrow = Instantiate(throwableObjects [Random.Range(0, throwableObjects.Length)]);
 
-		AddTorque(objToThrowRbody);
-		Vector3 throwDirection = player.transform.position - objToThrow.transform.position;
-		Vector3 throwTarget = (Vector3.up * heightMult) + throwDirection;
+			objToThrow.transform.position = throwStart.transform.position;
+			Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
 
-		objToThrowRbody.AddForce (throwTarget * force, ForceMode.Impulse);
+			AddTorque(objToThrowRbody);
+			Vector3 throwDirection = player.transform.position - objToThrow.transform.position;
+			Vector3 throwTarget = (Vector3.up * heightMult) + throwDirection;
+
+			objToThrowRbody.AddForce (throwTarget * force, ForceMode.Impulse);
+
+			sRenderer.sprite = momsprites [2];
+
+			LeanTween.delayedCall (1f, ()=>{
+				MomLeaveRoom();
+			});
+		});
+
 	}
 
 	private void AddTorque(Rigidbody rb)

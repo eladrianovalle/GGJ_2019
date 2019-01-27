@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1692929382698204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22, y: 8, z: 30}
+  m_LocalPosition: {x: -22, y: 8.5, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4758173234301684}
@@ -93,7 +93,14 @@ MonoBehaviour:
   - {fileID: 1081845705885820, guid: 28432fc22809ed846a421fb3643b5525, type: 2}
   - {fileID: 1237316294410594, guid: eeddc317c8a41a942896c26b2c1d29e3, type: 2}
   - {fileID: 1786957096108996, guid: 699c1e3e3beef1949b2ab19b719c2130, type: 2}
+  momsprites:
+  - {fileID: 21300000, guid: 1f9e31082155d4ff09b0b4016432c25f, type: 3}
+  - {fileID: 21300000, guid: cd9979c68dda34e74816a3a308519865, type: 3}
+  - {fileID: 21300000, guid: 4212a813942dc4f11b70b78fe813ede2, type: 3}
   throwInterval: 3
+  momPositions:
+  - {x: -34, y: 8.5, z: 37}
+  - {x: -22, y: 8.5, z: 30}
   throwTorqueForce: 5
   minMaxThrowTorque: {x: -10, y: 10}
 --- !u!212 &212095315409529712
@@ -174,7 +181,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cd9979c68dda34e74816a3a308519865, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f9e31082155d4ff09b0b4016432c25f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
