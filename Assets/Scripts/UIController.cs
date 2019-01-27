@@ -17,6 +17,8 @@ public class UIController : MonoBehaviour {
 	public Button retryButton;
 	TextMeshProUGUI buttonText;
 
+	public static System.Action OnStartGame;
+
 	void OnEnable()
 	{
 		GameController.OnPlayerWinGame 		+= ShowWinText;
@@ -84,6 +86,7 @@ public class UIController : MonoBehaviour {
 	{
 		LeanTween.alphaCanvas (retryPanel, 0f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
 			retryButton.interactable = false;
+			OnStartGame();
 		});
 	}
 

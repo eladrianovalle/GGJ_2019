@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour {
 	public static Action OnRightButtonUp;
 	public static Action OnLeftButtonUp;
 
-
 	public static Action OnPlayerLoseLife;
 	public static Action OnPlayerGainLife;
 	public static Action OnPlayerLoseGame;
@@ -24,9 +23,20 @@ public class GameController : MonoBehaviour {
 
 	public static bool gameOver;
 
+	void OnEnable()
+	{
+		UIController.OnStartGame 	+= ResetGame;
+	}
+
+	void OnDisable()
+	{
+		UIController.OnStartGame 	-= ResetGame;
+	}
+
 	void Start () 
 	{
-		ResetGame ();
+		timer = timeLimit;
+		playerLives = 3;
 	}
 
 	void ResetGame()
