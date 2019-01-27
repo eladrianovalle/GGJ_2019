@@ -380,6 +380,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4196581543939670, guid: b7966113adc994051b6a593254b46e9e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7966113adc994051b6a593254b46e9e, type: 2}
   m_IsPrefabParent: 0
@@ -554,7 +558,48 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1242200305}
-    m_RemovedComponents: []
+    - target: {fileID: 23489009953473946, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19b755241407f4b4eb7b39fe16ce2149, type: 2}
+    - target: {fileID: 23489009953473946, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437432511023972, guid: 341634eb60044418da506a4fda813aa8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437432511023972, guid: 341634eb60044418da506a4fda813aa8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758173234301684, guid: 341634eb60044418da506a4fda813aa8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758173234301684, guid: 341634eb60044418da506a4fda813aa8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758173234301684, guid: 341634eb60044418da506a4fda813aa8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758173234301684, guid: 341634eb60044418da506a4fda813aa8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212095315409529712, guid: 341634eb60044418da506a4fda813aa8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 33918415834546628, guid: 341634eb60044418da506a4fda813aa8, type: 2}
+    - {fileID: 23489009953473946, guid: 341634eb60044418da506a4fda813aa8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 341634eb60044418da506a4fda813aa8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1171615377
@@ -1227,6 +1272,55 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1996236692}
+--- !u!1 &2044215918 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1692929382698204, guid: 341634eb60044418da506a4fda813aa8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1044904707}
+--- !u!212 &2044215919
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044215918}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 1f9e31082155d4ff09b0b4016432c25f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 10.240001, y: 18.62}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &2107400312
 GameObject:
   m_ObjectHideFlags: 0
