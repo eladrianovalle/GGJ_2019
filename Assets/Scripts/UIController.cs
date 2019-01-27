@@ -87,7 +87,6 @@ public class UIController : MonoBehaviour {
 	public void RestartGame()
 	{
 		Debug.Log ("Let's load the scene over!!!");
-		GameController.gameOver = false;
 		Scene thisScene = SceneManager.GetActiveScene ();
 		SceneManager.LoadScene (thisScene.buildIndex);
 	}
