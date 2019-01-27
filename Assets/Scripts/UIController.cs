@@ -14,6 +14,8 @@ public class UIController : MonoBehaviour {
 	public float startPosition_y = -1200;
 	bool hasTriggered = false;
 
+	bool panelShowing = false;
+
 	public CanvasGroup retryPanel;
 	public Button retryButton;
 	TextMeshProUGUI buttonText;
@@ -38,8 +40,21 @@ public class UIController : MonoBehaviour {
 		text.transform.position = startingPos;
 		buttonText = retryButton.GetComponentInChildren<TextMeshProUGUI> ();
 		SetupButtons ();
+		panelShowing = true;
 
 		titleOpeningSound.Post(gameObject);
+	}
+
+	void Update()
+	{
+		if (!panelShowing)
+		{
+			return;
+		}
+		if (Input.GetKey (KeyCode.Space))
+		{
+			HideRetryPanel();
+		}
 	}
 
 	void SetupButtons()
@@ -49,6 +64,7 @@ public class UIController : MonoBehaviour {
 		retryButton.onClick.AddListener(()=>{
 			HideRetryPanel();
 		});
+		panelShowing = true;
 	}
 
 	void ShowWinText()
@@ -87,6 +103,7 @@ public class UIController : MonoBehaviour {
 
 	void HideRetryPanel()
 	{
+		panelShowing = false;
 		LeanTween.alphaCanvas (retryPanel, 0f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
 			retryButton.interactable = false;
 			OnStartGame();
