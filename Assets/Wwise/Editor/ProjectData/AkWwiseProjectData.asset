@@ -42,7 +42,7 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 4546677f5663af4fa2548342762f53d7
-    m_lastTime: -8586530033234775808
+    m_lastTime: -8586530005924775808
     List:
     - name: MX_GameState_YouLose
       guid: a586e53e9dfe744ba3a0bd7952bf901c
@@ -83,6 +83,18 @@ MonoBehaviour:
       - ElementName: MX_Theme_HandheldGame
         ObjectType: 3
       Path: Default Work Unit/MX/MX_Theme_HandheldGame
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: Play_GameState_YouWin
+      guid: 6d3d4b9d6efddb4ea664184c728222ee
+      id: 1095472083
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_GameState_YouWin
+        ObjectType: 3
+      Path: Default Work Unit/Play_GameState_YouWin
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
