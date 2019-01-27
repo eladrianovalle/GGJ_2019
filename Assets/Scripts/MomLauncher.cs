@@ -26,6 +26,7 @@ public class MomLauncher : MonoBehaviour {
 
 	public static System.Action OnDoorOpen;
 	public static System.Action OnDoorClosed;
+	public static System.Action OnMomThrow;
 
 	void Awake()
 	{
@@ -89,6 +90,11 @@ public class MomLauncher : MonoBehaviour {
 		if (GameController.gameOver)
 		{
 			return;
+		}
+
+		if (OnMomThrow != null)
+		{
+			OnMomThrow ();
 		}
 
 		sRenderer.sprite = momsprites [1];
