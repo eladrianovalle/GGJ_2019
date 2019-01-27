@@ -301,6 +301,10 @@ public class HandheldGame : MonoBehaviour
 	private void StartHandheldGame()
 	{
 		started = true;
+		if (OnGameStart != null)
+		{
+			OnGameStart();
+		}
 	}
 
 	private void ButtonPress(bool b)
