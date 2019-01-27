@@ -18,7 +18,6 @@ public class HandheldPlayer : MonoBehaviour {
 		GameController.OnHandheldMoveRight 	+= MoveRight;
 		GameController.OnRightButtonUp 		+= RightButtonUp;
 		GameController.OnLeftButtonUp 		+= LeftButtonUp;
-
 	}
 
 	void OnDisable()
@@ -37,8 +36,6 @@ public class HandheldPlayer : MonoBehaviour {
 		DefaultButtonColor(leftBtnMat);
 		DefaultButtonColor(centerBtnMat);
 		DefaultButtonColor(rightBtnMat);
-
-
 	}
 
 	void Update()
@@ -99,7 +96,6 @@ public class HandheldPlayer : MonoBehaviour {
 	private void DefaultButtonColor(Material mat)
 	{
 		mat.SetVector("_Brightness", defaultBrightnessVector);
-
 	}
 
 }

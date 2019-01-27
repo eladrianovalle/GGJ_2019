@@ -65,15 +65,17 @@ public class GameController : MonoBehaviour {
 			}
 		}
 		
+		// Used for making the right button go back up
 		if (!Input.GetKey(KeyCode.RightArrow))
 		{
-			// Right button animation to play
+			
 			if (OnRightButtonUp != null)
 			{
 				OnRightButtonUp();
 			}
 		}
 
+		// Used for making the left button go back up
 		if (!Input.GetKey(KeyCode.LeftArrow))
 		{
 			// Left button animation to play
