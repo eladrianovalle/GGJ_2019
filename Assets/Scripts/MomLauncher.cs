@@ -28,6 +28,16 @@ public class MomLauncher : MonoBehaviour {
 	public static System.Action OnDoorClosed;
 	public static System.Action OnMomThrow;
 
+	void OnEnable()
+	{
+		UIController.OnStartGame 	+= StartMomGame;
+	}
+
+	void OnDisable()
+	{
+		UIController.OnStartGame 	-= StartMomGame;
+	}
+
 	void Awake()
 	{
 		sRenderer = GetComponent<SpriteRenderer> ();
@@ -40,6 +50,14 @@ public class MomLauncher : MonoBehaviour {
 
 		MomLeaveRoom ();
 
+//		LeanTween.delayedCall (momDelay, ()=>{
+//			MomEnterRoom();
+//			timerRunning = true;
+//		});
+	}
+
+	void StartMomGame()
+	{
 		LeanTween.delayedCall (momDelay, ()=>{
 			MomEnterRoom();
 			timerRunning = true;
@@ -60,8 +78,11 @@ public class MomLauncher : MonoBehaviour {
 				throwTimer = throwInterval;
 
 				MomEnterRoom ();
-			}
 
+				LeanTween.delayedCall (1f, ()=>{
+					timerRunning = true;
+				});
+			}
 		}
 	}
 
@@ -82,8 +103,6 @@ public class MomLauncher : MonoBehaviour {
 		LeanTween.moveLocal (this.gameObject, momPositions[0], momMoveSpeed).setEase(LeanTweenType.easeInQuint).setOnComplete(()=>{
 			//close door and screenshake
 			// closed door at rotation y 120f
-			timerRunning = true;
-
 			OnDoorClosed();
 		});
 	}
