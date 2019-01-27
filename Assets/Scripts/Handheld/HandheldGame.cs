@@ -58,6 +58,7 @@ public class HandheldGame : MonoBehaviour
 	[SerializeField] private SpriteRenderer[] Score = new SpriteRenderer[SCORE_DIGITS];
 
 	[SerializeField] private GameObject GameOver;
+	[SerializeField] private SpriteRenderer Timer;
 
 	[Header("Platform Sprites")]
 	[SerializeField] private Sprite buildingSprite;
@@ -66,6 +67,7 @@ public class HandheldGame : MonoBehaviour
 	private const int BATT_COUNT = 4;
 	[SerializeField] private Sprite[] batterySprites = new Sprite[BATT_COUNT];
 
+	[SerializeField] private Sprite[] numberSprites = new Sprite[10];
 
 	// Properties
 	protected HandheldCharacter character = new HandheldCharacter();
