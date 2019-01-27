@@ -6,7 +6,8 @@ public class HandheldGame : MonoBehaviour
 {
 	// Settings
 	[SerializeField]
-	[Tooltip("Frames per GameLoop update")]
+	[Header("Frames per GameLoop update")]
+	[Tooltip("Essentially inner game \"speed\"")]
 	protected int frames = 20;
 	private int currFrames = 0;
 
@@ -67,6 +68,7 @@ public class HandheldGame : MonoBehaviour
 
 	protected bool buttonPressed = false;
 
+
 	public enum HandheldGameState
 	{
 		START,
@@ -89,23 +91,15 @@ public class HandheldGame : MonoBehaviour
 
 	public void Init()
 	{
-		Debug.Assert(NinjaJump != null, "[HandheldGame] NinjaJump object missing!", this.gameObject);
-		Debug.Assert(NinjaStand != null, "[HandheldGame] NinjaStand object missing!", this.gameObject);
-		Debug.Assert(NinjaFall != null, "[HandheldGame] NinjaFall object missing!", this.gameObject);
-		for (int i = 0; i < COLUMNS; i++)
-		{
-			Debug.Assert(Buildings[i] != null, "[HandheldGame] Building" + i + " object missing!", this.gameObject);
-		}
-
 		character.Init();
 		platformValues = new List<int>(startingPlatformValues);
 
 		CurrentGameState = HandheldGameState.START;
-
 	}
 
 	void Start()
 	{
+		AssertObjects();
 		Init();
 	}
 
@@ -136,7 +130,6 @@ public class HandheldGame : MonoBehaviour
 			buttonPressed = false;
 			//Init();
 			CurrentGameState = HandheldGameState.PLAYING;
-			Debug.Log("[HandheldGame] Game start");
 			if (OnGameStart != null)
 			{
 				OnGameStart();
@@ -152,7 +145,6 @@ public class HandheldGame : MonoBehaviour
 			GameOver.SetActive(false);
 			//CurrentGameState = HandheldGameState.START;
 			Init();
-			Debug.Log("[HandheldGame] Leaving end screen");
 		}
 		else
 		{
@@ -176,7 +168,6 @@ public class HandheldGame : MonoBehaviour
 	public void RunGameLoop()
 	{
 		// Update Game Loop
-		Debug.Log("[HandheldGame] RunGameLoop()");
 		if (OnGameLoopUpdate != null)
 		{
 			OnGameLoopUpdate();
@@ -201,8 +192,6 @@ public class HandheldGame : MonoBehaviour
 
 			// Check input
 			// if input, then try actions (jump)
-			Debug.Log("[HandheldGame] Button was pressed: " + buttonPressed);
-
 			bool jump = false;
 			if (buttonPressed)
 			{
@@ -212,7 +201,6 @@ public class HandheldGame : MonoBehaviour
 			bool fall = false;
 			if (jump)
 			{
-				Debug.Log("[HandheldGame] Jumped");
 				if (OnCharacterJump != null)
 				{
 					OnCharacterJump();
@@ -229,7 +217,6 @@ public class HandheldGame : MonoBehaviour
 
 			if (fall)
 			{
-				Debug.Log("[HandheldGame] Fell");
 				if (OnCharacterFall != null)
 				{
 					OnCharacterFall();
@@ -269,6 +256,23 @@ public class HandheldGame : MonoBehaviour
 	private void ButtonPress(bool b)
 	{
 		buttonPressed = true;
+	}
+
+	private void AssertObjects()
+	{
+		Debug.Assert(NinjaJump != null, "[HandheldGame] NinjaJump object missing!", this.gameObject);
+		Debug.Assert(NinjaStand != null, "[HandheldGame] NinjaStand object missing!", this.gameObject);
+		Debug.Assert(NinjaFall != null, "[HandheldGame] NinjaFall object missing!", this.gameObject);
+		for (int i = 0; i < COLUMNS; i++)
+		{
+			Debug.Assert(Buildings[i] != null, "[HandheldGame] Building" + i + " object missing!", this.gameObject);
+		}
+		Debug.Assert(Battery != null, "[HandheldGame] Battery object missing!", this.gameObject);
+		for (int i = 0; i < SCORE_DIGITS; i++)
+		{
+			Debug.Assert(Score[i] != null, "[HandheldGame] Score" + i + " object missing!", this.gameObject);
+		}
+		Debug.Assert(GameOver != null, "[HandheldGame] GameOver object missing!", this.gameObject);
 	}
 }
 
