@@ -5,7 +5,10 @@ using UnityEngine;
 public class HandheldPlayer : MonoBehaviour {
 
 	Rigidbody rBody;
+
 	public float moveSpeed = 2.0f;
+
+	public GameObject handheldWrapper;
 
 	void OnEnable()
 	{
@@ -24,10 +27,15 @@ public class HandheldPlayer : MonoBehaviour {
 		rBody = GetComponent<Rigidbody> ();
 	}
 
+	void Update()
+	{
+		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, Time.deltaTime * 5f);
+	}
+
 	void MoveLeft(bool isMovingLeft)
 	{
 		Debug.Log ("Move Left");
-
+		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 15, 0);
 		Vector3 movePosition = this.rBody.transform.position += (Vector3.left * moveSpeed) * Time.deltaTime;
 		rBody.MovePosition (movePosition);
 	}
@@ -35,6 +43,8 @@ public class HandheldPlayer : MonoBehaviour {
 	void MoveRight(bool isMovingRight)
 	{
 		Debug.Log ("Move Right");
+		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -15, 0);
+
 		Vector3 movePosition = this.rBody.transform.position += (Vector3.right * moveSpeed) * Time.deltaTime;
 		rBody.MovePosition (movePosition);
 	}
