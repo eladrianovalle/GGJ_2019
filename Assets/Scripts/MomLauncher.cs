@@ -18,6 +18,11 @@ public class MomLauncher : MonoBehaviour {
 	
 	void ThrowObject () 
 	{
+		if (GameController.gameOver)
+		{
+			return;
+		}
+
 		Debug.Log ("Mom throws a thing!!!");
 		GameObject objToThrow = Instantiate(throwableObjects [Random.Range(0, throwableObjects.Length)]);
 

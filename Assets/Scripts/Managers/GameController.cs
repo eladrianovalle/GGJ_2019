@@ -9,6 +9,10 @@ public class GameController : MonoBehaviour {
 	public static Action<bool> OnHandheldMoveRight;
 	public static Action<bool> OnHandheldButtonPress;
 
+	public static Action OnRightButtonUp;
+	public static Action OnLeftButtonUp;
+
+
 	public static Action OnPlayerLoseLife;
 	public static Action OnPlayerGainLife;
 	public static Action OnPlayerLoseGame;
@@ -18,13 +22,27 @@ public class GameController : MonoBehaviour {
 	float timeLimit = 30f;
 	float timer;
 
+	public static bool gameOver;
+
 	void Start () 
 	{
-		timer = timeLimit;
+		ResetGame ();
 	}
-	
+
+	void ResetGame()
+	{
+		timer = timeLimit;
+		playerLives = 3;
+		gameOver = false;
+	}
+
 	void Update () 
 	{
+		if (gameOver)
+		{
+			return;
+		}
+
 		if (Input.GetKey (KeyCode.LeftArrow))
 		{
 			if (OnHandheldMoveLeft != null)
@@ -46,12 +64,33 @@ public class GameController : MonoBehaviour {
 				OnHandheldButtonPress (true);
 			}
 		}
+		
+		// Used for making the right button go back up
+		if (!Input.GetKey(KeyCode.RightArrow))
+		{
+			
+			if (OnRightButtonUp != null)
+			{
+				OnRightButtonUp();
+			}
+		}
+
+		// Used for making the left button go back up
+		if (!Input.GetKey(KeyCode.LeftArrow))
+		{
+			// Left button animation to play
+			if (OnLeftButtonUp != null)
+			{
+				OnLeftButtonUp();
+			}
+		}
 
 		if (playerLives <= 0)
 		{
 			if (OnPlayerLoseGame != null)
 			{
 				OnPlayerLoseGame ();
+				gameOver = true;
 			}
 		}
 
@@ -61,6 +100,7 @@ public class GameController : MonoBehaviour {
 			if (OnPlayerWinGame != null)
 			{
 				OnPlayerWinGame ();
+				gameOver = true;
 			}
 		}
 	}
@@ -80,6 +120,10 @@ public class GameController : MonoBehaviour {
 		if (playerLives > 0)
 		{
 			playerLives--;
+			if (OnPlayerLoseLife != null)
+			{
+				OnPlayerLoseLife ();
+			}
 		}
 	}
 
