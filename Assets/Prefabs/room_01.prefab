@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 33473546618669102}
   - component: {fileID: 23197060051169222}
   - component: {fileID: 64389951381647814}
+  - component: {fileID: 64197411583914656}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -74,6 +75,7 @@ GameObject:
   - component: {fileID: 33890166476108742}
   - component: {fileID: 23138337030831840}
   - component: {fileID: 64809403236712956}
+  - component: {fileID: 64580686053394590}
   m_Layer: 0
   m_Name: poster
   m_TagString: Untagged
@@ -160,6 +162,7 @@ GameObject:
   - component: {fileID: 33806923039194674}
   - component: {fileID: 23732973717828082}
   - component: {fileID: 64717058261620350}
+  - component: {fileID: 64511323522135336}
   m_Layer: 0
   m_Name: desk
   m_TagString: Untagged
@@ -225,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4214272437957678}
   - component: {fileID: 114525402164777810}
+  - component: {fileID: 111571295528243128}
   m_Layer: 0
   m_Name: room_01
   m_TagString: Untagged
@@ -260,6 +264,7 @@ GameObject:
   - component: {fileID: 33690133842605162}
   - component: {fileID: 23391766594042516}
   - component: {fileID: 64995964856920796}
+  - component: {fileID: 64469072074474200}
   m_Layer: 0
   m_Name: room
   m_TagString: Untagged
@@ -1081,6 +1086,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1337873503780576}
   m_Mesh: {fileID: 4300000, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64197411583914656
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328913706531930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
 --- !u!64 &64389951381647814
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -1095,6 +1114,48 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64469072074474200
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846541543314896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300006, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64511323522135336
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1603036729163452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!64 &64580686053394590
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1337873503780576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
 --- !u!64 &64717058261620350
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -1137,6 +1198,23 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 4aefe5c7934ad8540a9fe06d736670fc, type: 3}
+--- !u!111 &111571295528243128
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1733454403892814}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c7a109298aea4994b99b5842e44db560, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c7a109298aea4994b99b5842e44db560, type: 2}
+  - {fileID: 7400000, guid: 372f14b0b738e5f40b399c36584196b4, type: 2}
+  - {fileID: 7400000, guid: 4c303002424ca1041bdc860c0b99fb41, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114525402164777810
 MonoBehaviour:
   m_ObjectHideFlags: 1
