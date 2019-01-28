@@ -67,7 +67,9 @@ public class GameController : MonoBehaviour {
 				OnHandheldMoveRight (true);
 			}
 		}
-		else if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))
+
+		// separate this from left/right movement so it won't get blocked while dodging mom
+		if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))
 		{
 			if (OnHandheldButtonPress != null)
 			{
