@@ -439,7 +439,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1973569058358260}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -4.2711473e-30, y: -1.6310854e-28, z: 5.4270076e-29, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -532,7 +532,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445280639005498}
   m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 1.4181471, y: -0.57814956, z: 0.23446494}
+  m_LocalPosition: {x: 1.418147, y: -0.57814974, z: 0.234463}
   m_LocalScale: {x: 100.00009, y: 100.00004, z: 100}
   m_Children: []
   m_Father: {fileID: 4196581543939670}
@@ -587,7 +587,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1151469455571236}
   m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.57610035, z: 0.24253803}
+  m_LocalPosition: {x: 0.000000003925575, y: -0.57814974, z: 0.234463}
   m_LocalScale: {x: 100.00009, y: 100.00004, z: 100}
   m_Children: []
   m_Father: {fileID: 4196581543939670}
@@ -639,7 +639,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671834610554454}
   m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.4181465, y: -0.57814986, z: 0.23446327}
+  m_LocalPosition: {x: -1.418146, y: -0.57814974, z: 0.234463}
   m_LocalScale: {x: 100.00009, y: 100.00004, z: 100}
   m_Children: []
   m_Father: {fileID: 4196581543939670}
@@ -992,7 +992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8502347914202403891ee3abbaac68ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frames: 20
+  frameTime: 0.5
   startingPlatformValues: 0100000001000000010000000100000001000000
   NinjaJump: {fileID: 1561671695980954}
   NinjaStand: {fileID: 1869218516748150}
@@ -1214,7 +1214,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300014, guid: 3cbb0b820234940118e019be93f2e424, type: 3}
+  m_Sprite: {fileID: 21300020, guid: 3cbb0b820234940118e019be93f2e424, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

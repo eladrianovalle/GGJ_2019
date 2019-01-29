@@ -8,8 +8,8 @@ public class HandheldGame : MonoBehaviour
 	[SerializeField]
 	[Header("Frames per GameLoop update")]
 	[Tooltip("Essentially inner game \"speed\"")]
-	protected int frames = 30;
-	private int currFrames = 0;
+	protected float frameTime = 0.5f;
+	private float currFrameTime = 0f;
 	private int endFrames = 6;
 	private int currEndFrames = 0;
 	private int startFrames = 6;
@@ -116,12 +116,11 @@ public class HandheldGame : MonoBehaviour
 
 	void Update()
 	{
-		DrawScreen();
-
 		if (!started)
 		{
 			return;
 		}
+
 		switch (CurrentGameState)
 		{
 			case HandheldGameState.START:
@@ -137,43 +136,46 @@ public class HandheldGame : MonoBehaviour
 				break;
 		}
 
-		//DrawScreen();
+		DrawScreen();
 	}
 
 	private void StartUpdate()
 	{
-		if (++currFrames >= frames)
+		currFrameTime += Time.deltaTime;
+		if (currFrameTime >= frameTime)
 		{
-			currFrames = 0;
+			currFrameTime = 0f;
 
-			//RunGameLoop();
-			if (++currStartFrames >= startFrames)
+			if (startFrames - currStartFrames <= 3)
 			{
-				currEndFrames = 0;
+				Timer.gameObject.SetActive((startFrames - currStartFrames) != 0);
+				Timer.sprite = numberSprites[startFrames - currStartFrames];
+			}
+			//RunGameLoop();
+			if (++currStartFrames > startFrames)
+			{
+				currStartFrames = 0;
 
 				buttonPressed = false;
 				GameOver.SetActive(false);
 				Timer.gameObject.SetActive(false);
 				Init();
 				CurrentGameState = HandheldGameState.PLAYING;
-			}
-			if (startFrames - currStartFrames <= 3)
-			{
-				Timer.gameObject.SetActive((startFrames - currStartFrames) != 0);
-				Timer.sprite = numberSprites[startFrames - currStartFrames];
+				return;
 			}
 		}
 	}
 
 	private void EndUpdate()
 	{
-		if (++currFrames >= 5)
+		currFrameTime += Time.deltaTime;
+		if (currFrameTime >= .25f)
 		{
-			currFrames = 0;
+			currFrameTime = 0f;
 
 			RunGameLoop();
 
-			if (++currEndFrames >= endFrames)
+			if (++currEndFrames > endFrames)
 			{
 				currEndFrames = 0;
 
@@ -204,9 +206,10 @@ public class HandheldGame : MonoBehaviour
 
 	private void PlayingUpdate()
 	{
-		if (++currFrames >= frames)
+		currFrameTime += Time.deltaTime;
+		if (currFrameTime >= frameTime)
 		{
-			currFrames = 0;
+			currFrameTime = 0f;
 			RunGameLoop();
 		}
 	}
@@ -308,6 +311,7 @@ public class HandheldGame : MonoBehaviour
 	private void StartHandheldGame()
 	{
 		started = true;
+		DrawScreen();
 		if (OnGameStart != null)
 		{
 			OnGameStart();
