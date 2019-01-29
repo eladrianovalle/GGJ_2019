@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour {
 	float timeLimit = 180f;
 	float timer;
 
+	float inputX = 0f;
+
 	public static bool gameOver;
 
 	void OnEnable()
@@ -53,18 +55,31 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
+		inputX = 0f;
 		if (Input.GetKey (KeyCode.LeftArrow))
 		{
-			if (OnHandheldMoveLeft != null)
-			{
-				OnHandheldMoveLeft (true);
-			}
+			inputX -= 1;
 		}
-		else if (Input.GetKey (KeyCode.RightArrow))
+		if (Input.GetKey (KeyCode.RightArrow))
 		{
-			if (OnHandheldMoveRight != null)
+			inputX += 1;
+		}
+
+		if (inputX != 0)
+		{
+			if (inputX < 0)
 			{
-				OnHandheldMoveRight (true);
+				if (OnHandheldMoveLeft != null)
+				{
+					OnHandheldMoveLeft (true);
+				}
+			}
+			else
+			{
+				if (OnHandheldMoveRight != null)
+				{
+					OnHandheldMoveRight (true);
+				}
 			}
 		}
 
