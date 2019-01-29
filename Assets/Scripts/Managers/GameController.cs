@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 
 	public static Action OnRightButtonUp;
 	public static Action OnLeftButtonUp;
+	public static Action OnCenterButtonUp;
 
 	public static Action OnPlayerLoseLife;
 	public static Action OnPlayerGainLife;
@@ -93,7 +94,7 @@ public class GameController : MonoBehaviour {
 		}
 		
 		// Used for making the right button go back up
-		if (!Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKeyUp(KeyCode.RightArrow))
 		{
 			
 			if (OnRightButtonUp != null)
@@ -103,12 +104,20 @@ public class GameController : MonoBehaviour {
 		}
 
 		// Used for making the left button go back up
-		if (!Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKeyUp(KeyCode.LeftArrow))
 		{
 			// Left button animation to play
 			if (OnLeftButtonUp != null)
 			{
 				OnLeftButtonUp();
+			}
+		}
+
+		if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space))
+		{
+			if (OnCenterButtonUp != null)
+			{
+				OnCenterButtonUp();
 			}
 		}
 

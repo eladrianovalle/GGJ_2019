@@ -14,18 +14,22 @@ public class HandheldPlayer : MonoBehaviour {
 
 	void OnEnable()
 	{
-		GameController.OnHandheldMoveLeft 	+= MoveLeft;
-		GameController.OnHandheldMoveRight 	+= MoveRight;
-		GameController.OnRightButtonUp 		+= RightButtonUp;
-		GameController.OnLeftButtonUp 		+= LeftButtonUp;
+		GameController.OnHandheldMoveLeft 		+= MoveLeft;
+		GameController.OnHandheldMoveRight 		+= MoveRight;
+		GameController.OnHandheldButtonPress 	+= CenterButtonDown;
+		GameController.OnRightButtonUp 			+= RightButtonUp;
+		GameController.OnLeftButtonUp 			+= LeftButtonUp;
+		GameController.OnCenterButtonUp 		+= CenterButtonUp;
 	}
 
 	void OnDisable()
 	{
-		GameController.OnHandheldMoveLeft 	-= MoveLeft;
-		GameController.OnHandheldMoveRight	-= MoveRight;
-		GameController.OnRightButtonUp 		-= RightButtonUp;
-		GameController.OnLeftButtonUp 		-= LeftButtonUp;
+		GameController.OnHandheldMoveLeft 		-= MoveLeft;
+		GameController.OnHandheldMoveRight		-= MoveRight;
+		GameController.OnHandheldButtonPress 	-= CenterButtonDown;
+		GameController.OnRightButtonUp 			-= RightButtonUp;
+		GameController.OnLeftButtonUp 			-= LeftButtonUp;
+		GameController.OnCenterButtonUp 		-= CenterButtonUp;
 	}
 
 	void Awake()
@@ -76,6 +80,12 @@ public class HandheldPlayer : MonoBehaviour {
 		rBody.MovePosition (movePosition);
 	}
 
+	void CenterButtonDown(bool buttonPress)
+	{
+		centerBtnAnimator.Play("Cbtn_GoDown");
+		HighlightButtonColor(centerBtnMat);
+	}
+
 	void RightButtonUp()
 	{
 		rightBtnAnimator.Play("Btn_StayUp");
@@ -87,7 +97,13 @@ public class HandheldPlayer : MonoBehaviour {
 		leftBtnAnimator.Play("Lbtn_StayUp");
 		DefaultButtonColor(leftBtnMat);
 	}
-	
+
+	void CenterButtonUp()
+	{
+		centerBtnAnimator.Play("Cbtn_StayUp");
+		DefaultButtonColor(centerBtnMat);
+	}
+
 	private void HighlightButtonColor(Material mat)
 	{
 		mat.SetVector("_Brightness", brightnessVector);
