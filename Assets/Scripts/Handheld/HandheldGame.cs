@@ -12,7 +12,7 @@ public class HandheldGame : MonoBehaviour
 	private float currFrameTime = 0f;
 	private int endFrames = 6;
 	private int currEndFrames = 0;
-	private int startFrames = 7;
+	private int startFrames = 6;
 	private int currStartFrames = 0;
 
 	[SerializeField]
@@ -154,7 +154,7 @@ public class HandheldGame : MonoBehaviour
 		{
 			currFrameTime = 0f;
 
-			int timer = Mathf.FloorToInt((startFrames - currStartFrames) * frameTime);
+			int timer = Mathf.FloorToInt(((1 + startFrames) - currStartFrames) * frameTime);
 			if (timer >= 0 && timer <= 3)
 			{
 				Timer.gameObject.SetActive(timer != 0);
@@ -194,7 +194,7 @@ public class HandheldGame : MonoBehaviour
 				{
 					GameOver.SetActive(false);
 					Init();
-					CurrentGameState = HandheldGameState.PLAYING;
+					CurrentGameState = HandheldGameState.START;
 				}
 				else
 				{
@@ -329,12 +329,14 @@ public class HandheldGame : MonoBehaviour
 		NinjaStand.SetActive(character.IsStanding());
 		//NinjaFall.SetActive(character.IsFalling());
 
-		BatteryPickup.SetActive((character.IsJumping()) && (powerupValues[0] == 1));
+		BatteryPickup.SetActive((powerupValues[0] == 1) && (character.IsJumping()));
+		//BatteryItems[0].SetActive((powerupValues[0] == 1) && (!character.IsJumping()));
 
 		for (int i = 0; i < COLUMNS; i++)
 		{
 			Buildings[i].sprite = (platformValues[i] != 0) ? buildingSprite : pitSprite;
-			BatteryItems[i].SetActive((i > 0) && (powerupValues[i] != 0));
+			BatteryItems[i].SetActive(((i > 0) || (!character.IsJumping())) && (powerupValues[i] != 0));
+			//BatteryItems[i].SetActive((powerupValues[i] != 0));
 		}
 
 		DrawScore();

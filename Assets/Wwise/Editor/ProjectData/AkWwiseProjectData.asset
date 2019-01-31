@@ -42,7 +42,7 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 4546677f5663af4fa2548342762f53d7
-    m_lastTime: -8586529894394775808
+    m_lastTime: -8586526386804775808
     List:
     - name: AMB_RoomTone
       guid: 2b878d5bb3945e4fba35a4f91cfab2fd
@@ -156,6 +156,20 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: SFX_LoudKnock
+      guid: 50fcdba93906b541975735056b0c1c95
+      id: 383111079
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_LoudKnock
+        ObjectType: 3
+      Path: Default Work Unit/SFX/SFX_LoudKnock
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: SFX_Player_Jump
       guid: ba8edbab75306b428cfaca29447d47fe
       id: 648313621
@@ -167,6 +181,20 @@ MonoBehaviour:
       - ElementName: SFX_Player_Jump
         ObjectType: 3
       Path: Default Work Unit/SFX/SFX_Player_Jump
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: SFX_TvStatic
+      guid: b177ec3418911d41b6a6a05b05be0383
+      id: 467755129
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: SFX_TvStatic
+        ObjectType: 3
+      Path: Default Work Unit/SFX/SFX_TvStatic
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0

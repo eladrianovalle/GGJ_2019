@@ -513,7 +513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleOpeningSound:
     valueGuid: 
-    WwiseObjectReference: {fileID: 0}
+    WwiseObjectReference: {fileID: 11400000, guid: e5e9ec5fe55b1482795954fc9803d3fe,
+      type: 2}
   winSound:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 03600737b360a482e880bbbbb4f01f24,

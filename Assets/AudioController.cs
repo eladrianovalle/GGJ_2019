@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour {
 
+	// ---- Music ----
 	public AK.Wwise.Event GameMusic;
 	public AK.Wwise.Event YouWin;
 	public AK.Wwise.Event YouLose;
+
+	// ---- SFX -----
+	// Impacts
 	public AK.Wwise.Event ImpactGood;
 	public AK.Wwise.Event ImpactBad;
+
+	// General
+	public AK.Wwise.Event PlayerJump;
+	public AK.Wwise.Event TvStatic;
+	public AK.Wwise.Event MomKnock;
+
+
+	// ---- VOX ----
 	public AK.Wwise.Event MomDialogue;
 	public AK.Wwise.Event MomOutside;
-	public AK.Wwise.Event PlayerJump;
 	public AK.Wwise.Event MaternityHeave;
+
+
 
 
 	void OnEnable()
@@ -36,7 +49,7 @@ public class AudioController : MonoBehaviour {
 
 
 
-	// Music Sounds
+	//.............Music.......................
 	void PlayGameMusic()
 	{
 		GameMusic.Post (gameObject);
@@ -53,6 +66,7 @@ public class AudioController : MonoBehaviour {
 	}
 
 
+	//.............SFX.............................
 
 	// Impact Sounds
 
@@ -68,8 +82,29 @@ public class AudioController : MonoBehaviour {
 		}
 	}
 
+	// General
 
-	// Mom Sounds
+	void PlayJumpSound ()
+	{
+		PlayerJump.Post (gameObject);
+	}
+
+	void PlayTvStatic()
+	{
+		TvStatic.Post (gameObject);
+	}
+
+	void PlayMomKnock ()
+	{
+		MomKnock.Post (gameObject);
+	}
+
+
+
+
+
+	//..............VOX..........................
+
 	void PlayMomDialogue()
 	{
 		MomDialogue.Post (gameObject);
@@ -80,19 +115,11 @@ public class AudioController : MonoBehaviour {
 		MomOutside.Post (gameObject);
 	}
 
-
-
-	// SFX
-
-	void PlayJumpSound ()
-	{
-		PlayerJump.Post (gameObject);
-	}
-
 	void PlayTitle ()
 	{
 		MaternityHeave.Post (gameObject);
 	}
+
 
 
 

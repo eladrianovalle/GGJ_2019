@@ -2,7 +2,9 @@ Event	ID	Name			Wwise Object Path	Notes
 	124309723	SFX_Impact_Bad			\Default Work Unit\SFX\SFX_Impact_Bad	
 	216451844	MX_GameState_YouWin			\Default Work Unit\MX\MX_GameState_YouWin	
 	343228125	SFX_Impact_Good			\Default Work Unit\SFX\SFX_Impact_Good	
+	383111079	SFX_LoudKnock			\Default Work Unit\SFX\SFX_LoudKnock	
 	452547817	Stop_All			\Default Work Unit\Stop_All	
+	467755129	SFX_TvStatic			\Default Work Unit\SFX\SFX_TvStatic	
 	607923225	SFX_DoorOpen			\Default Work Unit\SFX\SFX_DoorOpen	
 	648313621	SFX_Player_Jump			\Default Work Unit\SFX\SFX_Player_Jump	
 	929851918	VO_MomDialogue			\Default Work Unit\VOX\VO_MomDialogue	
@@ -36,6 +38,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	645968624	VO_Mom_11	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_11_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_MomDialogue\VO_Mom_11		419016
 	659340963	VO_Mom_14	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_14_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_Mom_14		1323064
 	661494450	SFX_ImpactPlayer_Bad	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_ImpactPlayer_Bad_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_ImpactPlayer_Bad		220564
+	682690420	SFX_TvStatic	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_TvStatic_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_TvStatic		141184
 	774902356	VO_Mom_10	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_10_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_MomDialogue\VO_Mom_10		970264
 	810527845	VO_Mom_5	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_5_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_MomDialogue\VO_Mom_5		440064
 	844741346	VO_Mom_15	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_15_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_MomDialogue\VO_Mom_15		617464
@@ -44,6 +47,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	902075261	VO_Mom_19	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_19_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_MomDialogue\VO_Mom_19		1141152
 	911776400	VO_Mom_4	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_4_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_MomDialogue\VO_Mom_4		440064
 	959436902	SFX_DoorOpen	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_DoorOpen_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_DoorOpen		330816
+	996642344	SFX_LoudKnock	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_LoudKnock_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_LoudKnock		188224
 	1054114328	VO_Title	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Title_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_Title		330816
 	1065126371	VO_Mom_9	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_9_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VO_MomDialogue\VO_Mom_9		771816
 
