@@ -13,12 +13,17 @@ public class AudioController : MonoBehaviour {
 	// Impacts
 	public AK.Wwise.Event ImpactGood;
 	public AK.Wwise.Event ImpactBad;
+	public AK.Wwise.Event Battery;
 
 	// General
 	public AK.Wwise.Event PlayerJump;
+	public AK.Wwise.Event PlayerFall;
+	public AK.Wwise.Event JumpSuccess;
 	public AK.Wwise.Event TvStatic;
 	public AK.Wwise.Event MomKnock;
 
+	// Ambience
+	public AK.Wwise.Event RoomAmbience;
 
 	// ---- VOX ----
 	public AK.Wwise.Event MomDialogue;
@@ -100,7 +105,12 @@ public class AudioController : MonoBehaviour {
 	}
 
 
+	// Ambience
 
+	void PlayRoomAmbience()
+	{
+		RoomAmbience.Post (gameObject);
+	}
 
 
 	//..............VOX..........................
