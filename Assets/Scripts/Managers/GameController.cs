@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Rewired;
 
 public class GameController : MonoBehaviour {
+
+	private Player playerController;
+	private int JUMP = 1;
 
 	public static Action<bool> OnHandheldMoveLeft;
 	public static Action<bool> OnHandheldMoveRight;
@@ -36,6 +40,11 @@ public class GameController : MonoBehaviour {
 		UIController.OnStartGame 	-= ResetGame;
 	}
 
+	void Awake()
+	{
+		playerController = ReInput.players.GetPlayer (0);
+	}
+
 	void Start () 
 	{
 		timer = timeLimit;
@@ -57,14 +66,17 @@ public class GameController : MonoBehaviour {
 		}
 
 		inputX = 0f;
-		if (Input.GetKey (KeyCode.LeftArrow))
-		{
-			inputX -= 1;
-		}
-		if (Input.GetKey (KeyCode.RightArrow))
-		{
-			inputX += 1;
-		}
+//		if (Input.GetKey (KeyCode.LeftArrow))
+//		if (playerController.GetButton(1) < 0)
+//		{
+//			inputX -= 1;
+//		}
+////		if (Input.GetKey (KeyCode.RightArrow))
+//		if (playerController.GetButton(1) > 0)
+//		{
+//			inputX += 1;
+//		}
+		inputX = playerController.GetAxis(1);
 
 		if (inputX != 0)
 		{
@@ -85,7 +97,8 @@ public class GameController : MonoBehaviour {
 		}
 
 		// separate this from left/right movement so it won't get blocked while dodging mom
-		if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))
+//		if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))
+		if (playerController.GetButtonDown(3))
 		{
 			if (OnHandheldButtonPress != null)
 			{
@@ -94,7 +107,8 @@ public class GameController : MonoBehaviour {
 		}
 		
 		// Used for making the right button go back up
-		if (Input.GetKeyUp(KeyCode.RightArrow))
+//		if (Input.GetKeyUp(KeyCode.RightArrow))
+		if (playerController.GetAxis(1) >= 0)
 		{
 			
 			if (OnRightButtonUp != null)
@@ -104,7 +118,8 @@ public class GameController : MonoBehaviour {
 		}
 
 		// Used for making the left button go back up
-		if (Input.GetKeyUp(KeyCode.LeftArrow))
+//		if (Input.GetKeyUp(KeyCode.LeftArrow))
+		if (playerController.GetAxis(1) <= 0)
 		{
 			// Left button animation to play
 			if (OnLeftButtonUp != null)
@@ -113,7 +128,8 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space))
+//		if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space))
+		if (playerController.GetButtonUp(3))
 		{
 			if (OnCenterButtonUp != null)
 			{
