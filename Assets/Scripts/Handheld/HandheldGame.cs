@@ -23,15 +23,7 @@ public class HandheldGame : MonoBehaviour
 
 	private bool started = false;
 
-	// Events
-	/// <summary>
-	/// The character jump event.
-	/// </summary>
-	public static Action OnCharacterJump;
-	/// <summary>
-	/// The character fall event.
-	/// </summary>
-	public static Action OnCharacterFall;
+	#region Events
 	/// <summary>
 	/// The game start event.
 	/// </summary>
@@ -44,6 +36,19 @@ public class HandheldGame : MonoBehaviour
 	/// The game loop update event.
 	/// </summary>
 	public static Action OnGameLoopUpdate;
+	/// <summary>
+	/// The character jump event.
+	/// </summary>
+	public static Action OnCharacterJump;
+	/// <summary>
+	/// The character fall event.
+	/// </summary>
+	public static Action OnCharacterFall;
+	/// <summary>
+	/// The powerup pickup event.
+	/// </summary>
+	public static Action OnPowerupPickup;
+	#endregion
 
 	// GameObjects
 	[Header("Screen Objects")]
@@ -267,14 +272,18 @@ public class HandheldGame : MonoBehaviour
 			bool fall = false;
 			if (jump)
 			{
+				if (OnCharacterJump != null)
+				{
+					OnCharacterJump();
+				}
 				if (powerupValues[0] == 1)
 				{
 					// Powerup!
 					GameController.PlayerGainLife();
-				}
-				if (OnCharacterJump != null)
-				{
-					OnCharacterJump();
+					if (OnPowerupPickup != null)
+					{
+						OnPowerupPickup();
+					}
 				}
 			}
 			else
