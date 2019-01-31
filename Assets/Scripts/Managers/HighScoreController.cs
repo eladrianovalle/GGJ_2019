@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class HighScoreController : MonoBehaviour
 {
 
-    public Action<int> onAddScore;
-    public Action<int> onRemoveScore;
-    public TextMeshProUGUI scoreText;
+    public Action<int> onAddToCurrentScore;
+    public Action<int> onRemoveFromCurrentScore;
+    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI currScoreText;
+    public int currScore = 0;
     private string highScoreStr = "HighScore";
-    
+
+    private string highScoreTemplateStr = "HIGH SCORE: ";
+    private string yourScoreTemplateStr = "YOUR SCORE: ";
+
     private int highScore
     {
         get
@@ -28,43 +33,56 @@ public class HighScoreController : MonoBehaviour
         SetHighScoreText(GetHighScore().ToString());
     }
     
+    
     public int GetHighScore()
     {
         return highScore;
     }
     
-    public void AddToHighScore(int amount)
-    {
-        highScore += amount;
-        SetHighScoreText(highScore.ToString());
-    }
-
-    public void RemoveFromScore(int amount)
-    {
-        highScore -= amount;
-
-        if (highScore < 0)
-            highScore = 0;
-        
-        SetHighScoreText(highScore.ToString());
-    }
-
     public void ResetHighScore()
     {
         highScore = 0;
         SetHighScoreText(highScore.ToString());
     }
+
+    public int GetCurrScore()
+    {
+        return currScore;
+    }
+
+    public void ResetCurrScore()
+    {
+        currScore = 0;
+    }
+    
+    public void AddToCurrScore(int amount)
+    {
+        currScore += amount;
+        SetHighScoreText(currScore.ToString());
+    }
+
+    public void RemoveFromCurrScore(int amount)
+    {
+        currScore -= amount;
+
+        if (currScore < 0)
+            currScore = 0;
+        
+        SetHighScoreText(highScore.ToString());
+    }
+
+    
     
     private void OnEnable()
     {
-        onAddScore += AddToHighScore;
-        onRemoveScore += RemoveFromScore;
+        onAddToCurrentScore += AddToCurrScore;
+        onRemoveFromCurrentScore += RemoveFromCurrScore;
     }
 
     private void OnDisable()
     {
-        onAddScore -= AddToHighScore;
-        onRemoveScore -= RemoveFromScore;
+        onAddToCurrentScore -= AddToCurrScore;
+        onRemoveFromCurrentScore -= RemoveFromCurrScore;
     }
 
     private int PGetHighScore()
@@ -82,9 +100,13 @@ public class HighScoreController : MonoBehaviour
 
     private void SetHighScoreText(string text)
     {
-        if (scoreText != null)
-        {
-            scoreText.text = text;
-        }
+        if (highScoreText != null)
+            highScoreText.text = "HIGH SCORE <color=red>" + text + "</color>";
+    }
+
+    private void SetCurrentScoreText(string text)
+    {
+        if (currScoreText != null)
+            currScoreText.text = "YOUR SCORE <color=blue>" + text + "</color>";
     }
 }

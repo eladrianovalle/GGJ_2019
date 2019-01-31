@@ -12,16 +12,25 @@ public class HighScoreControllerInspector : Editor {
 
 		HighScoreController scoreController = (HighScoreController) target;
 		
-		if (GUILayout.Button("Add 10 to high score"))
+		GUILayout.Label("Your score");
+		
+		if (GUILayout.Button("Add 10 to curr score"))
 		{
-			scoreController.AddToHighScore(10);
+			scoreController.AddToCurrScore(10);
 		}
 		
-		if (GUILayout.Button("Remove 10 from high score"))
+		if (GUILayout.Button("Remove 10 from curr score"))
 		{
-			scoreController.RemoveFromScore(10);
+			scoreController.RemoveFromCurrScore(10);
 		}
-
+		
+		if (GUILayout.Button("Reset curr Score"))
+		{
+			scoreController.ResetCurrScore();
+		}
+		
+		GUILayout.Label("High score");
+		
 		if (GUILayout.Button("Reset High Score"))
 		{
 			scoreController.ResetHighScore();
