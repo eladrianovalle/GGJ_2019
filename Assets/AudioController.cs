@@ -21,6 +21,7 @@ public class AudioController : MonoBehaviour {
 	public AK.Wwise.Event JumpSuccess;
 	public AK.Wwise.Event TvStatic;
 	public AK.Wwise.Event MomKnock;
+	public AK.Wwise.Event NewHighScore;
 
 	// Ambience
 	public AK.Wwise.Event RoomAmbience;
@@ -102,6 +103,11 @@ public class AudioController : MonoBehaviour {
 	void PlayMomKnock ()
 	{
 		MomKnock.Post (gameObject);
+	}
+
+	void PlayNewHighScore ()
+	{
+		NewHighScore.Post (gameObject);
 	}
 
 

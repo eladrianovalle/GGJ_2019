@@ -97,6 +97,10 @@ MonoBehaviour:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 4de52f97706c54236bc3a68a7749d4df,
       type: 2}
+  NewHighScore:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: aa41ff183c6bd4ce4af8088f96398bba,
+      type: 2}
   RoomAmbience:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: a88126a47b2be415b95eed927d2077f6,
