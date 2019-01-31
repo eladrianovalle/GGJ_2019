@@ -74,6 +74,14 @@ MonoBehaviour:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 0481a1b824e5e466ab13557bd1a4df07,
       type: 2}
+  PlayerJump:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 77ae23299cabf405aa5c19bf05ccc2f0,
+      type: 2}
+  TvStatic:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: ba0b07267888b4d29a3583d357278657,
+      type: 2}
   MomDialogue:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 349773c8602ce46c0a828973c00ed1b7,
@@ -85,10 +93,6 @@ MonoBehaviour:
   MomKnock:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 4de52f97706c54236bc3a68a7749d4df,
-      type: 2}
-  PlayerJump:
-    valueGuid: 
-    WwiseObjectReference: {fileID: 11400000, guid: 77ae23299cabf405aa5c19bf05ccc2f0,
       type: 2}
   MaternityHeave:
     valueGuid: 
