@@ -329,12 +329,14 @@ public class HandheldGame : MonoBehaviour
 		NinjaStand.SetActive(character.IsStanding());
 		//NinjaFall.SetActive(character.IsFalling());
 
-		BatteryPickup.SetActive((character.IsJumping()) && (powerupValues[0] == 1));
+		BatteryPickup.SetActive((powerupValues[0] == 1) && (character.IsJumping()));
+		//BatteryItems[0].SetActive((powerupValues[0] == 1) && (!character.IsJumping()));
 
 		for (int i = 0; i < COLUMNS; i++)
 		{
 			Buildings[i].sprite = (platformValues[i] != 0) ? buildingSprite : pitSprite;
-			BatteryItems[i].SetActive((i > 0) && (powerupValues[i] != 0));
+			BatteryItems[i].SetActive(((i > 0) || (!character.IsJumping())) && (powerupValues[i] != 0));
+			//BatteryItems[i].SetActive((powerupValues[i] != 0));
 		}
 
 		DrawScore();
