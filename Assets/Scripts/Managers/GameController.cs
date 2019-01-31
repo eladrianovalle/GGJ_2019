@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour {
 	public static Action<bool> OnHandheldMoveRight;
 	public static Action<bool> OnHandheldButtonPress;
 
+	public static Action OnPressButtonToStart;
+
 	public static Action OnRightButtonUp;
 	public static Action OnLeftButtonUp;
 	public static Action OnCenterButtonUp;
@@ -28,6 +30,7 @@ public class GameController : MonoBehaviour {
 
 	float inputX = 0f;
 
+	public static bool gameReadyToRestart;
 	public static bool gameOver;
 
 	void OnEnable()
@@ -49,6 +52,7 @@ public class GameController : MonoBehaviour {
 	{
 		timer = timeLimit;
 		playerLives = 3;
+		gameReadyToRestart = true;
 	}
 
 	void ResetGame()
@@ -60,6 +64,17 @@ public class GameController : MonoBehaviour {
 
 	void Update () 
 	{
+		if (gameReadyToRestart)
+		{
+			if (playerController.GetAnyButtonDown ())
+			{
+				if (OnPressButtonToStart != null)
+				{
+					OnPressButtonToStart ();
+				}
+			}
+		}
+
 		if (gameOver)
 		{
 			return;
