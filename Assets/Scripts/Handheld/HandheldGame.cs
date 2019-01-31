@@ -6,21 +6,22 @@ public class HandheldGame : MonoBehaviour
 {
 	// Settings
 	[SerializeField]
-	[Header("Frames per GameLoop update")]
+	[Header("GameLoop Frame Time")]
 	[Tooltip("Essentially inner game \"speed\"")]
 	protected float frameTime = 0.5f;
 	private float currFrameTime = 0f;
 	private int endFrames = 6;
 	private int currEndFrames = 0;
-	private int startFrames = 6;
+	private int startFrames = 7;
 	private int currStartFrames = 0;
 
 	[SerializeField]
 	protected const int COLUMNS = 5;
 	[SerializeField]
-	protected int[] startingPlatformValues = new int[COLUMNS]{ 1, 1, 1, 1, 1 };
+	protected int[] startingPlatformValues 	= new int[COLUMNS]{ 1, 1, 1, 1, 1 };
+	protected int[] startingPowerupValues 	= new int[COLUMNS]{ 0, 0, 0, 0, 0 };
 
-	bool started = false;
+	private bool started = false;
 
 	// Events
 	/// <summary>
@@ -54,8 +55,12 @@ public class HandheldGame : MonoBehaviour
 
 	[SerializeField] private SpriteRenderer Battery;
 
+	[SerializeField] private GameObject[] BatteryItems;
+
+	[SerializeField] private GameObject BatteryPickup;
+
 	private const int SCORE_DIGITS = 3;
-	[SerializeField] private SpriteRenderer[] Score = new SpriteRenderer[SCORE_DIGITS];
+	[SerializeField] private SpriteRenderer[] ScoreDigits = new SpriteRenderer[SCORE_DIGITS];
 
 	[SerializeField] private GameObject GameOver;
 	[SerializeField] private SpriteRenderer Timer;
@@ -72,9 +77,11 @@ public class HandheldGame : MonoBehaviour
 	// Properties
 	protected HandheldCharacter character = new HandheldCharacter();
 	protected List<int> platformValues;
+	protected List<int> powerupValues;
 
 	protected bool buttonPressed = false;
 
+	protected int score = 0;
 
 	public enum HandheldGameState
 	{
@@ -104,6 +111,7 @@ public class HandheldGame : MonoBehaviour
 		NinjaJump.SetActive(false);
 		NinjaFall.SetActive(false);
 		platformValues = new List<int>(startingPlatformValues);
+		powerupValues = new List<int>(startingPowerupValues);
 
 		CurrentGameState = HandheldGameState.START;
 	}
@@ -146,10 +154,11 @@ public class HandheldGame : MonoBehaviour
 		{
 			currFrameTime = 0f;
 
-			if (startFrames - currStartFrames <= 3)
+			int timer = Mathf.FloorToInt((startFrames - currStartFrames) * frameTime);
+			if (timer >= 0 && timer <= 3)
 			{
-				Timer.gameObject.SetActive((startFrames - currStartFrames) != 0);
-				Timer.sprite = numberSprites[startFrames - currStartFrames];
+				Timer.gameObject.SetActive(timer != 0);
+				Timer.sprite = numberSprites[timer];
 			}
 			//RunGameLoop();
 			if (++currStartFrames > startFrames)
@@ -226,17 +235,25 @@ public class HandheldGame : MonoBehaviour
 		if (CurrentGameState == HandheldGameState.PLAYING)
 		{
 
-			// UpdateGround
+			// Update Ground and Items location
+			if (platformValues[0] == 0)
+			{
+				AddPoints(1);
+			}
 			for (int i = 0; i < COLUMNS; i++)
 			{
 				if (i + 1 < COLUMNS)
 				{
 					platformValues[i] = platformValues[i + 1];
+					powerupValues[i] = powerupValues[i + 1];
 				}
 				else
 				{
 					platformValues[i] = (platformValues[i - 1] == 0) ? 1 : UnityEngine.Random.Range(0, 2);
+
+					powerupValues[i] = (powerupValues[i - 1] == 1) ? 0 : UnityEngine.Random.Range(0, 2);
 				}
+
 			}
 
 			// Check input
@@ -250,6 +267,11 @@ public class HandheldGame : MonoBehaviour
 			bool fall = false;
 			if (jump)
 			{
+				if (powerupValues[0] == 1)
+				{
+					// Powerup!
+					GameController.PlayerGainLife();
+				}
 				if (OnCharacterJump != null)
 				{
 					OnCharacterJump();
@@ -296,16 +318,37 @@ public class HandheldGame : MonoBehaviour
 
 	private void DrawScreen()
 	{
-		NinjaJump.SetActive(character.CurrentState == HandheldCharacter.CharacterState.JUMPING);
-		NinjaStand.SetActive(character.CurrentState == HandheldCharacter.CharacterState.STANDING);
-		//NinjaFall.SetActive(character.CurrentState == HandheldCharacter.CharacterState.FALLING);
+		Battery.sprite = batterySprites[GameController.playerLives];
+
+//		if (character.IsJumping())
+//		{
+//			NinjaJump.SetActive(true);
+//			BatteryPickup.SetActive(powerupValues[0] == 1);
+//		}
+		NinjaJump.SetActive(character.IsJumping());
+		NinjaStand.SetActive(character.IsStanding());
+		//NinjaFall.SetActive(character.IsFalling());
+
+		BatteryPickup.SetActive((character.IsJumping()) && (powerupValues[0] == 1));
 
 		for (int i = 0; i < COLUMNS; i++)
 		{
 			Buildings[i].sprite = (platformValues[i] != 0) ? buildingSprite : pitSprite;
+			BatteryItems[i].SetActive((i > 0) && (powerupValues[i] != 0));
 		}
 
-		Battery.sprite = batterySprites[GameController.playerLives];
+		DrawScore();
+	}
+
+	private void DrawScore()
+	{
+		int currentScore = score;
+
+		for (int i = 0; i < SCORE_DIGITS; i++)
+		{
+			ScoreDigits[i].sprite = numberSprites[currentScore % 10];
+			currentScore /= 10;
+		}
 	}
 
 	private void StartHandheldGame()
@@ -323,6 +366,12 @@ public class HandheldGame : MonoBehaviour
 		buttonPressed = true;
 	}
 
+	private void AddPoints(int points = 1)
+	{
+		score += points;
+		DrawScore();
+	}
+
 	private void AssertObjects()
 	{
 		Debug.Assert(NinjaJump != null, "[HandheldGame] NinjaJump object missing!", this.gameObject);
@@ -335,7 +384,7 @@ public class HandheldGame : MonoBehaviour
 		Debug.Assert(Battery != null, "[HandheldGame] Battery object missing!", this.gameObject);
 		for (int i = 0; i < SCORE_DIGITS; i++)
 		{
-			Debug.Assert(Score[i] != null, "[HandheldGame] Score" + i + " object missing!", this.gameObject);
+			Debug.Assert(ScoreDigits[i] != null, "[HandheldGame] Score" + i + " object missing!", this.gameObject);
 		}
 		Debug.Assert(GameOver != null, "[HandheldGame] GameOver object missing!", this.gameObject);
 	}
