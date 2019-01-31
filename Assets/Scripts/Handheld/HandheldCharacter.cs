@@ -27,7 +27,6 @@ public class HandheldCharacter// : MonoBehaviour
 	}
 
 
-
 	/// <summary>
 	/// Sets the state.
 	/// </summary>
@@ -36,6 +35,35 @@ public class HandheldCharacter// : MonoBehaviour
 	{
 		CurrentState = newState;
 	}
+
+
+	/// <summary>
+	/// Determines whether the character is jumping.
+	/// </summary>
+	/// <returns><c>true</c> if the character is jumping; otherwise, <c>false</c>.</returns>
+	public bool IsJumping()
+	{
+		return CurrentState == CharacterState.JUMPING;
+	}
+
+	/// <summary>
+	/// Determines whether the character is standing.
+	/// </summary>
+	/// <returns><c>true</c> if the character is standing; otherwise, <c>false</c>.</returns>
+	public bool IsStanding()
+	{
+		return CurrentState == CharacterState.STANDING;
+	}
+
+	/// <summary>
+	/// Determines whether the character is falling.
+	/// </summary>
+	/// <returns><c>true</c> if the character is falling; otherwise, <c>false</c>.</returns>
+	public bool IsFalling()
+	{
+		return CurrentState == CharacterState.FALLING;
+	}
+
 
 	/// <summary>
 	/// Tries to jump.
