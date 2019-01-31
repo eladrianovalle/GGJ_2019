@@ -194,7 +194,7 @@ public class HandheldGame : MonoBehaviour
 				{
 					GameOver.SetActive(false);
 					Init();
-					CurrentGameState = HandheldGameState.PLAYING;
+					CurrentGameState = HandheldGameState.START;
 				}
 				else
 				{
