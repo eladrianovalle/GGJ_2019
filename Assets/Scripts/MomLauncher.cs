@@ -8,6 +8,8 @@ public class MomLauncher : MonoBehaviour {
 	public GameObject throwStart;
 	public GameObject[] throwableObjects;
 
+	private Dictionary<GameObject, Sprite> throwablePreviews;
+
 	SpriteRenderer sRenderer;
 	public Sprite[] momsprites;
 
@@ -19,6 +21,8 @@ public class MomLauncher : MonoBehaviour {
 	public Vector3[] momPositions;
 	float momMoveSpeed = 0.35f;
 
+	GameObject nextThrownObject;
+
 	float force = 1.5f;
 	float heightMult = 3.0f;
 	public float throwTorqueForce = 5.0f;
@@ -27,6 +31,8 @@ public class MomLauncher : MonoBehaviour {
 	public static System.Action OnDoorOpen;
 	public static System.Action OnDoorClosed;
 	public static System.Action OnMomThrow;
+//	public static System.Action<GameObject> OnMomChooseObject;
+	public static System.Action<Sprite> OnMomChooseObjectPreview;
 
 	void OnEnable()
 	{
@@ -49,6 +55,14 @@ public class MomLauncher : MonoBehaviour {
 //		InvokeRepeating ("ThrowObject", throwInterval, throwInterval);
 
 		MomLeaveRoom ();
+
+		throwablePreviews = new Dictionary<GameObject, Sprite>();
+		for (int i = 0; i < throwableObjects.Length; i++)
+		{
+			throwablePreviews.Add(throwableObjects[i], throwableObjects[i].GetComponent<ThrownObject>().PreviewSprite);
+		}
+
+		MomChooseObject();
 
 //		LeanTween.delayedCall (momDelay, ()=>{
 //			MomEnterRoom();
@@ -122,8 +136,9 @@ public class MomLauncher : MonoBehaviour {
 		sRenderer.sprite = momsprites [1];
 
 		LeanTween.delayedCall (0.5f, ()=>{
-			//		Debug.Log ("Mom throws a thing!!!");
-			GameObject objToThrow = Instantiate(throwableObjects [Random.Range(0, throwableObjects.Length)]);
+			// Debug.Log ("Mom throws a thing!!!");
+			GameObject objToThrow = Instantiate(nextThrownObject);
+			Debug.Log("Mom throws a " + objToThrow.name + "!!!", objToThrow);
 
 			objToThrow.transform.position = throwStart.transform.position;
 			Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
@@ -136,11 +151,30 @@ public class MomLauncher : MonoBehaviour {
 
 			sRenderer.sprite = momsprites [2];
 
+			MomChooseObject();
+
 			LeanTween.delayedCall (1f, ()=>{
 				MomLeaveRoom();
 			});
 		});
 
+	}
+
+	void MomChooseObject()
+	{
+		nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
+		Debug.Log("Mom chose next object: " + nextThrownObject.name);
+//		if (OnMomChooseObject != null)
+//		{
+//			OnMomChooseObject(nextThrownObject);
+//		}
+		if (OnMomChooseObjectPreview != null)
+		{
+//			Sprite nextPreview = null;
+//			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
+//			OnMomChooseObjectPreview(nextPreview);
+			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
+		}
 	}
 
 	private void AddTorque(Rigidbody rb)

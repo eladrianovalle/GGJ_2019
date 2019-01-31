@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ThrownObject : MonoBehaviour {
 
+	[SerializeField]
+	private Sprite previewSprite;
+	public Sprite PreviewSprite { get; private set; }
+
 	public enum GoodOrBad
 	{
 		GOOD,
