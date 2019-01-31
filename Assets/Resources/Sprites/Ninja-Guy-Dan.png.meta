@@ -24,6 +24,8 @@ TextureImporter:
     21300038: HandheldNum7
     21300040: HandheldNum8
     21300042: HandheldNum9
+    21300044: HandheldBatteryItem
+    21300046: HandheldBatteryPickup
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -125,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 50
+        y: 100
         width: 250
         height: 150
       alignment: 0
@@ -139,7 +141,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 150
+        y: 200
         width: 50
         height: 50
       alignment: 0
@@ -153,7 +155,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 150
+        y: 200
         width: 50
         height: 50
       alignment: 0
@@ -167,7 +169,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 100
+        y: 150
         width: 50
         height: 50
       alignment: 0
@@ -181,7 +183,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
+        y: 150
         width: 50
         height: 50
       alignment: 0
@@ -195,7 +197,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 50
+        y: 100
         width: 50
         height: 50
       alignment: 0
@@ -209,7 +211,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 50
+        y: 100
         width: 50
         height: 50
       alignment: 0
@@ -223,7 +225,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 0
@@ -237,7 +239,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 0
@@ -251,7 +253,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 100
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 0
@@ -265,7 +267,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 150
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 0
@@ -279,11 +281,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 200
-        y: 0
+        y: 50
         width: 50
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -293,7 +295,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 252
-        y: 34
+        y: 84
         width: 14
         height: 14
       alignment: 0
@@ -307,11 +309,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 269
-        y: 34
+        y: 84
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -321,11 +323,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 284
-        y: 34
+        y: 84
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,11 +337,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 252
-        y: 15
+        y: 65
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,11 +351,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 268
-        y: 15
+        y: 65
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -363,11 +365,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 284
-        y: 15
+        y: 65
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -377,11 +379,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 302
-        y: 34
+        y: 84
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -391,11 +393,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 318
-        y: 34
+        y: 84
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -405,11 +407,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 334
-        y: 34
+        y: 84
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -419,9 +421,37 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 302
-        y: 15
+        y: 65
         width: 14
         height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HandheldBatteryItem
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: HandheldBatteryPickup
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
