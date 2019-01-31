@@ -108,9 +108,8 @@ public class GameController : MonoBehaviour {
 		
 		// Used for making the right button go back up
 //		if (Input.GetKeyUp(KeyCode.RightArrow))
-		if (playerController.GetAxis(1) >= 0)
+		if (playerController.GetAxis(1) <= 0)
 		{
-			
 			if (OnRightButtonUp != null)
 			{
 				OnRightButtonUp();
@@ -119,7 +118,7 @@ public class GameController : MonoBehaviour {
 
 		// Used for making the left button go back up
 //		if (Input.GetKeyUp(KeyCode.LeftArrow))
-		if (playerController.GetAxis(1) <= 0)
+		if (playerController.GetAxis(1) >= 0)
 		{
 			// Left button animation to play
 			if (OnLeftButtonUp != null)
