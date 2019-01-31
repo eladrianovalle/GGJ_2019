@@ -136,8 +136,9 @@ public class MomLauncher : MonoBehaviour {
 		sRenderer.sprite = momsprites [1];
 
 		LeanTween.delayedCall (0.5f, ()=>{
-			//		Debug.Log ("Mom throws a thing!!!");
+			// Debug.Log ("Mom throws a thing!!!");
 			GameObject objToThrow = Instantiate(nextThrownObject);
+			Debug.Log("Mom throws a " + objToThrow.name + "!!!", objToThrow);
 
 			objToThrow.transform.position = throwStart.transform.position;
 			Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
@@ -162,6 +163,7 @@ public class MomLauncher : MonoBehaviour {
 	void MomChooseObject()
 	{
 		nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
+		Debug.Log("Mom chose next object: " + nextThrownObject.name);
 //		if (OnMomChooseObject != null)
 //		{
 //			OnMomChooseObject(nextThrownObject);
