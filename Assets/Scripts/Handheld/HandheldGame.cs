@@ -12,7 +12,7 @@ public class HandheldGame : MonoBehaviour
 	private float currFrameTime = 0f;
 	private int endFrames = 6;
 	private int currEndFrames = 0;
-	private int startFrames = 7;
+	private int startFrames = 6;
 	private int currStartFrames = 0;
 
 	[SerializeField]
@@ -154,7 +154,7 @@ public class HandheldGame : MonoBehaviour
 		{
 			currFrameTime = 0f;
 
-			int timer = Mathf.FloorToInt((startFrames - currStartFrames) * frameTime);
+			int timer = Mathf.FloorToInt(((1 + startFrames) - currStartFrames) * frameTime);
 			if (timer >= 0 && timer <= 3)
 			{
 				Timer.gameObject.SetActive(timer != 0);
