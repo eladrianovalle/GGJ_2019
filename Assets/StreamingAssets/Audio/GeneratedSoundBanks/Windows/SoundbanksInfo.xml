@@ -29,6 +29,7 @@
 				<Event Id="2381417022" Name="SFX_DoorSlam" ObjectPath="\Events\Default Work Unit\SFX\SFX_DoorSlam"/>
 				<Event Id="124309723" Name="SFX_Impact_Bad" ObjectPath="\Events\Default Work Unit\SFX\SFX_Impact_Bad"/>
 				<Event Id="343228125" Name="SFX_Impact_Good" ObjectPath="\Events\Default Work Unit\SFX\SFX_Impact_Good"/>
+				<Event Id="383111079" Name="SFX_LoudKnock" ObjectPath="\Events\Default Work Unit\SFX\SFX_LoudKnock"/>
 				<Event Id="648313621" Name="SFX_Player_Jump" ObjectPath="\Events\Default Work Unit\SFX\SFX_Player_Jump"/>
 				<Event Id="452547817" Name="Stop_All" ObjectPath="\Events\Default Work Unit\Stop_All" MaxAttenuation="0.000000"/>
 				<Event Id="929851918" Name="VO_MomDialogue" ObjectPath="\Events\Default Work Unit\VOX\VO_MomDialogue"/>
@@ -155,6 +156,10 @@
 				<File Id="959436902" Language="SFX">
 					<ShortName>SFX_DoorOpen.wav</ShortName>
 					<Path>SFX/SFX_DoorOpen_56D34C19.wem</Path>
+				</File>
+				<File Id="996642344" Language="SFX">
+					<ShortName>SFX_LoudKnock.wav</ShortName>
+					<Path>SFX/SFX_LoudKnock_56D34C19.wem</Path>
 				</File>
 				<File Id="1054114328" Language="SFX">
 					<ShortName>VO_Title.wav</ShortName>

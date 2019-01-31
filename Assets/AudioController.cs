@@ -7,10 +7,14 @@ public class AudioController : MonoBehaviour {
 	public AK.Wwise.Event GameMusic;
 	public AK.Wwise.Event YouWin;
 	public AK.Wwise.Event YouLose;
+
 	public AK.Wwise.Event ImpactGood;
 	public AK.Wwise.Event ImpactBad;
+
 	public AK.Wwise.Event MomDialogue;
 	public AK.Wwise.Event MomOutside;
+	public AK.Wwise.Event MomKnock;
+
 	public AK.Wwise.Event PlayerJump;
 	public AK.Wwise.Event MaternityHeave;
 
@@ -78,6 +82,11 @@ public class AudioController : MonoBehaviour {
 	void PlayMomOutside()
 	{
 		MomOutside.Post (gameObject);
+	}
+
+	void PlayMomKnock ()
+	{
+		MomKnock.Post (gameObject);
 	}
 
 

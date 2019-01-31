@@ -82,6 +82,10 @@ MonoBehaviour:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 01eb28dc2f5644c1db4a3ae5fc08c2b4,
       type: 2}
+  MomKnock:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4de52f97706c54236bc3a68a7749d4df,
+      type: 2}
   PlayerJump:
     valueGuid: 
     WwiseObjectReference: {fileID: 11400000, guid: 77ae23299cabf405aa5c19bf05ccc2f0,
