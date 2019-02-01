@@ -21,12 +21,18 @@ public class MomLauncher : MonoBehaviour {
 	public Vector3[] momPositions;
 	float momMoveSpeed = 0.35f;
 
+	int throwCount = 0;
 	GameObject nextThrownObject;
 
 	float force = 1.5f;
 	float heightMult = 3.0f;
 	public float throwTorqueForce = 5.0f;
 	public Vector2 minMaxThrowTorque;
+
+	private Vector3 lastThrowPosition = Vector3.positiveInfinity;
+	private int repeatThrowChance = 20;
+	private int throwVarianceChance = 60;
+	private float throwVariance = 1.5f;
 
 	public static System.Action OnDoorOpen;
 	public static System.Action OnDoorClosed;
@@ -144,13 +150,39 @@ public class MomLauncher : MonoBehaviour {
 			Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
 
 			AddTorque(objToThrowRbody);
-			Vector3 throwDirection = player.transform.position - objToThrow.transform.position;
+			Vector3 currThrowPosition = player.transform.position;
+			if ((throwCount > 0) && (repeatThrowChance > Random.Range(0, 100)))
+			{
+				// Check if repeat last throw
+				Debug.Log("Throw at last position!");
+				currThrowPosition = lastThrowPosition;
+			}
+			/* else */ if (throwVarianceChance > Random.Range(0, 100))
+			{
+				// Check if add variance
+				Debug.Log("Apply variance");
+				currThrowPosition.x += Random.Range(-throwVariance, throwVariance);
+				if (currThrowPosition.x < -HandheldPlayer.MOVE_LIMIT)
+				{
+					currThrowPosition.x = -HandheldPlayer.MOVE_LIMIT;
+				}
+				else if (currThrowPosition.x > HandheldPlayer.MOVE_LIMIT)
+				{
+					currThrowPosition.x = HandheldPlayer.MOVE_LIMIT;
+				}
+			}
+
+			//Vector3 throwDirection = player.transform.position - objToThrow.transform.position;
+			Debug.Log("Throw Position: " + currThrowPosition.ToString());
+			Vector3 throwDirection = currThrowPosition - objToThrow.transform.position;
 			Vector3 throwTarget = (Vector3.up * heightMult) + throwDirection;
 
 			objToThrowRbody.AddForce (throwTarget * force, ForceMode.Impulse);
 
 			sRenderer.sprite = momsprites [2];
 
+			throwCount++;
+			lastThrowPosition = currThrowPosition;
 			MomChooseObject();
 
 			LeanTween.delayedCall (1f, ()=>{

@@ -6,14 +6,15 @@ Event	ID	Name			Wwise Object Path	Notes
 	452547817	Stop_All			\Default Work Unit\Stop_All	
 	467755129	SFX_TvStatic			\Default Work Unit\SFX\General\SFX_TvStatic	
 	607923225	SFX_DoorOpen			\Default Work Unit\SFX\General\SFX_DoorOpen	
-	648313621	SFX_Player_Jump			\Default Work Unit\SFX\General\SFX_Player_Jump	
+	648313621	SFX_Player_Jump			\Default Work Unit\SFX\Player\SFX_Player_Jump	
 	929851918	VO_MomDialogue			\Default Work Unit\VOX\VO_MomDialogue	
-	1894448894	SFX_Player_Fall			\Default Work Unit\SFX\General\SFX_Player_Fall	
+	1894448894	SFX_Player_Fall			\Default Work Unit\SFX\Player\SFX_Player_Fall	
+	2104120556	SFX_HighScoreBeaten			\Default Work Unit\SFX\General\SFX_HighScoreBeaten	
 	2197157295	MX_Theme_HandheldGame			\Default Work Unit\MX\MX_Theme_HandheldGame	
 	2381417022	SFX_DoorSlam			\Default Work Unit\SFX\General\SFX_DoorSlam	
-	2467758386	SFX_JumpSuccess			\Default Work Unit\SFX\General\SFX_JumpSuccess	
+	2467758386	SFX_JumpSuccess			\Default Work Unit\SFX\Player\SFX_JumpSuccess	
 	2564758585	MX_GameState_YouLose			\Default Work Unit\MX\MX_GameState_YouLose	
-	2707907292	SFX_Battery			\Default Work Unit\SFX\General\SFX_Battery	
+	2707907292	SFX_Battery			\Default Work Unit\SFX\Impacts\SFX_Battery	
 	3454957193	VO_MomOutside			\Default Work Unit\VOX\VO_MomOutside	
 	3682433579	AMB_RoomTone			\Default Work Unit\SFX\Ambiences\AMB_RoomTone	
 	3869464583	VO_Title			\Default Work Unit\VOX\VO_Title	
@@ -45,6 +46,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	661494450	SFX_ImpactPlayer_Bad	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_ImpactPlayer_Bad_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Impacts\SFX_ImpactPlayer_Bad		220564
 	678359715	SFX_PowerUp_Battery	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_PowerUp_Battery_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Impacts\SFX_PowerUp_Battery		529264
 	682690420	SFX_TvStatic	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_TvStatic_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\General\SFX_TvStatic		141184
+	751261957	SFX_HighScoreBeaten	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\SFX_HighScoreBeaten_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX_HighScoreBeaten		1147300
 	774902356	VO_Mom_10	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_10_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VOX\VO_MomDialogue\VO_Mom_10		970264
 	810527845	VO_Mom_5	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_5_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VOX\VO_MomDialogue\VO_Mom_5		440064
 	844741346	VO_Mom_15	Y:\Documents\GGJ_AudioSessions\GGJ_2019_WwiseProject\.cache\Mac\SFX\VO_Mom_15_56D34C19.wem		\Actor-Mixer Hierarchy\Default Work Unit\VOX\VO_MomDialogue\VO_Mom_15		617464
