@@ -16,8 +16,8 @@ public class HighScoreController : MonoBehaviour
     public int currScore = 0;
     private string highScoreStr = "HighScore";
 
-    private string highScoreTemplateStr = "HIGH SCORE: ";
-    private string yourScoreTemplateStr = "YOUR SCORE: ";
+    private string highScoreTemplateStr = "HIGH SCORE ";
+    private string yourScoreTemplateStr = "YOUR SCORE ";
 
     private int highScore
     {
@@ -98,13 +98,13 @@ public class HighScoreController : MonoBehaviour
     private void SetHighScoreText(string text)
     {
         if (highScoreText != null)
-            highScoreText.text = highScoreTemplateStr + " <color=red>" + text + "</color>";
+            highScoreText.text = highScoreTemplateStr + "<color=red>" + text + "</color>";
     }
 
     private void SetCurrentScoreText(string text)
     {
         if (currScoreText != null)
-            currScoreText.text = yourScoreTemplateStr + " <color=blue>" + text + "</color>";
+            currScoreText.text = yourScoreTemplateStr + "<color=blue>" + text + "</color>";
     }
     
     private void OnEnable()
