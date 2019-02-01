@@ -48,6 +48,10 @@ public class HandheldGame : MonoBehaviour
 	/// The powerup pickup event.
 	/// </summary>
 	public static Action OnPowerupPickup;
+	/// <summary>
+	/// The score change event from old score to new score.
+	/// </summary>
+	public static Action<int, int> OnScoreChange;
 	#endregion
 
 	// GameObjects
@@ -379,7 +383,12 @@ public class HandheldGame : MonoBehaviour
 
 	private void AddPoints(int points = 1)
 	{
+		int oldScore = score;
 		score += points;
+		if (OnScoreChange != null)
+		{
+			OnScoreChange(oldScore, score);
+		}
 		DrawScore();
 	}
 
