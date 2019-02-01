@@ -7,7 +7,15 @@ public class NextObjectCallout : MonoBehaviour {
 	SpriteRenderer sRenderer;
 	Sprite currentSprite;
 
+	void OnEnable()
+	{
+		MomLauncher.OnMomChooseObjectPreview += ChangeSprite;
+	}
 
+	void OnDisable()
+	{
+		MomLauncher.OnMomChooseObjectPreview -= ChangeSprite;
+	}
 
 	void Awake () 
 	{
