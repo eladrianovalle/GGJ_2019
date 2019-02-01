@@ -122,12 +122,16 @@ public class HandheldGame : MonoBehaviour
 	{
 		UIController.OnStartGame += StartHandheldGame;
 		GameController.OnHandheldButtonPress += ButtonPress;
+		GameController.OnPlayerWinGame += SubmitScore;
+		GameController.OnPlayerLoseGame += SubmitScore;
 	}
 
 	void OnDisable()
 	{
 		UIController.OnStartGame -= StartHandheldGame;
 		GameController.OnHandheldButtonPress -= ButtonPress;
+		GameController.OnPlayerWinGame -= SubmitScore;
+		GameController.OnPlayerLoseGame -= SubmitScore;
 	}
 
 	public void Init()
@@ -433,6 +437,14 @@ public class HandheldGame : MonoBehaviour
 			HighScoreController.onAddToCurrentScore(points);
 		}
 		DrawScore();
+	}
+
+	private void SubmitScore()
+	{
+		if (HighScoreController.onSubmitScore != null)
+		{
+			HighScoreController.onSubmitScore(score);
+		}
 	}
 
 	private void AssertObjects()

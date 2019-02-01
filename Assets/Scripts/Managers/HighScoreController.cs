@@ -9,6 +9,7 @@ public class HighScoreController : MonoBehaviour
     public static Action<int> onAddToCurrentScore;
 	public static Action<int> onRemoveFromCurrentScore;
 	public static Action<int> onSetHighScore;
+	public static Action<int> onSubmitScore;
     
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI currScoreText;
@@ -55,6 +56,14 @@ public class HighScoreController : MonoBehaviour
         highScore = score;
         SetHighScoreText(highScore.ToString());
     }
+
+	private void SubmitScore(int score)
+	{
+		if (score > highScore)
+		{
+			SetHighScore(score);
+		}
+	}
     
     private void AddToCurrScore(int amount)
     {
@@ -103,6 +112,7 @@ public class HighScoreController : MonoBehaviour
         onAddToCurrentScore += AddToCurrScore;
         onRemoveFromCurrentScore += RemoveFromCurrScore;
         onSetHighScore += SetHighScore;
+		onSubmitScore += SubmitScore;
     }
 
     private void OnDisable()
@@ -110,6 +120,6 @@ public class HighScoreController : MonoBehaviour
         onAddToCurrentScore -= AddToCurrScore;
         onRemoveFromCurrentScore -= RemoveFromCurrScore;
         onSetHighScore -= SetHighScore;
-
+		onSubmitScore -= SubmitScore;
     }
 }

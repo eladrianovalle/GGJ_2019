@@ -200,6 +200,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSprite: {fileID: 0}
+--- !u!1001 &324962051
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 24.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 14.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 9.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4763407242037322, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 114082541778221342, guid: 0a55dc8c692034ee48c9ecd13c4735ae,
+        type: 2}
+      propertyPath: m_text
+      value: 'HIGH SCORE:  <color=red>210</color>'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114082541778221342, guid: 0a55dc8c692034ee48c9ecd13c4735ae,
+        type: 2}
+      propertyPath: m_inputSource
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114021489223259980, guid: 0a55dc8c692034ee48c9ecd13c4735ae,
+        type: 2}
+      propertyPath: m_text
+      value: 'YOUR SCORE:  <color=blue>0</color>'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114021489223259980, guid: 0a55dc8c692034ee48c9ecd13c4735ae,
+        type: 2}
+      propertyPath: m_inputSource
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0a55dc8c692034ee48c9ecd13c4735ae, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &496640278
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,6 +619,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 614718ca45379a540a83bb7cdefba459, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1172041326 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1111122567498204, guid: 614718ca45379a540a83bb7cdefba459,
+    type: 2}
+  m_PrefabInternal: {fileID: 1171615377}
+--- !u!95 &1172041330
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1172041326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5b82fa72628846e098b8a9fe5462149, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1242200305 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1416652642113826, guid: b7966113adc994051b6a593254b46e9e,
