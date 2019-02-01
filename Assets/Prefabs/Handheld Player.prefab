@@ -459,6 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4064954391017028}
   - component: {fileID: 212428343048088982}
+  - component: {fileID: 95662052712701974}
   m_Layer: 0
   m_Name: NinjaStand
   m_TagString: HandheldScreen
@@ -1173,6 +1174,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95662052712701974
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1869218516748150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79c10a6253986436d9f309ec3f40b348, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95681092568507970
 Animator:
   serializedVersion: 3
@@ -1203,9 +1221,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameTime: 0.5
   startingPlatformValues: 0100000001000000010000000100000001000000
+  JumpValue: 1
+  PowerupValue: 2
   NinjaJump: {fileID: 1561671695980954}
   NinjaStand: {fileID: 1869218516748150}
   NinjaFall: {fileID: 1371108484660750}
+  NinjaStandAnimator: {fileID: 95662052712701974}
   Buildings:
   - {fileID: 212849680243655848}
   - {fileID: 212798784293249298}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HandheldGame : MonoBehaviour
 {
-	// Settings
+	#region Game Settings
 	[SerializeField]
 	[Header("GameLoop Frame Time")]
 	[Tooltip("Essentially inner game \"speed\"")]
@@ -21,7 +21,18 @@ public class HandheldGame : MonoBehaviour
 	protected int[] startingPlatformValues 	= new int[COLUMNS]{ 1, 1, 1, 1, 1 };
 	protected int[] startingPowerupValues 	= new int[COLUMNS]{ 0, 0, 0, 0, 0 };
 
+	[SerializeField]
+	protected const int PLATFORM_LIMIT = 8;
+	//protected const int POWERUP_COOLDOWN = 4;
+	[SerializeField]
+	protected const int POWERUP_CHANCE = 10;	// Percent chance
+	#endregion
+
 	private bool started = false;
+
+	// Values
+	[SerializeField] private int JumpValue = 1;
+	[SerializeField] private int PowerupValue = 2;
 
 	#region Events
 	/// <summary>
@@ -54,11 +65,13 @@ public class HandheldGame : MonoBehaviour
 	public static Action<int, int> OnScoreChange;
 	#endregion
 
-	// GameObjects
+	#region GameObjects
 	[Header("Screen Objects")]
 	[SerializeField] private GameObject NinjaJump;
 	[SerializeField] private GameObject NinjaStand;
 	[SerializeField] private GameObject NinjaFall;
+
+	[SerializeField] private Animator NinjaStandAnimator;
 
 	[SerializeField] private SpriteRenderer[] Buildings = new SpriteRenderer[COLUMNS];
 
@@ -82,11 +95,14 @@ public class HandheldGame : MonoBehaviour
 	[SerializeField] private Sprite[] batterySprites = new Sprite[BATT_COUNT];
 
 	[SerializeField] private Sprite[] numberSprites = new Sprite[10];
+	#endregion
 
 	// Properties
 	protected HandheldCharacter character = new HandheldCharacter();
 	protected List<int> platformValues;
 	protected List<int> powerupValues;
+
+	protected int currPlatformSize = 5;
 
 	protected bool buttonPressed = false;
 
@@ -179,6 +195,7 @@ public class HandheldGame : MonoBehaviour
 				Timer.gameObject.SetActive(false);
 				Init();
 				CurrentGameState = HandheldGameState.PLAYING;
+				NinjaStandAnimator.SetBool("gameStart", true);
 				return;
 			}
 		}
@@ -247,7 +264,8 @@ public class HandheldGame : MonoBehaviour
 			// Update Ground and Items location
 			if (platformValues[0] == 0)
 			{
-				AddPoints(1);
+				// Successful jump land, add points
+				AddPoints(JumpValue);
 			}
 			for (int i = 0; i < COLUMNS; i++)
 			{
@@ -258,9 +276,25 @@ public class HandheldGame : MonoBehaviour
 				}
 				else
 				{
-					platformValues[i] = (platformValues[i - 1] == 0) ? 1 : UnityEngine.Random.Range(0, 2);
+					if (platformValues[i - 1] == 0)
+					{
+						// 1
+						platformValues[i] = 1;
+					}
+					else if (currPlatformSize > PLATFORM_LIMIT)
+					{
+						// 0
+						platformValues[i] = 0;
+					}
+					else
+					{
+						//random
+						platformValues[i] = UnityEngine.Random.Range(0, 2);
+					}
+					//platformValues[i] = (platformValues[i - 1] == 0) ? 1 : UnityEngine.Random.Range(0, 2);
+					currPlatformSize = (platformValues[i] == 0) ? 0 : currPlatformSize + 1;
 
-					powerupValues[i] = (powerupValues[i - 1] == 1) ? 0 : UnityEngine.Random.Range(0, 2);
+					powerupValues[i] = ((powerupValues[i - 1] == 0) && (POWERUP_CHANCE > UnityEngine.Random.Range(0, 100))) ? 1 : 0;
 				}
 
 			}
@@ -283,6 +317,7 @@ public class HandheldGame : MonoBehaviour
 				if (powerupValues[0] == 1)
 				{
 					// Powerup!
+					AddPoints(PowerupValue);
 					GameController.PlayerGainLife();
 					if (OnPowerupPickup != null)
 					{
@@ -340,6 +375,10 @@ public class HandheldGame : MonoBehaviour
 //		}
 		NinjaJump.SetActive(character.IsJumping());
 		NinjaStand.SetActive(character.IsStanding());
+		if (NinjaStand.activeSelf && CurrentGameState == HandheldGameState.PLAYING)
+		{
+			NinjaStandAnimator.SetBool("gameStart", character.IsStanding());
+		}
 		//NinjaFall.SetActive(character.IsFalling());
 
 		BatteryPickup.SetActive((powerupValues[0] == 1) && (character.IsJumping()));
@@ -388,6 +427,10 @@ public class HandheldGame : MonoBehaviour
 		if (OnScoreChange != null)
 		{
 			OnScoreChange(oldScore, score);
+		}
+		if (HighScoreController.onAddToCurrentScore != null)
+		{
+			HighScoreController.onAddToCurrentScore(points);
 		}
 		DrawScore();
 	}
