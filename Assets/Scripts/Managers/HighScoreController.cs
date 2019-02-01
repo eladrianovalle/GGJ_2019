@@ -6,9 +6,9 @@ using UnityEngine;
 public class HighScoreController : MonoBehaviour
 {
 
-    public Action<int> onAddToCurrentScore;
-    public Action<int> onRemoveFromCurrentScore;
-    public Action<int> onSetHighScore;
+    public static Action<int> onAddToCurrentScore;
+	public static Action<int> onRemoveFromCurrentScore;
+	public static Action<int> onSetHighScore;
     
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI currScoreText;
