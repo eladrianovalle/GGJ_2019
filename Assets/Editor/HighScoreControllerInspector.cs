@@ -12,19 +12,42 @@ public class HighScoreControllerInspector : Editor {
 
 		HighScoreController scoreController = (HighScoreController) target;
 		
-		if (GUILayout.Button("Add 10 to high score"))
+		GUILayout.Label("Your score");
+		
+		if (GUILayout.Button("Add 10 to curr score"))
 		{
-			scoreController.AddToHighScore(10);
+
+			if (scoreController.onAddToCurrentScore != null)
+				scoreController.onAddToCurrentScore(10);
 		}
 		
-		if (GUILayout.Button("Remove 10 from high score"))
+		if (GUILayout.Button("Remove 10 from curr score"))
 		{
-			scoreController.RemoveFromScore(10);
+			if (scoreController.onRemoveFromCurrentScore != null)
+				scoreController.onRemoveFromCurrentScore(10);
 		}
-
+		
+		if (GUILayout.Button("Reset curr Score"))
+		{
+			if (scoreController.onRemoveFromCurrentScore != null)
+				scoreController.onRemoveFromCurrentScore(99999999);
+		}
+		
+		GUILayout.Label("High score");
+		
+		if (GUILayout.Button("Set High Score"))
+		{
+			var currScore = scoreController.GetCurrScore();
+			if (scoreController.onSetHighScore != null)
+				scoreController.onSetHighScore(currScore);
+		}
+		
 		if (GUILayout.Button("Reset High Score"))
 		{
-			scoreController.ResetHighScore();
+			if (scoreController.onSetHighScore != null)
+				scoreController.onSetHighScore(0);
 		}
+		
+		
 	}
 }
