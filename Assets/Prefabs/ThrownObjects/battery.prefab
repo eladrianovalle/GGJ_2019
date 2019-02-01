@@ -158,7 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dd43d0be6fe4a478d7f29a9434fb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previewSprite: {fileID: 21300000, guid: 57ff4f12ff738f248b8d8c9aaf245569, type: 3}
   isGoodOrBad: 0
+  canAffect: 1
 --- !u!198 &198819769286416360
 ParticleSystem:
   m_ObjectHideFlags: 1

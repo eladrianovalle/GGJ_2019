@@ -307,7 +307,7 @@ public class HandheldGame : MonoBehaviour
 				}
 				// Lives/Game Over?
 				CurrentGameState = HandheldGameState.END;
-			//	GameController.PlayerLoseLife();
+				GameController.PlayerLoseLife();
 				GameOver.SetActive(true);
 				NinjaFall.SetActive(true);
 				if (OnGameOver != null)
