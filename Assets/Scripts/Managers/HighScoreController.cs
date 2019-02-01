@@ -1,16 +1,23 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class HighScoreController : MonoBehaviour
 {
 
-    public Action<int> onAddScore;
-    public Action<int> onRemoveScore;
-    public TextMeshProUGUI scoreText;
-    private string highScoreStr = "HighScore";
+    public Action<int> onAddToCurrentScore;
+    public Action<int> onRemoveFromCurrentScore;
+    public Action<int> onSetHighScore;
     
+    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI currScoreText;
+    public int currScore = 0;
+    private string highScoreStr = "HighScore";
+
+    private string highScoreTemplateStr = "HIGH SCORE: ";
+    private string yourScoreTemplateStr = "YOUR SCORE: ";
+
     private int highScore
     {
         get
@@ -26,6 +33,14 @@ public class HighScoreController : MonoBehaviour
     private void Awake()
     {
         SetHighScoreText(GetHighScore().ToString());
+        SetCurrentScoreText("0");
+    }
+    
+    // PUBLIC METHODS ------------------------------------------------------------------------------------------------
+    
+    public int GetCurrScore()
+    {
+        return currScore;
     }
     
     public int GetHighScore()
@@ -33,40 +48,31 @@ public class HighScoreController : MonoBehaviour
         return highScore;
     }
     
-    public void AddToHighScore(int amount)
+    // ----------------------------------------------------------------------------------------------------------------
+    
+    private void SetHighScore(int score)
     {
-        highScore += amount;
-        SetHighScoreText(highScore.ToString());
-    }
-
-    public void RemoveFromScore(int amount)
-    {
-        highScore -= amount;
-
-        if (highScore < 0)
-            highScore = 0;
-        
-        SetHighScoreText(highScore.ToString());
-    }
-
-    public void ResetHighScore()
-    {
-        highScore = 0;
+        highScore = score;
         SetHighScoreText(highScore.ToString());
     }
     
-    private void OnEnable()
+    private void AddToCurrScore(int amount)
     {
-        onAddScore += AddToHighScore;
-        onRemoveScore += RemoveFromScore;
+        currScore += amount;
+        SetCurrentScoreText(currScore.ToString());
     }
 
-    private void OnDisable()
+    private void RemoveFromCurrScore(int amount)
     {
-        onAddScore -= AddToHighScore;
-        onRemoveScore -= RemoveFromScore;
+        currScore -= amount;
+
+        if (currScore < 0)
+            currScore = 0;
+        
+        SetCurrentScoreText(currScore.ToString());
     }
 
+    
     private int PGetHighScore()
     {
         if (!PlayerPrefs.HasKey(highScoreStr))
@@ -82,9 +88,28 @@ public class HighScoreController : MonoBehaviour
 
     private void SetHighScoreText(string text)
     {
-        if (scoreText != null)
-        {
-            scoreText.text = text;
-        }
+        if (highScoreText != null)
+            highScoreText.text = highScoreTemplateStr + " <color=red>" + text + "</color>";
+    }
+
+    private void SetCurrentScoreText(string text)
+    {
+        if (currScoreText != null)
+            currScoreText.text = yourScoreTemplateStr + " <color=blue>" + text + "</color>";
+    }
+    
+    private void OnEnable()
+    {
+        onAddToCurrentScore += AddToCurrScore;
+        onRemoveFromCurrentScore += RemoveFromCurrScore;
+        onSetHighScore += SetHighScore;
+    }
+
+    private void OnDisable()
+    {
+        onAddToCurrentScore -= AddToCurrScore;
+        onRemoveFromCurrentScore -= RemoveFromCurrScore;
+        onSetHighScore -= SetHighScore;
+
     }
 }
