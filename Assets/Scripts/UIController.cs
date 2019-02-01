@@ -134,7 +134,7 @@ public class UIController : MonoBehaviour {
 		buttonText.text = "RETRY";
 		LeanTween.alphaCanvas (retryPanel, 1f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
 			retryButton.interactable = true;
-			GameController.gameReadyToRestart = false;
+			GameController.gameReadyToRestart = true;
 
 			retryButton.onClick.RemoveAllListeners();
 			Debug.Log("Let's add the RestartGame func, son!!!!");

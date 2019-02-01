@@ -70,6 +70,7 @@ public class GameController : MonoBehaviour {
 			{
 				if (OnPressButtonToStart != null)
 				{
+					gameReadyToRestart = false;
 					OnPressButtonToStart ();
 				}
 			}
@@ -81,16 +82,6 @@ public class GameController : MonoBehaviour {
 		}
 
 		inputX = 0f;
-//		if (Input.GetKey (KeyCode.LeftArrow))
-//		if (playerController.GetButton(1) < 0)
-//		{
-//			inputX -= 1;
-//		}
-////		if (Input.GetKey (KeyCode.RightArrow))
-//		if (playerController.GetButton(1) > 0)
-//		{
-//			inputX += 1;
-//		}
 		inputX = playerController.GetAxis(1);
 
 		if (inputX != 0)
