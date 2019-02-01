@@ -444,6 +444,8 @@ MonoBehaviour:
   - {fileID: 114057065821650612}
   - {fileID: 114639742739971164}
   randomUsernames: {fileID: 11400000, guid: f0c83fe37618e470cb274e3d937f54d2, type: 2}
+  topUserNamesTextContainer: {fileID: 1510487096190372}
+  hideTopScores: 1
 --- !u!114 &114082541778221342
 MonoBehaviour:
   m_ObjectHideFlags: 1
