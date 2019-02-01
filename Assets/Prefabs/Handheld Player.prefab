@@ -1221,6 +1221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frameTime: 0.5
   startingPlatformValues: 0100000001000000010000000100000001000000
+  JumpValue: 1
+  PowerupValue: 2
   NinjaJump: {fileID: 1561671695980954}
   NinjaStand: {fileID: 1869218516748150}
   NinjaFall: {fileID: 1371108484660750}
