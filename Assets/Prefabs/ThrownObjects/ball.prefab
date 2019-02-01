@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dd43d0be6fe4a478d7f29a9434fb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previewSprite: {fileID: 21300000, guid: 02a2bb047304cc0418a17a3425075b38, type: 3}
   isGoodOrBad: 1
+  canAffect: 1
 --- !u!135 &135679208125544500
 SphereCollider:
   m_ObjectHideFlags: 1

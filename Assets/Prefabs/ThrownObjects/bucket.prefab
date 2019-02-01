@@ -38,9 +38,9 @@ GameObject:
   - component: {fileID: 4775085321637462}
   - component: {fileID: 33542237304229816}
   - component: {fileID: 23113581546165270}
-  - component: {fileID: 114051101872476416}
-  - component: {fileID: 54005504803120296}
   - component: {fileID: 64915018482125152}
+  - component: {fileID: 54005504803120296}
+  - component: {fileID: 114051101872476416}
   - component: {fileID: 199575286643300184}
   - component: {fileID: 198860875963727448}
   m_Layer: 0
@@ -158,7 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82dd43d0be6fe4a478d7f29a9434fb9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previewSprite: {fileID: 21300000, guid: 5ea55114bd959174db6672d38f89932b, type: 3}
   isGoodOrBad: 1
+  canAffect: 1
 --- !u!198 &198195451499272764
 ParticleSystem:
   m_ObjectHideFlags: 1
