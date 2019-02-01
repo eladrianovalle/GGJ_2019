@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour {
 	bool hasTriggered = false;
 
 	bool panelShowing = false;
+	bool buttonPressToRestart = false;
 
 	public CanvasGroup retryPanel;
 	public Button retryButton;
@@ -26,12 +27,15 @@ public class UIController : MonoBehaviour {
 	{
 		GameController.OnPlayerWinGame 		+= ShowWinText;
 		GameController.OnPlayerLoseGame 	+= ShowLoseText;
+		GameController.OnPressButtonToStart += RestartButtonPressed;
 	}
 
 	void OnDisable()
 	{
 		GameController.OnPlayerWinGame 		-= ShowWinText;
 		GameController.OnPlayerLoseGame		-= ShowLoseText;
+		GameController.OnPressButtonToStart -= RestartButtonPressed;
+
 	}
 
 	void Start()
@@ -51,8 +55,10 @@ public class UIController : MonoBehaviour {
 		{
 			return;
 		}
-		if (Input.GetKey (KeyCode.Space))
+		if (buttonPressToRestart)
 		{
+			buttonPressToRestart = false;
+
 			if (buttonText.text == "START")
 			{
 				HideRetryPanel();
@@ -62,6 +68,11 @@ public class UIController : MonoBehaviour {
 				RestartGame();
 			}
 		}
+	}
+
+	public void RestartButtonPressed()
+	{
+		buttonPressToRestart = true;
 	}
 
 	void SetupButtons()
@@ -110,6 +121,7 @@ public class UIController : MonoBehaviour {
 
 	void HideRetryPanel()
 	{
+		GameController.gameReadyToRestart = false;
 		panelShowing = false;
 		LeanTween.alphaCanvas (retryPanel, 0f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
 			retryButton.interactable = false;
@@ -139,5 +151,4 @@ public class UIController : MonoBehaviour {
 		Scene thisScene = SceneManager.GetActiveScene ();
 		SceneManager.LoadScene (thisScene.buildIndex);
 	}
-
 }

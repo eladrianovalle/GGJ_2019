@@ -21,7 +21,7 @@ MonoBehaviour:
   - PhysicalPath: Master-Mixer Hierarchy/Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: c7f150e37a7c7b4ea104c430c07484c0
-    m_lastTime: -8586529932824775808
+    m_lastTime: -8586526338264775808
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks/Default Work Unit.wwu
@@ -42,7 +42,7 @@ MonoBehaviour:
   - PhysicalPath: Events/Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 4546677f5663af4fa2548342762f53d7
-    m_lastTime: -8586526386804775808
+    m_lastTime: -8586526342344775808
     List:
     - name: AMB_RoomTone
       guid: 2b878d5bb3945e4fba35a4f91cfab2fd
@@ -52,9 +52,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: Ambiences
+        ObjectType: 4
       - ElementName: AMB_RoomTone
         ObjectType: 3
-      Path: Default Work Unit/SFX/AMB_RoomTone
+      Path: Default Work Unit/SFX/Ambiences/AMB_RoomTone
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -100,6 +102,22 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
+    - name: SFX_Battery
+      guid: be9e940871c15f49b417964ce30c4f6d
+      id: 2707907292
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
+      - ElementName: SFX_Battery
+        ObjectType: 3
+      Path: Default Work Unit/SFX/General/SFX_Battery
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: SFX_DoorOpen
       guid: c21c25612b64f346938c97cae8e8027e
       id: 607923225
@@ -108,9 +126,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
       - ElementName: SFX_DoorOpen
         ObjectType: 3
-      Path: Default Work Unit/SFX/SFX_DoorOpen
+      Path: Default Work Unit/SFX/General/SFX_DoorOpen
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -122,9 +142,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
       - ElementName: SFX_DoorSlam
         ObjectType: 3
-      Path: Default Work Unit/SFX/SFX_DoorSlam
+      Path: Default Work Unit/SFX/General/SFX_DoorSlam
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -136,9 +158,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: Impacts
+        ObjectType: 4
       - ElementName: SFX_Impact_Bad
         ObjectType: 3
-      Path: Default Work Unit/SFX/SFX_Impact_Bad
+      Path: Default Work Unit/SFX/Impacts/SFX_Impact_Bad
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -150,9 +174,27 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: Impacts
+        ObjectType: 4
       - ElementName: SFX_Impact_Good
         ObjectType: 3
-      Path: Default Work Unit/SFX/SFX_Impact_Good
+      Path: Default Work Unit/SFX/Impacts/SFX_Impact_Good
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: SFX_JumpSuccess
+      guid: 6d32f8db57b69e4e860e9c3095b3762b
+      id: 2467758386
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
+      - ElementName: SFX_JumpSuccess
+        ObjectType: 3
+      Path: Default Work Unit/SFX/General/SFX_JumpSuccess
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -164,9 +206,27 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
       - ElementName: SFX_LoudKnock
         ObjectType: 3
-      Path: Default Work Unit/SFX/SFX_LoudKnock
+      Path: Default Work Unit/SFX/General/SFX_LoudKnock
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - name: SFX_Player_Fall
+      guid: 048fa4370647e9498529dc401bc9850a
+      id: 1894448894
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: SFX
+        ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
+      - ElementName: SFX_Player_Fall
+        ObjectType: 3
+      Path: Default Work Unit/SFX/General/SFX_Player_Fall
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -178,9 +238,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
       - ElementName: SFX_Player_Jump
         ObjectType: 3
-      Path: Default Work Unit/SFX/SFX_Player_Jump
+      Path: Default Work Unit/SFX/General/SFX_Player_Jump
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0
@@ -192,9 +254,11 @@ MonoBehaviour:
         ObjectType: 12
       - ElementName: SFX
         ObjectType: 4
+      - ElementName: General
+        ObjectType: 4
       - ElementName: SFX_TvStatic
         ObjectType: 3
-      Path: Default Work Unit/SFX/SFX_TvStatic
+      Path: Default Work Unit/SFX/General/SFX_TvStatic
       maxAttenuation: 0
       maxDuration: 0
       minDuration: 0

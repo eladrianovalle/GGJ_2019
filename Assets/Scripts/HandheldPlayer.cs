@@ -9,7 +9,7 @@ public class HandheldPlayer : MonoBehaviour {
 	private Vector4 defaultBrightnessVector = Vector4.one;
 	Rigidbody rBody;
 	public float moveSpeed = 2.0f;
-	float moveLimit = 3.0f;
+	public const float MOVE_LIMIT = 3.0f;
 	public GameObject handheldWrapper;
 
 	void OnEnable()
@@ -56,9 +56,9 @@ public class HandheldPlayer : MonoBehaviour {
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 9, -3);
 
 		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
-		if (movePosition.x <= -moveLimit)
+		if (movePosition.x <= -MOVE_LIMIT)
 		{
-			movePosition.x = -moveLimit;
+			movePosition.x = -MOVE_LIMIT;
 		}
 		rBody.MovePosition (movePosition);
 	}
@@ -72,9 +72,9 @@ public class HandheldPlayer : MonoBehaviour {
 		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -9, 3);
 
 		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
-		if (movePosition.x >= moveLimit)
+		if (movePosition.x >= MOVE_LIMIT)
 		{
-			movePosition.x = moveLimit;
+			movePosition.x = MOVE_LIMIT;
 		}
 
 		rBody.MovePosition (movePosition);
