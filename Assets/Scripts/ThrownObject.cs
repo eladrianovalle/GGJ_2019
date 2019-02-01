@@ -6,7 +6,11 @@ public class ThrownObject : MonoBehaviour {
 
 	[SerializeField]
 	private Sprite previewSprite;
-	public Sprite PreviewSprite { get; private set; }
+	public Sprite PreviewSprite 
+	{ 
+		get { return previewSprite; } 
+		set { previewSprite = value; } 
+	}
 
 	public enum GoodOrBad
 	{

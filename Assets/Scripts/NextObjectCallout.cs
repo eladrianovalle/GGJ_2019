@@ -5,7 +5,7 @@ using UnityEngine;
 public class NextObjectCallout : MonoBehaviour {
 
 	SpriteRenderer sRenderer;
-	Sprite currentSprite;
+	public Sprite currentSprite;
 
 	void OnEnable()
 	{
@@ -29,6 +29,7 @@ public class NextObjectCallout : MonoBehaviour {
 
 	public void ChangeSprite(Sprite sprite)
 	{
+		Debug.Log ("I'm calling you, " + sprite.name + "!!!");
 		currentSprite = sprite;
 		sRenderer.sprite = currentSprite;
 	}

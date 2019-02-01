@@ -202,10 +202,10 @@ public class MomLauncher : MonoBehaviour {
 //		}
 		if (OnMomChooseObjectPreview != null)
 		{
-//			Sprite nextPreview = null;
-//			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
-//			OnMomChooseObjectPreview(nextPreview);
-			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
+			Sprite nextPreview = null;
+			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
+			OnMomChooseObjectPreview(nextPreview);
+//			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
 		}
 	}
 
