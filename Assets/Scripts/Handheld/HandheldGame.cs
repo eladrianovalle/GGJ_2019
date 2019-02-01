@@ -428,6 +428,10 @@ public class HandheldGame : MonoBehaviour
 		{
 			OnScoreChange(oldScore, score);
 		}
+		if (HighScoreController.onAddToCurrentScore != null)
+		{
+			HighScoreController.onAddToCurrentScore(points);
+		}
 		DrawScore();
 	}
 
