@@ -157,7 +157,7 @@ public class MomLauncher : MonoBehaviour {
 				Debug.Log("Throw at last position!");
 				currThrowPosition = lastThrowPosition;
 			}
-			/* else */ if (throwVarianceChance > Random.Range(0, 100))
+			else if (throwVarianceChance > Random.Range(0, 100))
 			{
 				// Check if add variance
 				Debug.Log("Apply variance");
