@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandheldPlayer : MonoBehaviour {
 	public Animator leftBtnAnimator, centerBtnAnimator, rightBtnAnimator;
 	public Material leftBtnMat, centerBtnMat, rightBtnMat;
+	public float rotationSpeed = 5.0f;
 	public Vector4 brightnessVector;
 	private Vector4 defaultBrightnessVector = Vector4.one;
 	Rigidbody rBody;
@@ -44,7 +45,7 @@ public class HandheldPlayer : MonoBehaviour {
 
 	void Update()
 	{
-		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, Time.deltaTime * 5f);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, Time.deltaTime * rotationSpeed);
 	}
 
 	void MoveLeft(bool isMovingLeft)
@@ -53,7 +54,8 @@ public class HandheldPlayer : MonoBehaviour {
 		HighlightButtonColor(leftBtnMat);
 
 		Debug.Log ("Move Left");
-		handheldWrapper.transform.localRotation = Quaternion.Euler (0, 9, -3);
+		var targetRot = Quaternion.Euler (0, 9, -3);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, Time.deltaTime * rotationSpeed);
 
 		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
 		if (movePosition.x <= -MOVE_LIMIT)
@@ -69,7 +71,9 @@ public class HandheldPlayer : MonoBehaviour {
 		HighlightButtonColor(rightBtnMat);
 
 		Debug.Log ("Move Right");
-		handheldWrapper.transform.localRotation = Quaternion.Euler (0, -9, 3);
+		var targetRot = Quaternion.Euler (0, -9, 3);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, Time.deltaTime * rotationSpeed);
+		//handheldWrapper.transform.localRotation = Quaternion.Euler (0, -9, 3);
 
 		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
 		if (movePosition.x >= MOVE_LIMIT)

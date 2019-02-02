@@ -1282,6 +1282,7 @@ MonoBehaviour:
   leftBtnMat: {fileID: 2100000, guid: 8856ea54916e1dc46871b3e2e31ed894, type: 2}
   centerBtnMat: {fileID: 2100000, guid: 71b932f0209667841be2bb9b1099ef16, type: 2}
   rightBtnMat: {fileID: 2100000, guid: cc557f5af870296449a4c3ee55e0e14e, type: 2}
+  rotationSpeed: 7
   brightnessVector: {x: 2, y: 2, z: 2, w: 1}
   moveSpeed: 8
   handheldWrapper: {fileID: 1973569058358260}
