@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1558830941693308
 GameObject:
   m_ObjectHideFlags: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1269984044338824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0cedd401cbb74deea083b4853e46926, type: 3}
   m_Name: 
@@ -446,6 +446,7 @@ MonoBehaviour:
   randomUsernames: {fileID: 11400000, guid: f0c83fe37618e470cb274e3d937f54d2, type: 2}
   topUserNamesTextContainer: {fileID: 1510487096190372}
   hideTopScores: 1
+  numHighScorePlayers: 0
 --- !u!114 &114082541778221342
 MonoBehaviour:
   m_ObjectHideFlags: 1

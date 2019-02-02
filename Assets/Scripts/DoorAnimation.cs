@@ -34,6 +34,8 @@ public class DoorAnimation : MonoBehaviour {
 	{
 		anim.Play("DoorOpen");
 		doorOpenSound.Post(gameObject);
+		//print ("Door open");
+
 		//LeanTween.rotate (door, openRot, doorMoveSpeed).setEase(LeanTweenType.easeShake);
 //		LeanTween.rotateLocal (door, openRot, 1f).setEase(LeanTweenType.easeShake);
 //		door.transform.localRotation = Quaternion.Slerp (door.transform.localRotation, Quaternion.Euler(openRot), Time.deltaTime * 5f);
