@@ -11,6 +11,8 @@ public class HandheldPlayer : MonoBehaviour {
 	Rigidbody rBody;
 	public float moveSpeed = 2.0f;
 	public const float MOVE_LIMIT = 3.0f;
+	public float maxYRot = 7f;
+	public float maxZRot = 4f;
 	public GameObject handheldWrapper;
 
 	void OnEnable()
@@ -45,7 +47,7 @@ public class HandheldPlayer : MonoBehaviour {
 
 	void Update()
 	{
-		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, Time.deltaTime * rotationSpeed);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, Time.unscaledDeltaTime * rotationSpeed);
 	}
 
 	void MoveLeft(bool isMovingLeft)
@@ -54,10 +56,10 @@ public class HandheldPlayer : MonoBehaviour {
 		HighlightButtonColor(leftBtnMat);
 
 		Debug.Log ("Move Left");
-		var targetRot = Quaternion.Euler (0, 9, -3);
-		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, Time.deltaTime * rotationSpeed);
+		var targetRot = Quaternion.Euler (0, maxYRot, -maxZRot);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, Time.unscaledDeltaTime * rotationSpeed);
 
-		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * Time.unscaledDeltaTime;
 		if (movePosition.x <= -MOVE_LIMIT)
 		{
 			movePosition.x = -MOVE_LIMIT;
@@ -71,16 +73,14 @@ public class HandheldPlayer : MonoBehaviour {
 		HighlightButtonColor(rightBtnMat);
 
 		Debug.Log ("Move Right");
-		var targetRot = Quaternion.Euler (0, -9, 3);
+		var targetRot = Quaternion.Euler (0, -maxYRot, maxZRot);
 		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, Time.deltaTime * rotationSpeed);
-		//handheldWrapper.transform.localRotation = Quaternion.Euler (0, -9, 3);
 
-		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * Time.unscaledDeltaTime;
 		if (movePosition.x >= MOVE_LIMIT)
 		{
 			movePosition.x = MOVE_LIMIT;
 		}
-
 		rBody.MovePosition (movePosition);
 	}
 

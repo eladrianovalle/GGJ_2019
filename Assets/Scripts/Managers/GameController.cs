@@ -6,6 +6,9 @@ using Rewired;
 
 public class GameController : MonoBehaviour {
 
+	public static bool isInvulnerable = false;
+	public bool IS_INVULNERABLE = false;
+
 	private Player playerController;
 	private int JUMP = 1;
 
@@ -46,6 +49,8 @@ public class GameController : MonoBehaviour {
 	void Awake()
 	{
 		playerController = ReInput.players.GetPlayer (0);
+
+		isInvulnerable = IS_INVULNERABLE;
 	}
 
 	void Start () 
@@ -174,6 +179,11 @@ public class GameController : MonoBehaviour {
 
 	public static void PlayerLoseLife()
 	{
+		if (isInvulnerable)
+		{
+			return;
+		}
+
 		if (playerLives > 0)
 		{
 			playerLives--;

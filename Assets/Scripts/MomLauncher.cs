@@ -34,6 +34,8 @@ public class MomLauncher : MonoBehaviour {
 	private int throwVarianceChance = 60;
 	private float throwVariance = 1.5f;
 
+	public float returnTimescaleSpeed = 0.9f;
+
 	public static System.Action OnDoorOpen;
 	public static System.Action OnDoorClosed;
 	public static System.Action OnMomThrow;
@@ -103,6 +105,16 @@ public class MomLauncher : MonoBehaviour {
 					timerRunning = true;
 				});
 			}
+		}
+
+		if (Time.timeScale < 1f)
+		{
+			Time.timeScale += Time.unscaledDeltaTime * returnTimescaleSpeed;
+//			Time.timeScale = Mathf.Lerp(Time.timeScale, 1.0f, Time.unscaledDeltaTime * returnTimescaleSpeed);
+		}
+		else if (Time.timeScale > 1f)
+		{
+			Time.timeScale = 1f;
 		}
 	}
 
@@ -180,6 +192,9 @@ public class MomLauncher : MonoBehaviour {
 			objToThrowRbody.AddForce (throwTarget * force, ForceMode.Impulse);
 
 			sRenderer.sprite = momsprites [2];
+			LeanTween.delayedCall(0.03f, ()=>{
+				Time.timeScale = 0f;
+			});
 
 			throwCount++;
 			lastThrowPosition = currThrowPosition;
