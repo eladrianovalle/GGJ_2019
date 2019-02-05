@@ -49,7 +49,6 @@ public class AudioController : MonoBehaviour {
 		GameController.OnPlayerWinGame -= PlayYouWin;
 		HandheldGame.OnCharacterJump -= PlayJumpSound;
 		HandheldGame.OnGameStart -= PlayGameMusic;
-
 	}
 
 
@@ -58,6 +57,7 @@ public class AudioController : MonoBehaviour {
 	//.............Music.......................
 	void PlayGameMusic()
 	{
+//		AudioEventManager.PostEvent ();
 		GameMusic.Post (gameObject);
 	}
 
