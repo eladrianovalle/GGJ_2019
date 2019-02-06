@@ -18,6 +18,7 @@ public class AllScoreController : MonoBehaviour
     [SerializeField]
     private int numHighScorePlayers;
     private string numHighScorePlayersStr = "NumHighScorePlayers";
+
     private void Start()
     {
         // Check how many high score text entries we have when making a high score player array
@@ -61,7 +62,10 @@ public class AllScoreController : MonoBehaviour
     private string PopRandomUsername()
     {
         int index = Random.Range(0, usernameList.Count);
-        string username = usernameList[index];
+		// username pluse a random 2 digit number
+		// or 
+		// check length of usernam and then make up the diff from 12 with numbers
+		string username = usernameList[index];
         usernameList.RemoveAt(index);
 
         return username;
