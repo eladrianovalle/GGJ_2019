@@ -19,6 +19,10 @@ public class HighScoreController : MonoBehaviour
     private string highScoreTemplateStr = "HIGH SCORE ";
     private string yourScoreTemplateStr = "YOUR SCORE ";
 
+	public bool addInlineStyling = false;
+	public string highScoreColor;
+	public string yourScoreColor;
+
     private int highScore
     {
         get
@@ -97,14 +101,25 @@ public class HighScoreController : MonoBehaviour
 
     private void SetHighScoreText(string text)
     {
-        if (highScoreText != null)
-            highScoreText.text = highScoreTemplateStr + "<color=red>" + text + "</color>";
+		if (highScoreText != null)
+		{
+			if (addInlineStyling)
+				highScoreText.text = highScoreTemplateStr + "<color=" + highScoreColor + ">" + text + "</color>";
+			else 
+				highScoreText.text = highScoreTemplateStr + text;
+			
+		}
     }
 
     private void SetCurrentScoreText(string text)
     {
-        if (currScoreText != null)
-            currScoreText.text = yourScoreTemplateStr + "<color=blue>" + text + "</color>";
+		if (currScoreText != null)
+		{
+			if (addInlineStyling)				
+				currScoreText.text = yourScoreTemplateStr + "<color=" + yourScoreColor + ">" + text + "</color>";
+			else
+				currScoreText.text = yourScoreTemplateStr + text;
+		}
     }
     
     private void OnEnable()
