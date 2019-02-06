@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1375886548520692}
+  m_IsPrefabParent: 1
+--- !u!1 &1375886548520692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4410779230119656}
+  - component: {fileID: 114728979882486698}
+  - component: {fileID: 114522956614881288}
+  - component: {fileID: 114071558680598042}
+  m_Layer: 0
+  m_Name: WwiseAudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4410779230119656
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375886548520692}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114071558680598042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375886548520692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8db8af70d1047718a00d24d9c188f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameMusic:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 1e67817a1d16b4e73bd00b8514cc4aba,
+      type: 2}
+  YouWin:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 03600737b360a482e880bbbbb4f01f24,
+      type: 2}
+  YouLose:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 76acf3f9fcb03468b9eb15d5fea55fc2,
+      type: 2}
+  ImpactGood:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 858354dde66524655a25610303356201,
+      type: 2}
+  ImpactBad:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0481a1b824e5e466ab13557bd1a4df07,
+      type: 2}
+  Battery:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 9e10fd364f47945dfbd49e6199fb1a22,
+      type: 2}
+  PlayerJump:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 77ae23299cabf405aa5c19bf05ccc2f0,
+      type: 2}
+  PlayerFall:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: a8ccc64afc2754e8b86335063ed77f67,
+      type: 2}
+  JumpSuccess:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: ec075375c4e584f34a9d721ab7c79f54,
+      type: 2}
+  TvStatic:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: ba0b07267888b4d29a3583d357278657,
+      type: 2}
+  MomKnock:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 4de52f97706c54236bc3a68a7749d4df,
+      type: 2}
+  NewHighScore:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: aa41ff183c6bd4ce4af8088f96398bba,
+      type: 2}
+  RoomAmbience:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: a88126a47b2be415b95eed927d2077f6,
+      type: 2}
+  MomDialogue:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 349773c8602ce46c0a828973c00ed1b7,
+      type: 2}
+  MomOutside:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: 01eb28dc2f5644c1db4a3ae5fc08c2b4,
+      type: 2}
+  MaternityHeave:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: e5e9ec5fe55b1482795954fc9803d3fe,
+      type: 2}
+--- !u!114 &114522956614881288
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375886548520692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6eb4836947346248de408239af97c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
+--- !u!114 &114728979882486698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375886548520692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299a02b0bde4540b5871b224fb75ddfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: ae8d9d44
+  useOtherObject: 0
+  data:
+    valueGuid: 
+    WwiseObjectReference: {fileID: 11400000, guid: ccc75c63c84d04af4a41525a45c92dcb,
+      type: 2}
+  decodeBank: 0
+  loadAsynchronous: 0
+  saveDecodedBank: 0
+  unloadTriggerList: 958ca0ea
+  valueGuid: 

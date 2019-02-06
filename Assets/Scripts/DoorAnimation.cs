@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DoorAnimation : MonoBehaviour {
 
-	public AK.Wwise.Event doorOpenSound;
-	public AK.Wwise.Event doorCloseSound;
+//	public AK.Wwise.Event doorOpenSound;
+//	public AK.Wwise.Event doorCloseSound;
 
 	public GameObject door;
 	Vector3 openRot 	= new Vector3 (0, 9.5f, 0);
@@ -33,7 +33,7 @@ public class DoorAnimation : MonoBehaviour {
 	void OpenDoor () 
 	{
 		anim.Play("DoorOpen");
-		doorOpenSound.Post(gameObject);
+		//doorOpenSound.Post(gameObject);
 		//print ("Door open");
 
 		//LeanTween.rotate (door, openRot, doorMoveSpeed).setEase(LeanTweenType.easeShake);
@@ -44,7 +44,7 @@ public class DoorAnimation : MonoBehaviour {
 	void CloseDoor ()
 	{
 		anim.Play("DoorClose");
-		doorCloseSound.Post(gameObject);
+		//doorCloseSound.Post(gameObject);
 		//LeanTween.rotate (door, closedRot, doorMoveSpeed).setEase(LeanTweenType.easeShake);
 //		LeanTween.rotateLocal (door, closedRot, 1f).setEase(LeanTweenType.easeShake);
 //		door.transform.localRotation = Quaternion.Slerp (door.transform.localRotation, Quaternion.Euler(closedRot), Time.deltaTime * 5f);
