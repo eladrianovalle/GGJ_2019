@@ -6,9 +6,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
-	public AK.Wwise.Event titleOpeningSound;
-	public AK.Wwise.Event winSound;
-	public AK.Wwise.Event loseSound;
+//	public AK.Wwise.Event titleOpeningSound;
+//	public AK.Wwise.Event winSound;
+//	public AK.Wwise.Event loseSound;
 	public TextMeshProUGUI text;
 
 	public float startPosition_y = -1200;
@@ -46,7 +46,7 @@ public class UIController : MonoBehaviour {
 		SetupButtons ();
 		panelShowing = true;
 
-		titleOpeningSound.Post(gameObject);
+		//titleOpeningSound.Post(gameObject);
 	}
 
 	void Update()
@@ -92,7 +92,7 @@ public class UIController : MonoBehaviour {
 			return;
 		}
 
-		winSound.Post(gameObject);
+		//winSound.Post(gameObject);
 		hasTriggered = true;
 		text.color = Color.green;
 		text.text = "YOU\nWIN";
@@ -108,7 +108,7 @@ public class UIController : MonoBehaviour {
 			return;
 		}
 		
-		loseSound.Post(gameObject);
+		//loseSound.Post(gameObject);
 		hasTriggered = true;
 		text.color = Color.red;
 		text.text = "YOU\nLOSE";

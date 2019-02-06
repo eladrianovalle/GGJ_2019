@@ -142,7 +142,7 @@ public class AudioEventManager : MonoBehaviour
         {
 
 #if !UNITY_WEBGL
-            AkSoundEngine.PostEvent(EventID, Target);
+            //AkSoundEngine.PostEvent(EventID, Target);
 #endif
 
         }
@@ -164,7 +164,7 @@ public class AudioEventManager : MonoBehaviour
         {
 
 #if !UNITY_WEBGL
-            AkSoundEngine.SetRTPCValue(RTPCID, Value, Target);
+            //AkSoundEngine.SetRTPCValue(RTPCID, Value, Target);
 #endif
 
         }
