@@ -4,45 +4,69 @@ using UnityEngine;
 
 public class FMODAudioController : MonoBehaviour {
 
-	[FMODUnity.BankRef]
-	public string GameplayBank;
+	[Header("BANK LOADER")]
+	[FMODUnity.BankRef] public string GameplayBank;
 
-	[FMODUnity.EventRef]
-	public string 
-	// ---- Music ----
-	GameMusic, 
-	YouWin, 
-	YouLose, 
+	[Space(7)]
+	[Header("MUSIC EVENTS")]
+
+	[FMODUnity.EventRef] public string GameMusic;
+
+	[FMODUnity.EventRef] public string YouWin; 
+
+	[FMODUnity.EventRef] public string YouLose; 
+
 
 	// ---- SFX -----
-	// Impacts
-	ImpactGood,
-	ImpactBad,
-	BatteryPowerUp,
+	[Space(7)]
+	[Header("SFX EVENTS")]
 
+	[Space(3)]
+	[Header("--Impacts")]
+	// Impacts
+	[FMODUnity.EventRef] public string ImpactGood;
+
+	[FMODUnity.EventRef] public string ImpactBad;
+
+	[FMODUnity.EventRef] public string BatteryPowerUp;
+
+	[Space(3)]
+	[Header("--General")]
 	// General
-	PlayerJump,
-	PlayerFall,
-	JumpSuccess,
-	TvStatic,
-	MomKnock,
-	NewHighScore,
-	DoorOpenSound,
-	DoorCloseSound,
+	[FMODUnity.EventRef] public string PlayerJump;
+	[FMODUnity.EventRef] public string PlayerFall;
+	[FMODUnity.EventRef] public string JumpSuccess;
+	[FMODUnity.EventRef] public string MomKnock;
+	[FMODUnity.EventRef] public string NewHighScore;
+
+
+	[Space(3)]
+	[Header("--Environment")]
+
+	[FMODUnity.EventRef] public string TvStatic;
+	[FMODUnity.EventRef] public string DoorOpenSound;
+	[FMODUnity.EventRef] public string DoorCloseSound;
 
 	// Ambience
-	RoomAmbience,
+	[FMODUnity.EventRef] public string RoomAmbience;
+
 
 	// ---- VOX ----
-	MomDialogue,
-	MomOutside,
-	MomTitleScreen;
+	[Space(7)]
+	[Header("VOX EVENTS")]
+
+	[FMODUnity.EventRef] public string MomDialogue;
+	[FMODUnity.EventRef] public string MomOutside;
+	[FMODUnity.EventRef] public string MomTitleScreen;
+
 
 
 	FMOD.Studio.EventInstance GameplayMusic;
 	FMOD.Studio.EventInstance GamestateYouWin;
 	FMOD.Studio.EventInstance GamestateYouLose;
 	FMOD.Studio.EventInstance RoomAmbienceEvent;
+
+	FMOD.Studio.EventInstance PlayerJumpSound;
 
 	void Awake ()
 	{
@@ -58,10 +82,12 @@ public class FMODAudioController : MonoBehaviour {
 		GameController.OnPlayerWinGame += PlayYouWin;
 		HandheldGame.OnCharacterJump += PlayJumpSound;
 		HandheldGame.OnGameStart += PlayGameMusic;
-
+		HandheldGame.OnPowerupPickup += PlayBatteryPickUp;
+		HandheldGame.OnCharacterFall += PlayPlayerFall;
 	}
 
-	void OnDisable(){
+	void OnDisable()
+	{
 		ThrownObject.OnObjectHit -= PlayHitSound;
 		MomLauncher.OnMomThrow -= PlayMomDialogue;
 		MomLauncher.OnDoorOpen -= PlayDoorOpen;
@@ -69,6 +95,9 @@ public class FMODAudioController : MonoBehaviour {
 		GameController.OnPlayerWinGame -= PlayYouWin;
 		HandheldGame.OnCharacterJump -= PlayJumpSound;
 		HandheldGame.OnGameStart -= PlayGameMusic;
+		HandheldGame.OnPowerupPickup -= PlayBatteryPickUp;
+		HandheldGame.OnCharacterFall -= PlayPlayerFall;
+
 	}
 
 
@@ -82,9 +111,8 @@ public class FMODAudioController : MonoBehaviour {
 		GamestateYouLose = FMODUnity.RuntimeManager.CreateInstance(YouLose);
 		RoomAmbienceEvent = FMODUnity.RuntimeManager.CreateInstance (RoomAmbience);
 
-//		GameplayMusic.start ();
-
-
+	
+		PlayRoomAmbience();
 	}
 
 	void PlayGameMusic()
@@ -126,10 +154,17 @@ public class FMODAudioController : MonoBehaviour {
 		}
 	}
 
+	void PlayBatteryPickUp()
+	{
+		FMODUnity.RuntimeManager.PlayOneShot (BatteryPowerUp, gameObject.transform.position);	
+	}
+
+
 //	// General
 
 	void PlayJumpSound ()
 	{
+		Debug.Log ("You Jumped!");
 		FMODUnity.RuntimeManager.PlayOneShot (PlayerJump, gameObject.transform.position);
 	}
 
@@ -158,6 +193,12 @@ public class FMODAudioController : MonoBehaviour {
 	{
 		FMODUnity.RuntimeManager.PlayOneShot (DoorCloseSound, gameObject.transform.position);
 	}
+
+	void PlayPlayerFall()
+	{
+		FMODUnity.RuntimeManager.PlayOneShot (PlayerFall, gameObject.transform.position);
+	}
+
 
 
 //	// Ambience

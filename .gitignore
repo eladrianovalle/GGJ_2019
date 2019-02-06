@@ -55,3 +55,9 @@ Assets/Plugins/Editor/JetBrains*
 
 ⁨GGJ_2019_WwiseProject/
 ⁨GGJ_2019_WwiseProject/*⁩
+
+
+Assets/FMODStudioCache.asset
+Assets/StreamingAssets/*.bank
+fmod.log
+fmod_editor.log

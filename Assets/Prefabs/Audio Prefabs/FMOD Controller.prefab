@@ -57,16 +57,16 @@ MonoBehaviour:
   YouLose: event:/MX/MX_PlayerLose
   ImpactGood: event:/SFX/Impacts/SFX_ImpactPlayer_Good
   ImpactBad: event:/SFX/Impacts/SFX_ImpactPlayer_Bad
-  BatteryPowerUp: event:/SFX/SFX_PowerUp_Battery
-  PlayerJump: event:/SFX/SFX_JumpPlayer
-  PlayerFall: event:/SFX/SFX_JumpFail
-  JumpSuccess: event:/SFX/SFX_JumpSuccess
+  BatteryPowerUp: event:/SFX/Impacts/SFX_ImpactPlayer_Battery
+  PlayerJump: event:/SFX/General/SFX_Player_Jump
+  PlayerFall: event:/SFX/General/SFX_Player_Fall
+  JumpSuccess: event:/SFX/General/SFX_JumpSuccess
   TvStatic: event:/SFX/Environment/SFX_TvStatic
   MomKnock: event:/SFX/Environment/SFX_LoudKnock
-  NewHighScore: event:/SFX/SFX_HighScoreBeaten
+  NewHighScore: event:/SFX/General/SFX_HighScoreBeaten
   DoorOpenSound: event:/SFX/Environment/SFX_DoorOpen
-  DoorCloseSound: event:/SFX/Environment/SFX_DoorSlam
+  DoorCloseSound: event:/SFX/Environment/SFX_DoorClose
   RoomAmbience: event:/SFX/Environment/AMB_RoomTone
-  MomDialogue: event:/VOX/VO_Mom
+  MomDialogue: event:/VOX/VO_MomDialogue
   MomOutside: event:/VOX/VO_MomOutside
   MomTitleScreen: event:/VOX/VO_Title

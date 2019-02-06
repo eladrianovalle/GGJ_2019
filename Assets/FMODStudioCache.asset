@@ -15,29 +15,29 @@ MonoBehaviour:
   - {fileID: 114940942550418970}
   - {fileID: 114273737087243414}
   EditorEvents:
-  - {fileID: 114569225736798634}
   - {fileID: 114719477119202500}
   - {fileID: 114675329763289324}
-  - {fileID: 114724760373236238}
-  - {fileID: 114129199110118286}
   - {fileID: 114060462405503932}
-  - {fileID: 114852060336082238}
   - {fileID: 114070995478005340}
   - {fileID: 114888827488494252}
-  - {fileID: 114136860658680734}
-  - {fileID: 114877118167501966}
   - {fileID: 114491727231657644}
   - {fileID: 114142891892340446}
   - {fileID: 114327339239353882}
   - {fileID: 114121916082234344}
   - {fileID: 114341278961222110}
   - {fileID: 114115810244293774}
-  - {fileID: 114368623852375146}
+  - {fileID: 114242380705323618}
+  - {fileID: 114460731807501876}
+  - {fileID: 114127741023574262}
+  - {fileID: 114888578630506276}
+  - {fileID: 114405010932356786}
+  - {fileID: 114668493138245102}
+  - {fileID: 114285205289041484}
   MasterBanks:
   - {fileID: 114273737087243414}
   StringsBanks:
   - {fileID: 114940942550418970}
-  stringsBankWriteTime: 636850635900000000
+  stringsBankWriteTime: 636850692210000000
   cacheVersion: 3
 --- !u!114 &114027848721027150
 MonoBehaviour:
@@ -117,15 +117,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: event:/SFX/Environment/SFX_DoorOpen
-  guid: fd28db585b74414db40f91d5fd606a84
+  guid: 9c6bbf2f3280b249934eb37c24de7143
   Banks:
   - {fileID: 114273737087243414}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1875
 --- !u!114 &114121916082234344
 MonoBehaviour:
@@ -139,16 +139,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: event:/SFX/Impacts/SFX_ImpactPlayer_Bad
-  guid: f0b9d2bd7fae9f4cadf0cd5267f369ee
+  guid: 5134f94f4a2fed42ad9adaf1b259f29f
   Banks:
   - {fileID: 114273737087243414}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1250
+--- !u!114 &114127741023574262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/General/SFX_HighScoreBeaten
+  guid: 5e7300cf8cc2cd46872b9842ee3af5b0
+  Banks:
+  - {fileID: 114273737087243414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 6503
 --- !u!114 &114129199110118286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,8 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/SFX_HighScoreBeaten
   guid: b0e69a2894042c4fb9c5c1be0321c574
-  Banks:
-  - {fileID: 114273737087243414}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -324,6 +345,28 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 487
+--- !u!114 &114242380705323618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Environment/SFX_DoorClose
+  guid: 42611757cefd3e41a4678a0161fbb6d5
+  Banks:
+  - {fileID: 114273737087243414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 562
 --- !u!114 &114273737087243414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,12 +380,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/lucasedwards/Documents/GGJ_AudioSessions/FMOD Session/GGJ2019_fmodSession/Build/Desktop/Master
     Bank.bank
-  lastModified: 636850635900000000
+  lastModified: 636850692210000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4498304
+    Value: 4492160
   Exists: 1
+--- !u!114 &114285205289041484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/VOX/VO_MomDialogue
+  guid: 02bc43800d19b8479b190dfb0114810a
+  Banks:
+  - {fileID: 114273737087243414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 7500
 --- !u!114 &114298080105857818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,8 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/SFX_PowerUp_Battery
   guid: ff7527e3c91ca9429be5382ed81e06cc
-  Banks:
-  - {fileID: 114273737087243414}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -453,6 +517,28 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
+--- !u!114 &114405010932356786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/General/SFX_Player_Fall
+  guid: ff816509a35cab45a1450e2ebd788706
+  Banks:
+  - {fileID: 114273737087243414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 487
 --- !u!114 &114411747458162182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,6 +561,28 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 130650
+--- !u!114 &114460731807501876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/General/SFX_JumpSuccess
+  guid: 14a8b34bf3dcab4aa86ef245a2da717e
+  Banks:
+  - {fileID: 114273737087243414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 132
 --- !u!114 &114491727231657644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,15 +595,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: event:/SFX/Impacts/SFX_ImpactPlayer_Good
-  guid: c39a84fde50cb74cb1525ffb03c00144
+  guid: 7796c4e161dd4d41bb41cc8f769ffcd0
   Banks:
   - {fileID: 114273737087243414}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1500
 --- !u!114 &114536950520197334
 MonoBehaviour:
@@ -553,8 +661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/SFX_JumpPlayer
   guid: 1c39f79d5d8c1146bf4b65a4a56a6554
-  Banks:
-  - {fileID: 114273737087243414}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -647,6 +754,28 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1875
+--- !u!114 &114668493138245102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/Impacts/SFX_ImpactPlayer_Battery
+  guid: af85a85f80984549a62acdfb089c8516
+  Banks:
+  - {fileID: 114273737087243414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3000
 --- !u!114 &114675329763289324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,15 +788,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: event:/SFX/Environment/SFX_TvStatic
-  guid: 2e708e6fc1aecd4c8e620a6750a51add
+  guid: 74acbfdd976cb049a2a9e148a9778f07
   Banks:
   - {fileID: 114273737087243414}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 800
 --- !u!114 &114687852480766156
 MonoBehaviour:
@@ -748,8 +877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/SFX_JumpFail
   guid: 4ab1557133ea554798fb75e2018c81ad
-  Banks:
-  - {fileID: 114273737087243414}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -832,8 +960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/SFX/SFX_JumpSuccess
   guid: 8c02450627127d49976455221b170634
-  Banks:
-  - {fileID: 114273737087243414}
+  Banks: []
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -907,6 +1034,28 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3000
+--- !u!114 &114888578630506276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/General/SFX_Player_Jump
+  guid: 7885fa6585be894fafd094964dc2b308
+  Banks:
+  - {fileID: 114273737087243414}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 233
 --- !u!114 &114888827488494252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,15 +1068,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: event:/SFX/Environment/SFX_LoudKnock
-  guid: a9896733568c654aa376d76640859f04
+  guid: eb4767d842c68e478b631f7088d3ee9d
   Banks:
   - {fileID: 114273737087243414}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 0
+  MaxDistance: 0
   Length: 1066
 --- !u!114 &114932653648693898
 MonoBehaviour:
@@ -964,9 +1113,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/lucasedwards/Documents/GGJ_AudioSessions/FMOD Session/GGJ2019_fmodSession/Build/Desktop/Master
     Bank.strings.bank
-  lastModified: 636850635900000000
+  lastModified: 636850692210000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1834
+    Value: 1860
   Exists: 1
+--- !u!114 &114977702187600648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/General/SFX_PowerUp_Battery
+  guid: af85a85f80984549a62acdfb089c8516
+  Banks: []
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3000
