@@ -120,7 +120,10 @@ public class MomLauncher : MonoBehaviour {
 
 	void MomEnterRoom()
 	{
-		OnDoorOpen ();
+		if (OnDoorOpen != null)
+		{
+			OnDoorOpen();
+		}
 
 		LeanTween.moveLocal (this.gameObject, momPositions[1], momMoveSpeed).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
 			// open door rotation y at 9.5f
@@ -135,7 +138,10 @@ public class MomLauncher : MonoBehaviour {
 		LeanTween.moveLocal (this.gameObject, momPositions[0], momMoveSpeed).setEase(LeanTweenType.easeInQuint).setOnComplete(()=>{
 			//close door and screenshake
 			// closed door at rotation y 120f
-			OnDoorClosed();
+			if (OnDoorClosed != null)
+			{
+				OnDoorClosed();
+			}
 		});
 	}
 

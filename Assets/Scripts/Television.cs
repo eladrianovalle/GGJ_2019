@@ -3,19 +3,24 @@ using UnityEngine;
 
 public class Television : MonoBehaviour
 {
-	public static Action<bool> PlayStatic;
+	public static Action<bool> ShowStatic;
+	public static Action<Sprite> ShowSprite;
 
 	[SerializeField]
 	private Animator animator;
+	[SerializeField]
+	private SpriteRenderer sRenderer;
 
 	void OnEnable()
 	{
-		Television.PlayStatic += SetStatic;	
+		Television.ShowStatic += SetStatic;	
+		Television.ShowSprite += SetSprite;
 	}
 
 	void OnDisable()
 	{
-		Television.PlayStatic -= SetStatic;
+		Television.ShowStatic -= SetStatic;	
+		Television.ShowSprite -= SetSprite;
 	}
 
 	void Start()
@@ -26,9 +31,15 @@ public class Television : MonoBehaviour
 		}
 	}
 
-	public void SetStatic(bool enabled)
+	public void SetStatic(bool enabled = true)
 	{
-		animator.Play(enabled ? "StaticAnim" : "Idle");
+		//animator.Play(enabled ? "StaticAnim" : "Idle");
+		animator.SetBool("staticAnim", enabled);
+	}
+
+	public void SetSprite(Sprite sprite = null)
+	{
+		sRenderer.sprite = sprite;
 	}
 }
 
