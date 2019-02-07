@@ -160,6 +160,7 @@ public class HandheldGame : MonoBehaviour
 
 		switch (CurrentGameState)
 		{
+
 			case HandheldGameState.START:
 				StartUpdate();
 				break;
@@ -178,7 +179,7 @@ public class HandheldGame : MonoBehaviour
 
 	private void StartUpdate()
 	{
-		currFrameTime += Time.deltaTime;
+		currFrameTime += Time.unscaledDeltaTime;
 		if (currFrameTime >= frameTime)
 		{
 			currFrameTime = 0f;
@@ -207,7 +208,7 @@ public class HandheldGame : MonoBehaviour
 
 	private void EndUpdate()
 	{
-		currFrameTime += Time.deltaTime;
+		currFrameTime += Time.unscaledDeltaTime;
 		if (currFrameTime >= .25f)
 		{
 			currFrameTime = 0f;
@@ -245,7 +246,7 @@ public class HandheldGame : MonoBehaviour
 
 	private void PlayingUpdate()
 	{
-		currFrameTime += Time.deltaTime;
+		currFrameTime += Time.unscaledDeltaTime;
 		if (currFrameTime >= frameTime)
 		{
 			currFrameTime = 0f;
