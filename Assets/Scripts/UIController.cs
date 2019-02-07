@@ -6,9 +6,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
-//	public AK.Wwise.Event titleOpeningSound;
-//	public AK.Wwise.Event winSound;
-//	public AK.Wwise.Event loseSound;
 	public TextMeshProUGUI text;
 
 	public float startPosition_y = -1200;
@@ -16,6 +13,7 @@ public class UIController : MonoBehaviour {
 
 	bool panelShowing = false;
 	bool buttonPressToRestart = false;
+	const string textPrefix = "PRESS ANY BUTTON TO ";
 
 	public CanvasGroup retryPanel;
 	public Button retryButton;
@@ -59,11 +57,11 @@ public class UIController : MonoBehaviour {
 		{
 			buttonPressToRestart = false;
 
-			if (buttonText.text == "START")
+			if (buttonText.text == textPrefix + "START")
 			{
 				HideRetryPanel();
 			}
-			else if (buttonText.text == "RETRY")
+			else if (buttonText.text == textPrefix + "RETRY")
 			{
 				RestartGame();
 			}
@@ -77,7 +75,7 @@ public class UIController : MonoBehaviour {
 
 	void SetupButtons()
 	{
-		buttonText.text = "START";
+		buttonText.text = textPrefix + "START";
 		retryButton.onClick.RemoveAllListeners();
 		retryButton.onClick.AddListener(()=>{
 			HideRetryPanel();
@@ -131,7 +129,7 @@ public class UIController : MonoBehaviour {
 	void ShowRetryPanel()
 	{
 		panelShowing = true;
-		buttonText.text = "RETRY";
+		buttonText.text = textPrefix + "RETRY";
 		LeanTween.alphaCanvas (retryPanel, 1f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
 			retryButton.interactable = true;
 			GameController.gameReadyToRestart = true;
