@@ -125,6 +125,8 @@ public class MomLauncher : MonoBehaviour {
 			OnDoorOpen();
 		}
 
+		Television.ShowStatic(true);
+
 		LeanTween.moveLocal (this.gameObject, momPositions[1], momMoveSpeed).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
 			// open door rotation y at 9.5f
 			ThrowObject();
@@ -217,6 +219,12 @@ public class MomLauncher : MonoBehaviour {
 	{
 		nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
 		Debug.Log("Mom chose next object: " + nextThrownObject.name);
+
+		Television.ShowStatic(false);
+//		LeanTween.delayedCall(1f, ()=>{
+//				Television.ShowStatic(false);
+//			});
+
 //		if (OnMomChooseObject != null)
 //		{
 //			OnMomChooseObject(nextThrownObject);

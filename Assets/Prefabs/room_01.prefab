@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 4295669254263750}
   - component: {fileID: 33861476023516626}
   - component: {fileID: 23878398075539064}
+  - component: {fileID: 114202916121414816}
   m_Layer: 0
   m_Name: tv
   m_TagString: Untagged
@@ -210,7 +211,7 @@ GameObject:
   - component: {fileID: 4792457679952054}
   - component: {fileID: 33145489967345288}
   - component: {fileID: 23614692457985256}
-  - component: {fileID: 64976056917788450}
+  - component: {fileID: 64570146701678592}
   m_Layer: 0
   m_Name: room
   m_TagString: Untagged
@@ -316,7 +317,7 @@ GameObject:
   - component: {fileID: 23162235412052558}
   - component: {fileID: 95160854908400338}
   m_Layer: 0
-  m_Name: screen
+  m_Name: back_screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1356,6 +1357,20 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &64570146701678592
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1680398295588138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300026, guid: 989c8c20d345a7c40a94d5ffbd02d0c7, type: 3}
 --- !u!64 &64871352920958142
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -1370,20 +1385,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64976056917788450
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1680398295588138}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300026, guid: 989c8c20d345a7c40a94d5ffbd02d0c7, type: 3}
 --- !u!95 &95160854908400338
 Animator:
   serializedVersion: 3
@@ -1410,7 +1411,7 @@ Animator:
   m_GameObject: {fileID: 1348050374363596}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5b82fa72628846e098b8a9fe5462149, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1435,6 +1436,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114202916121414816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429414153012522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabb8bedc76f2451d9e5d7182e78daf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95739296158877310}
+  sRenderer: {fileID: 0}
 --- !u!114 &114525402164777810
 MonoBehaviour:
   m_ObjectHideFlags: 1
