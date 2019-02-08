@@ -125,6 +125,10 @@ public class MomLauncher : MonoBehaviour {
 			OnDoorOpen();
 		}
 
+		if (OnMomChooseObjectPreview != null)
+		{
+			OnMomChooseObjectPreview(null);
+		}
 		Television.ShowStatic(true);
 
 		LeanTween.moveLocal (this.gameObject, momPositions[1], momMoveSpeed).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
@@ -233,7 +237,9 @@ public class MomLauncher : MonoBehaviour {
 		{
 			Sprite nextPreview = null;
 			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
-			OnMomChooseObjectPreview(nextPreview);
+			LeanTween.delayedCall(0f, ()=>{
+					OnMomChooseObjectPreview(nextPreview);
+				});
 //			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
 		}
 	}
