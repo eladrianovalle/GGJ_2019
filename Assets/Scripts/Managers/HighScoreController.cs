@@ -55,8 +55,12 @@ public class HighScoreController : MonoBehaviour
 
 	/* 	
  		1 populate usernames list from random name scriptable object
-		2 
-		3
+		2 pick random name prefix from usernames list at random
+		3 fill the remainder of the random name with random numbers, up to 13 chars
+		4 set current player name to random name
+		5 set current player score to 0
+		6 check for saved high scores; if none, clear text, if any, fill data
+		7 pass all data to highscoreentry[]
 	*/
 
         SetCurrentScoreText("0");

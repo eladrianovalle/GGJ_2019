@@ -777,12 +777,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currPlayerNameText: {fileID: 114672861434909132}
   currPlayerScoreText: {fileID: 114534048724752958}
+  currPlayerName: player name
   currScore: 0
+  randomUsernames: {fileID: 11400000, guid: f0c83fe37618e470cb274e3d937f54d2, type: 2}
   addInlineStyling: 0
   highScoreColor: '#228B22'
   yourScoreColor: '#228B22'
-  highScoreEntries: []
-  randomUsernames: {fileID: 0}
+  highScoreEntries:
+  - {fileID: 114460070784567444}
+  - {fileID: 114785572226611456}
+  - {fileID: 114713734639277518}
+  - {fileID: 114895713323773334}
+  - {fileID: 114710785658248840}
   topUserNamesTextContainer: {fileID: 0}
 --- !u!114 &114144228385125708
 MonoBehaviour:
@@ -2133,7 +2139,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: YOUR SCORE 0
+  m_text: MUSHBRAIN2001
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f6acbef5e5cc2447aad094a68b277966, type: 2}
   m_sharedMaterial: {fileID: 21571359897537298, guid: f6acbef5e5cc2447aad094a68b277966,
@@ -2201,10 +2207,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 114672861434909132}
-    characterCount: 12
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
