@@ -24,12 +24,19 @@ public class ThrownObject : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		if (!canAffect)
+		{
+			return;
+		}
+
+		if (collision.collider.tag == "Room")
+		{
+			canAffect = false;
+			return;
+		}
+
 		if (collision.collider.tag == "Player")
 		{
-			if (!canAffect)
-			{
-				return;
-			}
 			canAffect = false;
 
 			if (isGoodOrBad == GoodOrBad.GOOD)
