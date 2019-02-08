@@ -5,7 +5,7 @@ using System;
 using Rewired;
 
 public class GameController : MonoBehaviour {
-
+	public GameObject[] gosToBeEnabled;
 	public static bool isInvulnerable = false;
 	public bool IS_INVULNERABLE = false;
 
@@ -48,6 +48,11 @@ public class GameController : MonoBehaviour {
 
 	void Awake()
 	{
+		foreach (GameObject go in gosToBeEnabled)
+		{
+			go.SetActive (true);
+		}
+
 		playerController = ReInput.players.GetPlayer (0);
 
 		isInvulnerable = IS_INVULNERABLE;
