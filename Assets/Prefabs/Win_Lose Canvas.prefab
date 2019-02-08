@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.903}
+  m_Color: {r: 0.047058824, g: 0.039215688, b: 0, a: 0.941}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -645,6 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 114791402625691276}
+  instructions: {fileID: 114631775332844192}
   startPosition_y: -1200
   retryPanel: {fileID: 225130845821280720}
   retryButton: {fileID: 114205564845310210}
