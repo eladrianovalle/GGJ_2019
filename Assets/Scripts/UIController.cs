@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
 	public TextMeshProUGUI text;
+	public TextMeshProUGUI instructions;
 
 	public float startPosition_y = -1200;
 	bool hasTriggered = false;
@@ -129,6 +130,7 @@ public class UIController : MonoBehaviour {
 	void ShowRetryPanel()
 	{
 		panelShowing = true;
+		instructions.alpha = 0;
 		buttonText.text = textPrefix + "RETRY";
 		LeanTween.alphaCanvas (retryPanel, 1f, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(()=>{
 			retryButton.interactable = true;
