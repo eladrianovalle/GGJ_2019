@@ -9,14 +9,14 @@ public class HighScoreEntry : MonoBehaviour {
 	public TextMeshProUGUI scoreText;
 
 	public string entryName 	{ get; private set; }
-	public string entryScore 	{ get; private set; }
+	public int entryScore 	{ get; private set; }
 	
-	void SetScore (string name, string score) 
+	public void SetScore (string name, int score) 
 	{
 		this.entryName 	= name;
 		this.entryScore = score;
 
 		nameText.text 	= name;
-		scoreText.text 	= score;
+		scoreText.text 	= score.ToString();
 	}
 }
