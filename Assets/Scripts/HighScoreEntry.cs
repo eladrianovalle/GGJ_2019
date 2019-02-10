@@ -16,7 +16,7 @@ public class HighScoreEntry : MonoBehaviour {
 		this.entryName 	= name;
 		this.entryScore = score;
 
-		nameText.text 	= name;
-		scoreText.text 	= score.ToString();
+		this.nameText.text 	= name;
+		this.scoreText.text 	= score.ToString();
 	}
 }
