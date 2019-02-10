@@ -19,6 +19,7 @@ public class HighScoreController : MonoBehaviour
 	public string currPlayerName = "player name";
     public int currScore = 0;
 	private const int USERNAME_LENGTH = 13;
+	private const int MAX_NUMBERS_IN_NAME = 4;
 
 	public RandomUserNameContainer randomUsernames;
 	private List<string> usernamesList;
@@ -92,10 +93,12 @@ public class HighScoreController : MonoBehaviour
 		}
 			
 		int c = characters.Length;
-		while (c < newName.Length)
+		int totalNumbersInName = 0;
+		while (c < newName.Length && totalNumbersInName < MAX_NUMBERS_IN_NAME )
 		{
 			newName [c] = (UnityEngine.Random.Range (0, 10).ToString().ToCharArray()[0]);
 			c++;
+			totalNumbersInName++;
 		}
 		playerName = newName.ArrayToString ();
 
@@ -110,12 +113,15 @@ public class HighScoreController : MonoBehaviour
 	private LeaderBoard MakeLeaderBoard()
 	{
 		LeaderBoard lb = new LeaderBoard();
+
+		Debug.Log ("PP has key: " + PlayerPrefs.HasKey(Save.Data));
 		if (!PlayerPrefs.HasKey (Save.Data))
 		{
 			PlayerInfo[] infos = new PlayerInfo[5];
 			for (int i = 0; i < infos.Length; i++)
 			{
 				infos [i] = new PlayerInfo (GetRandomPlayerName (usernamesArray), UnityEngine.Random.Range (1, maxRandomScore));
+				Debug.Log ("High Score " + i + " : " + infos[i].Name + " " + infos[i].Score);
 			}
 			lb.SetPlayers (infos);
 			lb.SaveData ();
@@ -135,7 +141,7 @@ public class HighScoreController : MonoBehaviour
 			PlayerInfo leaderBoardEntry = leaderBoard.Players [i];
 			HighScoreEntry highScoreEntry = highScoreEntries [i];
 
-			highScoreEntry.SetScore (leaderBoardEntry.Name, leaderBoardEntry.Points);
+			highScoreEntry.SetScore (leaderBoardEntry.Name, leaderBoardEntry.Score);
 		}
 	}
     
@@ -188,11 +194,11 @@ public class HighScoreController : MonoBehaviour
 public class PlayerInfo
 {
 	public string Name 	{ get; private set; }
-	public int Points 	{ get;  set; }
+	public int Score 	{ get;  set; }
 
 	public PlayerInfo(string name, int points) {
 		this.Name = name;
-		this.Points = points;
+		this.Score = points;
 	}
 }
 
@@ -222,7 +228,7 @@ public class LeaderBoard
 
 	public void RankData() 
 	{
-		Comparison<PlayerInfo> comparer = (a, b) => b.Points.CompareTo(a.Points);
+		Comparison<PlayerInfo> comparer = (a, b) => b.Score.CompareTo(a.Score);
 		Array.Sort(playerInfos, comparer);
 	}
 }
@@ -234,6 +240,11 @@ public static class Save
 	{
 		BinaryFormatter bf = new BinaryFormatter();
 		MemoryStream ms = new MemoryStream();
+
+		Debug.Log ("Binary Formatter " + bf);
+		Debug.Log ("Memory Stream " + ms.Length);
+		Debug.Log ("Items " + items.Length);
+
 		bf.Serialize(ms, items as T[]);
 		PlayerPrefs.SetString(Data, Convert.ToBase64String(ms.GetBuffer()));
 	}
