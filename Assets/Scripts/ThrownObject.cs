@@ -57,4 +57,21 @@ public class ThrownObject : MonoBehaviour {
 			}
 		}
 	}
+
+	void OnTriggerExit (Collider collider)
+	{
+		if (!canAffect)
+		{
+			return;
+		}
+
+		if (collider.tag == "NearMiss")
+		{
+			Debug.Log ("NEAR MISS!!!");
+			if (HighScoreController.onAddToCurrentScore != null)
+			{
+				HighScoreController.onAddToCurrentScore(10);
+			}
+		}
+	}
 }

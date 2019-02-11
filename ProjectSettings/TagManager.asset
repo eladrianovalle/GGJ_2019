@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HandheldScreen
   - Room
+  - NearMiss
   layers:
   - Default
   - TransparentFX
