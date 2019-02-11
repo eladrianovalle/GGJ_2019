@@ -9,8 +9,8 @@ public class HandheldPlayer : MonoBehaviour {
 	public Vector4 brightnessVector;
 	private Vector4 defaultBrightnessVector = Vector4.one;
 	Rigidbody rBody;
-	public float moveSpeed = 2.0f;
-	public const float MOVE_LIMIT = 3.0f;
+	public float moveSpeed = 3.0f;
+	public const float MOVE_LIMIT = 13.0f;
 	public float maxYRot = 7f;
 	public float maxZRot = 4f;
 	public GameObject handheldWrapper;
