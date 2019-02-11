@@ -237,7 +237,7 @@ public class MomLauncher : MonoBehaviour {
 		{
 			Sprite nextPreview = null;
 			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
-			LeanTween.delayedCall(0f, ()=>{
+			LeanTween.delayedCall(1f, ()=>{
 					OnMomChooseObjectPreview(nextPreview);
 				});
 //			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
