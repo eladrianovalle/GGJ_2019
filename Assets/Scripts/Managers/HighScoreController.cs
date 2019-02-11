@@ -59,11 +59,6 @@ public class HighScoreController : MonoBehaviour
 //		6 pass all data to highscoreentry[]
 		DisplayLeaderBoard(leaderBoard);
     }
-
-	void Update()
-	{
-		
-	}
     
     // PUBLIC METHODS ------------------------------------------------------------------------------------------------
     
@@ -149,10 +144,53 @@ public class HighScoreController : MonoBehaviour
 			highScoreEntry.SetScore (leaderBoardEntry.Name, leaderBoardEntry.Score);
 		}
 	}
+
+	private void TriggerLeaderBoardUpdate()
+	{
+		PlayerInfo currentPlayer = new PlayerInfo (currPlayerName, currScore);
+		UpdateLeaderBoard (currentPlayer);
+	}
+
+	private void UpdateLeaderBoard(PlayerInfo newHighScoreEntry)
+	{
+		for (int i = 0; i < leaderBoard.Players.Length; i++)
+		{
+			if (leaderBoard.Players [i].Score < newHighScoreEntry.Score)
+			{
+				PlayerInfo tempPlayer = leaderBoard.Players [i];
+				leaderBoard.Players [i] = newHighScoreEntry;
+
+				if (i - 1 >= 0) 
+				{
+					leaderBoard.Players [i - 1] = tempPlayer;
+				}
+			}
+		}
+
+//		leaderBoard.Players [leaderBoard.Players.Length - 1] = newHighScoreEntry;
+		leaderBoard.RankData ();
+		leaderBoard.SaveData ();
+		DisplayLeaderBoard(leaderBoard);
+
+//		if (newHighScoreEntry.Score > leaderBoard.Players [leaderBoard.Players.Length - 1].Score) 
+//		{
+//			leaderBoard.Players [leaderBoard.Players.Length - 1] = newHighScoreEntry;
+//			leaderBoard.RankData ();
+//			leaderBoard.SaveData ();
+//			DisplayLeaderBoard(leaderBoard);
+//		}
+	}
     
     private void AddToCurrScore(int amount)
     {
         currScore += amount;
+
+		int lastPlaceScore = leaderBoard.Players [leaderBoard.Players.Length - 1].Score;
+		if (currScore > lastPlaceScore) 
+		{
+			TriggerLeaderBoardUpdate ();
+		}
+
         SetCurrentScoreText(currScore);
     }
 
@@ -184,16 +222,19 @@ public class HighScoreController : MonoBehaviour
     
     private void OnEnable()
     {
-        onAddToCurrentScore 		+= AddToCurrScore;
-        onRemoveFromCurrentScore 	+= RemoveFromCurrScore;
+        onAddToCurrentScore 			+= AddToCurrScore;
+        onRemoveFromCurrentScore 		+= RemoveFromCurrScore;
+		GameController.OnPlayerLoseGame += TriggerLeaderBoardUpdate;
 //      onSetHighScore += SetHighScore;
 //		onSubmitScore += SubmitScore;
     }
 
     private void OnDisable()
     {
-        onAddToCurrentScore 		-= AddToCurrScore;
-        onRemoveFromCurrentScore 	-= RemoveFromCurrScore;
+        onAddToCurrentScore 			-= AddToCurrScore;
+        onRemoveFromCurrentScore 		-= RemoveFromCurrScore;
+		GameController.OnPlayerLoseGame -= TriggerLeaderBoardUpdate;
+
 //      onSetHighScore -= SetHighScore;
 //		onSubmitScore -= SubmitScore;
     }
@@ -250,19 +291,11 @@ public static class Save
 		BinaryFormatter bf = new BinaryFormatter();
 		MemoryStream ms = new MemoryStream();
 
-		Debug.Log ("Binary Formatter is null? " + (bf == null));
-		Debug.Log ("Memory Stream is null? " + (ms == null));
-		Debug.Log ("Items is null? " + (items == null));
-
-//		object[] saveObj = new object[items.Length] as T[];
-//		for (int i = 0; i < saveObj.Length; i++)
-//		{
-//			saveObj [i] = items [i];
-//		}
-//		Debug.Log ("Saved Obj is null?" + (saveObj == null));
+//		Debug.Log ("Binary Formatter is null? " + (bf == null));
+//		Debug.Log ("Memory Stream is null? " + (ms == null));
+//		Debug.Log ("Items is null? " + (items == null));
 
 		bf.Serialize(ms, items);
-//		bf.Serialize(ms, saveObj);
 		PlayerPrefs.SetString(Data, Convert.ToBase64String(ms.GetBuffer()));
 	}
 

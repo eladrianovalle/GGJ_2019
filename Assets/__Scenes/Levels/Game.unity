@@ -239,7 +239,7 @@ MonoBehaviour:
   - {fileID: 936510388}
   - {fileID: 1752643934}
   - {fileID: 29008904}
-  IS_INVULNERABLE: 1
+  IS_INVULNERABLE: 0
 --- !u!4 &496640280
 Transform:
   m_ObjectHideFlags: 0

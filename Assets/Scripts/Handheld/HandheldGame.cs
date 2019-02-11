@@ -427,8 +427,6 @@ public class HandheldGame : MonoBehaviour
 
 	private void AddPoints(int points = 1)
 	{
-		Debug.Log ("Let's score!!!");
-
 		int oldScore = score;
 		score += points;
 		if (OnScoreChange != null)
@@ -437,7 +435,6 @@ public class HandheldGame : MonoBehaviour
 		}
 		if (HighScoreController.onAddToCurrentScore != null)
 		{
-			Debug.Log ("Let's score!!!");
 			HighScoreController.onAddToCurrentScore(points);
 		}
 		DrawScore();
