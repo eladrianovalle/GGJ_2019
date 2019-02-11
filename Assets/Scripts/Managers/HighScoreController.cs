@@ -25,8 +25,6 @@ public class HighScoreController : MonoBehaviour
 	private List<string> usernamesList;
 	private string[] usernamesArray;
 
-    private string highScoresKey = "HighScore";
-
 	private string yourScoreTemplateStr = "";
 
 	public bool addInlineStyling = false;
@@ -37,7 +35,6 @@ public class HighScoreController : MonoBehaviour
 	public HighScoreEntry[] highScoreEntries;
 	public GameObject topUserNamesTextContainer;
 	private int maxRandomScore = 12;
-
 
     private void Awake ()
     {
@@ -153,45 +150,45 @@ public class HighScoreController : MonoBehaviour
 
 	private void UpdateLeaderBoard(PlayerInfo newHighScoreEntry)
 	{
-		for (int i = 0; i < leaderBoard.Players.Length; i++)
-		{
-			if (leaderBoard.Players [i].Score < newHighScoreEntry.Score)
-			{
-				PlayerInfo tempPlayer = leaderBoard.Players [i];
-				leaderBoard.Players [i] = newHighScoreEntry;
+		int newScore = newHighScoreEntry.Score;
+		int i = leaderBoard.Players.Length - 1;
 
-				if (i - 1 >= 0) 
-				{
-					leaderBoard.Players [i - 1] = tempPlayer;
-				}
+		// find index where new score should be inserted
+		while (i >= 0) 
+		{
+			if (leaderBoard.Players[i].Score <= newScore)
+			{
+				break;
 			}
+			i--;
 		}
 
-//		leaderBoard.Players [leaderBoard.Players.Length - 1] = newHighScoreEntry;
+		// score isn't higher than any other score
+		if (i < 0) 
+		{
+			Debug.Log ("No new High Score!");
+			return;
+		}
+
+		// push back all other scores after new index is found
+		for (int j = 0; j >= i; j++)
+		{
+			leaderBoard.Players [j] = leaderBoard.Players [j + 1];
+		}
+
+		// set new player with high score
+		leaderBoard.Players[i] = newHighScoreEntry;
+		Debug.Log ("Found a new high score!");
+
 		leaderBoard.RankData ();
 		leaderBoard.SaveData ();
 		DisplayLeaderBoard(leaderBoard);
-
-//		if (newHighScoreEntry.Score > leaderBoard.Players [leaderBoard.Players.Length - 1].Score) 
-//		{
-//			leaderBoard.Players [leaderBoard.Players.Length - 1] = newHighScoreEntry;
-//			leaderBoard.RankData ();
-//			leaderBoard.SaveData ();
-//			DisplayLeaderBoard(leaderBoard);
-//		}
 	}
     
     private void AddToCurrScore(int amount)
     {
         currScore += amount;
-
-		int lastPlaceScore = leaderBoard.Players [leaderBoard.Players.Length - 1].Score;
-		if (currScore > lastPlaceScore) 
-		{
-			TriggerLeaderBoardUpdate ();
-		}
-
-        SetCurrentScoreText(currScore);
+		SetCurrentScoreText(currScore);
     }
 
     private void RemoveFromCurrScore(int amount)
