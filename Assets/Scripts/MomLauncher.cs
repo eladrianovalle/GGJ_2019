@@ -120,7 +120,16 @@ public class MomLauncher : MonoBehaviour {
 
 	void MomEnterRoom()
 	{
-		OnDoorOpen ();
+		if (OnDoorOpen != null)
+		{
+			OnDoorOpen();
+		}
+
+		if (OnMomChooseObjectPreview != null)
+		{
+			OnMomChooseObjectPreview(null);
+		}
+		Television.ShowStatic(true);
 
 		LeanTween.moveLocal (this.gameObject, momPositions[1], momMoveSpeed).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
 			// open door rotation y at 9.5f
@@ -135,7 +144,10 @@ public class MomLauncher : MonoBehaviour {
 		LeanTween.moveLocal (this.gameObject, momPositions[0], momMoveSpeed).setEase(LeanTweenType.easeInQuint).setOnComplete(()=>{
 			//close door and screenshake
 			// closed door at rotation y 120f
-			OnDoorClosed();
+			if (OnDoorClosed != null)
+			{
+				OnDoorClosed();
+			}
 		});
 	}
 
@@ -211,6 +223,12 @@ public class MomLauncher : MonoBehaviour {
 	{
 		nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
 		Debug.Log("Mom chose next object: " + nextThrownObject.name);
+
+		Television.ShowStatic(false);
+//		LeanTween.delayedCall(1f, ()=>{
+//				Television.ShowStatic(false);
+//			});
+
 //		if (OnMomChooseObject != null)
 //		{
 //			OnMomChooseObject(nextThrownObject);
@@ -219,7 +237,9 @@ public class MomLauncher : MonoBehaviour {
 		{
 			Sprite nextPreview = null;
 			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
-			OnMomChooseObjectPreview(nextPreview);
+			LeanTween.delayedCall(1f, ()=>{
+					OnMomChooseObjectPreview(nextPreview);
+				});
 //			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
 		}
 	}

@@ -9,8 +9,8 @@ public class HandheldPlayer : MonoBehaviour {
 	public Vector4 brightnessVector;
 	private Vector4 defaultBrightnessVector = Vector4.one;
 	Rigidbody rBody;
-	public float moveSpeed = 2.0f;
-	public const float MOVE_LIMIT = 3.0f;
+	public float moveSpeed = 3.0f;
+	public const float MOVE_LIMIT = 13.0f;
 	public float maxYRot = 7f;
 	public float maxZRot = 4f;
 	public GameObject handheldWrapper;
@@ -55,7 +55,7 @@ public class HandheldPlayer : MonoBehaviour {
 		leftBtnAnimator.Play("Lbtn_GoDown");
 		HighlightButtonColor(leftBtnMat);
 
-		Debug.Log ("Move Left");
+		// Debug.Log ("Move Left");
 		var targetRot = Quaternion.Euler (0, maxYRot, -maxZRot);
 		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, Time.unscaledDeltaTime * rotationSpeed);
 
@@ -72,7 +72,7 @@ public class HandheldPlayer : MonoBehaviour {
 		rightBtnAnimator.Play("Btn_GoDown");
 		HighlightButtonColor(rightBtnMat);
 
-		Debug.Log ("Move Right");
+		// Debug.Log ("Move Right");
 		var targetRot = Quaternion.Euler (0, -maxYRot, maxZRot);
 		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, Time.deltaTime * rotationSpeed);
 

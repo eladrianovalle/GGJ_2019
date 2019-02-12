@@ -24,12 +24,19 @@ public class ThrownObject : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		if (!canAffect)
+		{
+			return;
+		}
+
+		if (collision.collider.tag == "Room")
+		{
+			canAffect = false;
+			return;
+		}
+
 		if (collision.collider.tag == "Player")
 		{
-			if (!canAffect)
-			{
-				return;
-			}
 			canAffect = false;
 
 			if (isGoodOrBad == GoodOrBad.GOOD)
@@ -47,6 +54,23 @@ public class ThrownObject : MonoBehaviour {
 					OnObjectHit (false);
 				}
 				GameController.PlayerLoseLife ();
+			}
+		}
+	}
+
+	void OnTriggerExit (Collider collider)
+	{
+		if (!canAffect)
+		{
+			return;
+		}
+
+		if (collider.tag == "NearMiss")
+		{
+			Debug.Log ("NEAR MISS!!!");
+			if (HighScoreController.onAddToCurrentScore != null)
+			{
+				HighScoreController.onAddToCurrentScore(10);
 			}
 		}
 	}

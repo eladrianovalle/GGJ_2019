@@ -44,6 +44,10 @@ public class HandheldGame : MonoBehaviour
 	/// </summary>
 	public static Action OnGameOver;
 	/// <summary>
+	/// The game countdown number change event.
+	/// </summary>
+	public static Action<int> OnGameCountdown;
+	/// <summary>
 	/// The game loop update event.
 	/// </summary>
 	public static Action OnGameLoopUpdate;
@@ -160,6 +164,7 @@ public class HandheldGame : MonoBehaviour
 
 		switch (CurrentGameState)
 		{
+
 			case HandheldGameState.START:
 				StartUpdate();
 				break;
@@ -178,7 +183,7 @@ public class HandheldGame : MonoBehaviour
 
 	private void StartUpdate()
 	{
-		currFrameTime += Time.deltaTime;
+		currFrameTime += Time.unscaledDeltaTime;
 		if (currFrameTime >= frameTime)
 		{
 			currFrameTime = 0f;
@@ -187,7 +192,14 @@ public class HandheldGame : MonoBehaviour
 			if (timer >= 0 && timer <= 3)
 			{
 				Timer.gameObject.SetActive(timer != 0);
-				Timer.sprite = numberSprites[timer];
+				if (Timer.sprite != numberSprites[timer])
+				{
+					Timer.sprite = numberSprites[timer];
+					if (OnGameCountdown != null)
+					{
+						OnGameCountdown(timer);
+					}
+				}
 			}
 			//RunGameLoop();
 			if (++currStartFrames > startFrames)
@@ -207,7 +219,7 @@ public class HandheldGame : MonoBehaviour
 
 	private void EndUpdate()
 	{
-		currFrameTime += Time.deltaTime;
+		currFrameTime += Time.unscaledDeltaTime;
 		if (currFrameTime >= .25f)
 		{
 			currFrameTime = 0f;
@@ -245,7 +257,7 @@ public class HandheldGame : MonoBehaviour
 
 	private void PlayingUpdate()
 	{
-		currFrameTime += Time.deltaTime;
+		currFrameTime += Time.unscaledDeltaTime;
 		if (currFrameTime >= frameTime)
 		{
 			currFrameTime = 0f;

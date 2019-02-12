@@ -29,7 +29,6 @@ public class NextObjectCallout : MonoBehaviour {
 
 	public void ChangeSprite(Sprite sprite)
 	{
-		Debug.Log ("I'm calling you, " + sprite.name + "!!!");
 		currentSprite = sprite;
 		sRenderer.sprite = currentSprite;
 	}
