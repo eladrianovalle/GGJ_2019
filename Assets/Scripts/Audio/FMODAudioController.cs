@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class FMODAudioController : MonoBehaviour {
 
 	[Header("BANK LOADER")]
@@ -11,11 +13,6 @@ public class FMODAudioController : MonoBehaviour {
 	[Header("MUSIC EVENTS")]
 
 	[FMODUnity.EventRef] public string GameMusic;
-
-	[FMODUnity.EventRef] public string YouWin; 
-
-	[FMODUnity.EventRef] public string YouLose; 
-
 
 	// ---- SFX -----
 	[Space(7)]
@@ -60,17 +57,27 @@ public class FMODAudioController : MonoBehaviour {
 	[FMODUnity.EventRef] public string MomTitleScreen;
 
 
-
 	FMOD.Studio.EventInstance GameplayMusic;
-	FMOD.Studio.EventInstance GamestateYouWin;
-	FMOD.Studio.EventInstance GamestateYouLose;
 	FMOD.Studio.EventInstance RoomAmbienceEvent;
 
 	FMOD.Studio.EventInstance PlayerJumpSound;
 
+//	FMOD.Studio.ParameterInstance Win;
+//	FMOD.Studio.ParameterInstance Lose;
+
+	FMOD.Studio.Bus MasterBus;
+	FMOD.Studio.Bus SFXBus;
+
 	void Awake ()
 	{
 		FMODUnity.RuntimeManager.LoadBank (GameplayBank);
+		MasterBus = FMODUnity.RuntimeManager.GetBus ("bus:/");
+		SFXBus = FMODUnity.RuntimeManager.GetBus ("bus:/SFX-Bus");
+
+		RoomAmbienceEvent = FMODUnity.RuntimeManager.CreateInstance (RoomAmbience);
+		GameplayMusic = FMODUnity.RuntimeManager.CreateInstance(GameMusic);
+
+
 	}
 
 	void OnEnable()
@@ -80,6 +87,7 @@ public class FMODAudioController : MonoBehaviour {
 		MomLauncher.OnDoorOpen += PlayDoorOpen;
 		MomLauncher.OnDoorClosed += PlayDoorClose;
 		GameController.OnPlayerWinGame += PlayYouWin;
+		GameController.OnPlayerLoseGame += PlayYouLose;
 		HandheldGame.OnCharacterJump += PlayJumpSound;
 		HandheldGame.OnGameStart += PlayGameMusic;
 		HandheldGame.OnPowerupPickup += PlayBatteryPickUp;
@@ -93,6 +101,7 @@ public class FMODAudioController : MonoBehaviour {
 		MomLauncher.OnDoorOpen -= PlayDoorOpen;
 		MomLauncher.OnDoorClosed -= PlayDoorClose;
 		GameController.OnPlayerWinGame -= PlayYouWin;
+		GameController.OnPlayerLoseGame -= PlayYouLose;
 		HandheldGame.OnCharacterJump -= PlayJumpSound;
 		HandheldGame.OnGameStart -= PlayGameMusic;
 		HandheldGame.OnPowerupPickup -= PlayBatteryPickUp;
@@ -106,11 +115,13 @@ public class FMODAudioController : MonoBehaviour {
 //	//.............Music.......................
 	void Start ()
 	{
-		GameplayMusic = FMODUnity.RuntimeManager.CreateInstance(GameMusic);
-		GamestateYouWin = FMODUnity.RuntimeManager.CreateInstance(YouWin);
-		GamestateYouLose = FMODUnity.RuntimeManager.CreateInstance(YouLose);
-		RoomAmbienceEvent = FMODUnity.RuntimeManager.CreateInstance (RoomAmbience);
+		// Reset Music Audio on Start
+		MasterBus.stopAllEvents (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+		SFXBus.setVolume (0.5f);
 
+
+		GameplayMusic.setParameterValue("Win", 0f);
+		GameplayMusic.setParameterValue("Lose", 0f);
 	
 		PlayRoomAmbience();
 	}
@@ -123,13 +134,19 @@ public class FMODAudioController : MonoBehaviour {
 
 	void PlayYouWin()
 	{
-		//Fade Out code
-		GamestateYouWin.start ();
+		GameplayMusic.setParameterValue("Win", 1f);
 	}
 
 	void PlayYouLose ()
 	{
-		GamestateYouLose.start ();
+		// Play You Lose Transition
+		GameplayMusic.setParameterValue("Lose", 1f);
+
+		// Turn off SFX so they don't play in background
+		SFXBus.stopAllEvents (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+		SFXBus.setVolume (0f); 
+
+		Debug.Log ("You Suck!");
 	}
 
 	void PlayRoomAmbience()

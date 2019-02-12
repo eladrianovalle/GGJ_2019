@@ -36,8 +36,6 @@ public class Television : MonoBehaviour
 
 	public void SetStatic(bool enabled)
 	{
-		Debug.Log("SetStatic(" + enabled + ")");
-		//animator.Play(enabled ? "StaticAnim" : "Idle");
 		animator.SetBool("staticAnim", enabled);
 		if (enabled)
 		{

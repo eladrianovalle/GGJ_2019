@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
     <object class="MixerGroup" id="{a9f3eef8-c34c-419d-aabc-06da6f138f16}">
+        <property name="volume">
+            <value>-1.80000007</value>
+        </property>
         <property name="name">
-            <value>VOX_Mom</value>
+            <value>VOX Bus</value>
         </property>
         <relationship name="effectChain">
             <destination>{e6c952fe-88f4-4c72-a82a-8af0fbe82ebb}</destination>
@@ -17,8 +20,29 @@
     <object class="MixerBusEffectChain" id="{e6c952fe-88f4-4c72-a82a-8af0fbe82ebb}">
         <relationship name="effects">
             <destination>{8efb9bd9-ec73-451d-bde0-d24222a5696b}</destination>
+            <destination>{6cf6432f-94f5-4fd2-8a7b-89e88b622951}</destination>
+            <destination>{130ed513-9ac3-4c51-8421-900951de2d2c}</destination>
+            <destination>{8cd24a9b-1975-431f-aaab-37ed8994a031}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{3b2194af-4a6b-4dbb-b5b4-228ca64c1569}"/>
     <object class="MixerBusFader" id="{8efb9bd9-ec73-451d-bde0-d24222a5696b}"/>
+    <object class="Sidechain" id="{6cf6432f-94f5-4fd2-8a7b-89e88b622951}">
+        <relationship name="targets">
+            <destination>{a1a042a6-c999-4dbf-b48b-f894aef8b239}</destination>
+        </relationship>
+    </object>
+    <object class="Sidechain" id="{130ed513-9ac3-4c51-8421-900951de2d2c}">
+        <relationship name="targets">
+            <destination>{ea408da1-4b63-4053-844b-693775e451fe}</destination>
+        </relationship>
+    </object>
+    <object class="CompressorEffect" id="{8cd24a9b-1975-431f-aaab-37ed8994a031}">
+        <property name="threshold">
+            <value>-31</value>
+        </property>
+        <property name="gain">
+            <value>7.5</value>
+        </property>
+    </object>
 </objects>

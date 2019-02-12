@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.10.00">
     <object class="MixerGroup" id="{b02d3ebb-549b-4861-9c27-c1eb75025393}">
+        <property name="volume">
+            <value>-2.20000005</value>
+        </property>
         <property name="name">
-            <value>SFX</value>
+            <value>SFX-Bus</value>
         </property>
         <relationship name="effectChain">
             <destination>{99e5b4da-552a-46cb-8a8f-c5422337ad5e}</destination>
@@ -18,6 +21,7 @@
         <relationship name="effects">
             <destination>{e0317e33-c4c5-4db7-9ea5-ef5491cf331c}</destination>
             <destination>{8b1af66f-feea-44f4-9a9b-003879b22365}</destination>
+            <destination>{ea408da1-4b63-4053-844b-693775e451fe}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{eb3d90be-42e9-4b5d-90b2-bd555c39a398}"/>
@@ -26,5 +30,16 @@
         <relationship name="targets">
             <destination>{a1a042a6-c999-4dbf-b48b-f894aef8b239}</destination>
         </relationship>
+    </object>
+    <object class="CompressorEffect" id="{ea408da1-4b63-4053-844b-693775e451fe}">
+        <property name="threshold">
+            <value>-24</value>
+        </property>
+        <property name="attackTime">
+            <value>0.100000001</value>
+        </property>
+        <property name="sidechainEnabled">
+            <value>true</value>
+        </property>
     </object>
 </objects>

@@ -45,6 +45,10 @@ public class ThrownObject : MonoBehaviour {
 				{
 					OnObjectHit (true);
 				}
+				if (HeadUpDisplay.DisplayMessage != null)
+				{
+					HeadUpDisplay.DisplayMessage("Recharged!", 1f);
+				}
 				GameController.PlayerGainLife ();
 			}
 			else if (isGoodOrBad == GoodOrBad.BAD)
@@ -68,6 +72,10 @@ public class ThrownObject : MonoBehaviour {
 		if (collider.tag == "NearMiss")
 		{
 			Debug.Log ("NEAR MISS!!!");
+			if (HeadUpDisplay.DisplayMessage != null)
+			{
+				HeadUpDisplay.DisplayMessage("Near miss!", 1f);
+			}
 			if (HighScoreController.onAddToCurrentScore != null)
 			{
 				HighScoreController.onAddToCurrentScore(10);
