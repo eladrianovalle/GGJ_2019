@@ -178,13 +178,11 @@ public class MomLauncher : MonoBehaviour {
 			if ((throwCount > 0) && (repeatThrowChance > Random.Range(0, 100)))
 			{
 				// Check if repeat last throw
-				Debug.Log("Throw at last position!");
 				currThrowPosition = lastThrowPosition;
 			}
 			else if (throwVarianceChance > Random.Range(0, 100))
 			{
 				// Check if add variance
-				Debug.Log("Apply variance");
 				currThrowPosition.x += Random.Range(-throwVariance, throwVariance);
 				if (currThrowPosition.x < -HandheldPlayer.MOVE_LIMIT)
 				{
@@ -197,7 +195,6 @@ public class MomLauncher : MonoBehaviour {
 			}
 
 			//Vector3 throwDirection = player.transform.position - objToThrow.transform.position;
-			Debug.Log("Throw Position: " + currThrowPosition.ToString());
 			Vector3 throwDirection = currThrowPosition - objToThrow.transform.position;
 			Vector3 throwTarget = (Vector3.up * heightMult) + throwDirection;
 
