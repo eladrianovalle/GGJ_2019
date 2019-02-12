@@ -68,7 +68,7 @@ public class FMODAudioController : MonoBehaviour {
 	FMOD.Studio.Bus MasterBus;
 	FMOD.Studio.Bus SFXBus;
 
-	void Awake ()
+	void Init ()
 	{
 		FMODUnity.RuntimeManager.LoadBank (GameplayBank);
 		MasterBus = FMODUnity.RuntimeManager.GetBus ("bus:/");
@@ -115,6 +115,7 @@ public class FMODAudioController : MonoBehaviour {
 //	//.............Music.......................
 	void Start ()
 	{
+		Init();
 		// Reset Music Audio on Start
 		MasterBus.stopAllEvents (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 		SFXBus.setVolume (0.5f);
