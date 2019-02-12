@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{82156a8f-8ac9-4795-82e3-377944fa83e2}">
+        <property name="assetPath">
+            <value>SFX_DoorSlam.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.5625170068027211</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{1168d96f-7780-4ec5-9625-06f4b69ceba6}</destination>
+        </relationship>
+    </object>
+</objects>

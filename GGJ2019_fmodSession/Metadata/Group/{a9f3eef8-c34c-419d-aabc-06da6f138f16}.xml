@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="MixerGroup" id="{a9f3eef8-c34c-419d-aabc-06da6f138f16}">
+        <property name="name">
+            <value>VOX_Mom</value>
+        </property>
+        <relationship name="effectChain">
+            <destination>{e6c952fe-88f4-4c72-a82a-8af0fbe82ebb}</destination>
+        </relationship>
+        <relationship name="panner">
+            <destination>{3b2194af-4a6b-4dbb-b5b4-228ca64c1569}</destination>
+        </relationship>
+        <relationship name="output">
+            <destination>{c69b66df-c838-4c53-9cd3-92997ea03641}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusEffectChain" id="{e6c952fe-88f4-4c72-a82a-8af0fbe82ebb}">
+        <relationship name="effects">
+            <destination>{8efb9bd9-ec73-451d-bde0-d24222a5696b}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusPanner" id="{3b2194af-4a6b-4dbb-b5b4-228ca64c1569}"/>
+    <object class="MixerBusFader" id="{8efb9bd9-ec73-451d-bde0-d24222a5696b}"/>
+</objects>

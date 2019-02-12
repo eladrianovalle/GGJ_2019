@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{c3423205-fecd-4c5a-823b-499d75355604}">
+        <property name="assetPath">
+            <value>AMB_RoomTone.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>88.712108843537422</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{1168d96f-7780-4ec5-9625-06f4b69ceba6}</destination>
+        </relationship>
+    </object>
+</objects>

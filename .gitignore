@@ -58,5 +58,6 @@ Assets/Plugins/Editor/JetBrains*
 
 
 Assets/FMODStudioCache.asset
+Assets/StreamingAssets/*.bank
 fmod.log
 fmod_editor.log

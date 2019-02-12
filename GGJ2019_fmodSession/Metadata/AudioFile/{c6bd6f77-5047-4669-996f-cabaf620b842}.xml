@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{c6bd6f77-5047-4669-996f-cabaf620b842}">
+        <property name="assetPath">
+            <value>VO_Mom_4.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.4943310657596371</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{1168d96f-7780-4ec5-9625-06f4b69ceba6}</destination>
+        </relationship>
+    </object>
+</objects>

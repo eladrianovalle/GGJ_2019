@@ -13,11 +13,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: /Users/lucasedwards/Documents/GGJ_AudioSessions/FMOD Session/GGJ2019_fmodSession/GGJ2019_fmodSession.fspro
-  SourceProjectPathUnformatted: /Users/lucasedwards/Documents/GGJ_AudioSessions/FMOD
-    Session/GGJ2019_fmodSession/GGJ2019_fmodSession.fspro
-  SourceBankPathUnformatted: /Users/lucasedwards/Documents/GGJ_AudioSessions/FMOD
-    Session/GGJ2019_fmodSession/Build
+  sourceProjectPath: GGJ2019_fmodSession/GGJ2019_fmodSession.fspro
+  SourceProjectPathUnformatted: GGJ2019_fmodSession/GGJ2019_fmodSession.fspro
+  SourceBankPathUnformatted: GGJ2019_fmodSession/Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
