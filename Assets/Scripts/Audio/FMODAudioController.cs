@@ -118,6 +118,7 @@ public class FMODAudioController : MonoBehaviour {
 	void PlayGameMusic()
 	{
 		GameplayMusic.start ();
+		Debug.Log ("Music Started!");
 	}
 
 	void PlayYouWin()

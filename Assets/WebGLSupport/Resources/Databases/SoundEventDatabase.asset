@@ -16,7 +16,7 @@ MonoBehaviour:
     EventName: Music_Play
     EventDescription: Plays the main music
     EventTargets:
-    - {fileID: 8300000, guid: e170245c812e32240a0254708dfb2ed7, type: 3}
+    - {fileID: 0}
     EventAction: 1
     EventType: 0
     EventIsRandom: 0
