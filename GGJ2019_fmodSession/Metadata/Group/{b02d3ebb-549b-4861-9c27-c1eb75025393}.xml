@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.10.00">
     <object class="MixerGroup" id="{b02d3ebb-549b-4861-9c27-c1eb75025393}">
         <property name="name">
-            <value>SFX</value>
+            <value>SFX-Bus</value>
         </property>
         <relationship name="effectChain">
             <destination>{99e5b4da-552a-46cb-8a8f-c5422337ad5e}</destination>
