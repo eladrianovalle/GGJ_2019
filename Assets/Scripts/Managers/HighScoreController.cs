@@ -138,7 +138,9 @@ public class HighScoreController : MonoBehaviour
 			PlayerInfo leaderBoardEntry = leaderBoard.Players [i];
 			HighScoreEntry highScoreEntry = highScoreEntries [i];
 
-			highScoreEntry.SetScore (leaderBoardEntry.Name, leaderBoardEntry.Score);
+            string nameToDisplay = i+1 + "<pos=50>" + leaderBoardEntry.Name;
+
+            highScoreEntry.SetScore (nameToDisplay, leaderBoardEntry.Score);
 		}
 	}
 
