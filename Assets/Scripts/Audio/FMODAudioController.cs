@@ -76,8 +76,6 @@ public class FMODAudioController : MonoBehaviour {
 
 		RoomAmbienceEvent = FMODUnity.RuntimeManager.CreateInstance (RoomAmbience);
 		GameplayMusic = FMODUnity.RuntimeManager.CreateInstance(GameMusic);
-
-
 	}
 
 	void OnEnable()
@@ -106,10 +104,7 @@ public class FMODAudioController : MonoBehaviour {
 		HandheldGame.OnGameStart -= PlayGameMusic;
 		HandheldGame.OnPowerupPickup -= PlayBatteryPickUp;
 		HandheldGame.OnCharacterFall -= PlayPlayerFall;
-
 	}
-
-
 
 
 //	//.............Music.......................
@@ -119,7 +114,6 @@ public class FMODAudioController : MonoBehaviour {
 		// Reset Music Audio on Start
 		MasterBus.stopAllEvents (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 		SFXBus.setVolume (0.5f);
-
 
 		GameplayMusic.setParameterValue("Win", 0f);
 		GameplayMusic.setParameterValue("Lose", 0f);
