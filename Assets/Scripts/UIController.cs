@@ -27,6 +27,7 @@ public class UIController : MonoBehaviour {
 		GameController.OnPlayerWinGame 		+= ShowWinText;
 		GameController.OnPlayerLoseGame 	+= ShowLoseText;
 		GameController.OnPressButtonToStart += RestartButtonPressed;
+        FMODAudioController.OnBankHasLoaded += ShowStartButtons;
 	}
 
 	void OnDisable()
@@ -34,21 +35,29 @@ public class UIController : MonoBehaviour {
 		GameController.OnPlayerWinGame 		-= ShowWinText;
 		GameController.OnPlayerLoseGame		-= ShowLoseText;
 		GameController.OnPressButtonToStart -= RestartButtonPressed;
+        FMODAudioController.OnBankHasLoaded -= ShowStartButtons;
+    }
 
-	}
-
-	void Start()
+    void Awake()
 	{
 		Vector3 startingPos = new Vector3 (this.transform.position.x, startPosition_y, this.transform.position.z);
 		text.transform.position = startingPos;
 		buttonText = retryButton.GetComponentInChildren<TextMeshProUGUI> ();
-		SetupButtons ();
-		panelShowing = true;
+        buttonText.alpha = 0.0f;
 
-		//titleOpeningSound.Post(gameObject);
-	}
+        //SetupButtons ();
+        //panelShowing = true;
+        //titleOpeningSound.Post(gameObject);
+    }
 
-	void Update()
+    void ShowStartButtons()
+    {
+        Debug.Log("AudioController event come through");
+        SetupButtons();
+        panelShowing = true;
+    }
+
+    void Update()
 	{
 		if (!panelShowing)
 		{
@@ -76,6 +85,7 @@ public class UIController : MonoBehaviour {
 
 	void SetupButtons()
 	{
+        buttonText.alpha = 1.0f;
 		buttonText.text = textPrefix + "START";
 		retryButton.onClick.RemoveAllListeners();
 		retryButton.onClick.AddListener(()=>{

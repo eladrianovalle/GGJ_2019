@@ -68,19 +68,39 @@ public class FMODAudioController : MonoBehaviour {
 	FMOD.Studio.Bus MasterBus;
 	FMOD.Studio.Bus SFXBus;
 
-	void Init ()
+    public static System.Action OnBankHasLoaded;
+
+    void Init ()
 	{
 		FMODUnity.RuntimeManager.LoadBank (GameplayBank);
-		MasterBus = FMODUnity.RuntimeManager.GetBus ("bus:/");
-		SFXBus = FMODUnity.RuntimeManager.GetBus ("bus:/SFX-Bus");
+        StartCoroutine(CheckForBusToLoad());
 
-		RoomAmbienceEvent = FMODUnity.RuntimeManager.CreateInstance (RoomAmbience);
-		GameplayMusic = FMODUnity.RuntimeManager.CreateInstance(GameMusic);
+		//MasterBus = FMODUnity.RuntimeManager.GetBus ("bus:/");
+		//SFXBus = FMODUnity.RuntimeManager.GetBus ("bus:/SFX-Bus");
 
-
+		//RoomAmbienceEvent = FMODUnity.RuntimeManager.CreateInstance (RoomAmbience);
+		//GameplayMusic = FMODUnity.RuntimeManager.CreateInstance(GameMusic);
 	}
 
-	void OnEnable()
+    IEnumerator CheckForBusToLoad()
+    { 
+        while (!FMODUnity.RuntimeManager.HasBankLoaded(GameplayBank))
+        {
+            yield return null; 
+        }
+        if (OnBankHasLoaded != null)
+        {
+            OnBankHasLoaded();
+        }
+
+        MasterBus = FMODUnity.RuntimeManager.GetBus("bus:/");
+        SFXBus = FMODUnity.RuntimeManager.GetBus("bus:/SFX-Bus");
+
+        RoomAmbienceEvent = FMODUnity.RuntimeManager.CreateInstance(RoomAmbience);
+        GameplayMusic = FMODUnity.RuntimeManager.CreateInstance(GameMusic);
+    }
+
+    void OnEnable()
 	{
 		ThrownObject.OnObjectHit += PlayHitSound;
 		MomLauncher.OnMomThrow += PlayMomDialogue;
@@ -106,20 +126,21 @@ public class FMODAudioController : MonoBehaviour {
 		HandheldGame.OnGameStart -= PlayGameMusic;
 		HandheldGame.OnPowerupPickup -= PlayBatteryPickUp;
 		HandheldGame.OnCharacterFall -= PlayPlayerFall;
-
 	}
 
 
+    //	//.............Music.......................
+    void Start()
+    {
+        Init();
 
-
-//	//.............Music.......................
-	void Start ()
-	{
-		Init();
-		// Reset Music Audio on Start
-		MasterBus.stopAllEvents (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        // Reset Music Audio on Start
+        if (MasterBus.isValid() == true)
+        {
+            MasterBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+        //MasterBus.stopAllEvents (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 		SFXBus.setVolume (0.5f);
-
 
 		GameplayMusic.setParameterValue("Win", 0f);
 		GameplayMusic.setParameterValue("Lose", 0f);

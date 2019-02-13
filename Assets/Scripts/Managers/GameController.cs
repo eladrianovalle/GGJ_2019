@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour {
 	public static Action OnPlayerWinGame;
 
 	public static int playerLives = 3;
-	float timeLimit = 180f;
+	readonly float timeLimit = 180f;
 	float timer;
 
 	float inputX = 0f;
