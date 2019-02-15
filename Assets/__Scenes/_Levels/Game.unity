@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breathingRadius: 0.075
-  breathingDamping: 0.015
+  breathingDamping: 1
 --- !u!1 &1475148064
 GameObject:
   m_ObjectHideFlags: 0
