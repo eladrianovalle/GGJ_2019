@@ -389,6 +389,11 @@ Prefab:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 54741780037271826, guid: b7966113adc994051b6a593254b46e9e,
+        type: 2}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7966113adc994051b6a593254b46e9e, type: 2}
   m_IsPrefabAsset: 0
@@ -813,7 +818,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1231803525}
-  - component: {fileID: 1231803524}
   - component: {fileID: 1231803526}
   m_Layer: 0
   m_Name: CameraRig
@@ -822,25 +826,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1231803524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1231803523}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 985a9c83ebec94530bf8d9715cc1d8b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTransform: {fileID: 1242200308}
-  heightDamping: 2
-  distanceDamping: 0.6
-  rotationDamping: 10
-  breathingRadius: 0.5
-  keepOriginalRotation: 1
-  smoothRotation: 0
-  followBehind: 1
 --- !u!4 &1231803525
 Transform:
   m_ObjectHideFlags: 0
@@ -867,12 +852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1242200308}
-  heightDamping: 2
-  distanceDamping: 10
-  rotationDamping: 10
-  breathingRadius: 0.5
+  followDamping: 8
   keepOriginalRotation: 1
-  smoothRotation: 1
   followBehind: 1
 --- !u!1 &1242200305 stripped
 GameObject:
@@ -987,7 +968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23ba1a936d304da6ac99ebcd7dcb384, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camTransform: {fileID: 0}
+  camTransform: {fileID: 1313522296}
   shakeDuration: 0
   shakeAmount: 0.15
   decreaseFactor: 1
@@ -1002,8 +983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfaf647f801444074beea13d404507ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breathingRadius: 0.3
-  breathingDamping: 0.2
+  breathingRadius: 0.075
+  breathingDamping: 0.015
 --- !u!1 &1475148064
 GameObject:
   m_ObjectHideFlags: 0
