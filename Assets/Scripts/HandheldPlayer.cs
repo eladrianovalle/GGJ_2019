@@ -14,7 +14,10 @@ public class HandheldPlayer : MonoBehaviour {
 	public float maxYRot = 7f;
 	public float maxZRot = 4f;
 	public GameObject handheldWrapper;
-    float fixedUnscaledDeltaTime;
+    //float timeStep;
+
+    private bool isMovingLeft = false;
+    private bool isMovingRight = false;
 
 	void OnEnable()
 	{
@@ -48,21 +51,46 @@ public class HandheldPlayer : MonoBehaviour {
 
 	void Update()
 	{
-        fixedUnscaledDeltaTime = Time.fixedUnscaledDeltaTime;
+        //timeStep = Time.fixedDeltaTime;
 
-		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, fixedUnscaledDeltaTime * rotationSpeed);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, MH_Time.timestep * rotationSpeed);
 	}
 
-	void MoveLeft(bool isMovingLeft)
+    private void FixedUpdate()
+    {
+        //fixedUnscaledDeltaTime = Time.fixedUnscaledDeltaTime;
+
+        if (isMovingLeft)
+        {
+            MovePositionLeft(); 
+        }
+        if (isMovingRight)
+        {
+            MovePositionRight();
+        }
+
+    }
+
+    void MoveLeft(bool isMovingLeft)
+    {
+        this.isMovingLeft = isMovingLeft;
+    }
+
+    void MoveRight(bool isMovingRight)
+    {
+        this.isMovingRight = isMovingRight;
+    }
+
+    void MovePositionLeft()
 	{
 		leftBtnAnimator.Play("Lbtn_GoDown");
 		HighlightButtonColor(leftBtnMat);
 
 		// Debug.Log ("Move Left");
 		var targetRot = Quaternion.Euler (0, maxYRot, -maxZRot);
-		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, fixedUnscaledDeltaTime * rotationSpeed);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, MH_Time.fixedTimestep * rotationSpeed);
 
-		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * fixedUnscaledDeltaTime;
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * MH_Time.fixedTimestep;
 		if (movePosition.x <= -MOVE_LIMIT)
 		{
 			movePosition.x = -MOVE_LIMIT;
@@ -70,16 +98,16 @@ public class HandheldPlayer : MonoBehaviour {
 		rBody.MovePosition (movePosition);
 	}
 
-	void MoveRight(bool isMovingRight)
+	void MovePositionRight()
 	{
 		rightBtnAnimator.Play("Btn_GoDown");
 		HighlightButtonColor(rightBtnMat);
 
 		// Debug.Log ("Move Right");
 		var targetRot = Quaternion.Euler (0, -maxYRot, maxZRot);
-		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, fixedUnscaledDeltaTime * rotationSpeed);
+		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, MH_Time.fixedTimestep * rotationSpeed);
 
-		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * fixedUnscaledDeltaTime;
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * MH_Time.fixedTimestep;
 		if (movePosition.x >= MOVE_LIMIT)
 		{
 			movePosition.x = MOVE_LIMIT;
@@ -95,12 +123,14 @@ public class HandheldPlayer : MonoBehaviour {
 
 	void RightButtonUp()
 	{
+        isMovingRight = false;
 		rightBtnAnimator.Play("Btn_StayUp");
 		DefaultButtonColor(rightBtnMat);
 	}
 
 	void LeftButtonUp()
 	{
+        isMovingLeft = false;
 		leftBtnAnimator.Play("Lbtn_StayUp");
 		DefaultButtonColor(leftBtnMat);
 	}

@@ -14,6 +14,9 @@ public class CameraDolly : MonoBehaviour {
 	//public float rotationDamping = 10.0f;
     public float followDamping = 10.0f;
 
+    Vector3 velocity = Vector3.zero;
+    public float dampTime = 0.3f;
+
     //public float breathingRadius = 0.5f;
 
 	public bool keepOriginalRotation = true;
@@ -32,7 +35,7 @@ public class CameraDolly : MonoBehaviour {
 		height = transform.position.y;
 	}
 
-	void LateUpdate ()
+	void FixedUpdate ()
 	{
 		if (!HaveTarget())
 		{
@@ -41,8 +44,9 @@ public class CameraDolly : MonoBehaviour {
 
 		targetPosition = new Vector3(targetTransform.position.x, height, targetTransform.position.z - distance);
 
-        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.fixedUnscaledDeltaTime * followDamping);
+        //transform.position = Vector3.Lerp(transform.position, targetPosition, MH_Time.fixedTimestep * followDamping);
 
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, dampTime);
         //transform.position = Vector3.Lerp (transform.position, targetPosition, (1 - Mathf.Exp(-20 * Time.unscaledDeltaTime)) * followDamping);
 
         //(1 - Mathf.Exp(-20 * Time.unscaledDeltaTime))     crazy algorithm to replace vanilla time.deltatime

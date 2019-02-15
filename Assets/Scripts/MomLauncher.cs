@@ -107,7 +107,7 @@ public class MomLauncher : MonoBehaviour {
 
 		if (Time.timeScale < 1f)
 		{
-			Time.timeScale += Time.unscaledDeltaTime * returnTimescaleSpeed;
+			Time.timeScale += MH_Time.fixedTimestep * returnTimescaleSpeed;
 //			Time.timeScale = Mathf.Lerp(Time.timeScale, 1.0f, Time.unscaledDeltaTime * returnTimescaleSpeed);
 		}
 		else if (Time.timeScale > 1f)

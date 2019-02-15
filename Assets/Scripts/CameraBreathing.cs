@@ -10,6 +10,8 @@ public class CameraBreathing : MonoBehaviour {
 	public float breathingDamping = 0.2f;
 
 	private float currTime = 0f;
+    Vector3 velocity = Vector3.zero;
+    //public float dampTime = 0.3f;
 
 	void Start ()
 	{
@@ -17,15 +19,17 @@ public class CameraBreathing : MonoBehaviour {
 		UpdateTargetPosition();
 	}
 
-	void LateUpdate ()
+	void FixedUpdate ()
 	{
 
         //targetPosition = new Vector3(targetTransform.position.x, transform.position.y, transform.position.z);
 
-        currTime += (1 - Mathf.Exp(-20 * Time.fixedUnscaledDeltaTime)) * breathingDamping;
+        currTime += (1 - Mathf.Exp(-20 * MH_Time.fixedTimestep)) * breathingDamping;
         //currTime += Time.fixedDeltaTime * breathingDamping;
 
-        transform.localPosition = Vector3.Lerp (lastLocalPosition, targetLocalPosition, currTime);
+        //transform.localPosition = Vector3.SmoothDamp(lastLocalPosition, targetLocalPosition, ref velocity, dampTime);
+
+        //transform.localPosition = Vector3.Lerp (lastLocalPosition, targetLocalPosition, currTime);
 		if (transform.localPosition == targetLocalPosition)
 		{
 			currTime = 0f;
