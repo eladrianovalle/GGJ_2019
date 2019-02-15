@@ -6,7 +6,8 @@ public class CameraBreathing : MonoBehaviour {
 	Vector3 targetLocalPosition;
     private float lowestY;
 
-	public float breathingRadius = 0.075f;
+	public float breathingRadiusX = 0.075f;
+	public float breathingRadiusY = 0.075f;
 	public float breathingDamping = 1f;
 
 	private float currTime = 0f;
@@ -31,15 +32,16 @@ public class CameraBreathing : MonoBehaviour {
 //			UpdateTargetPosition();
 //		}
 
-		float breath = Mathf.Sin(Time.time * breathingDamping) * breathingRadius;
-		transform.localPosition = new Vector3(transform.localPosition.x, breath, transform.localPosition.z);
+		float x = Mathf.Sin(Time.time * breathingDamping / 2) * breathingRadiusX;
+		float y = Mathf.Sin(Time.time * breathingDamping) * breathingRadiusY;
+		transform.localPosition = new Vector3(x, y, transform.localPosition.z);
 		//this.transform.position = new Vector3(this.transform.position.x, posY + speed, this.transform.position.z);
 	}
 
 	void UpdateTargetPosition()
 	{
 		lastLocalPosition = transform.localPosition;
-		Vector2 randomPosition = Random.insideUnitCircle * breathingRadius;
+		Vector2 randomPosition = Random.insideUnitCircle * breathingRadiusY;
         float yPos = randomPosition.y;
         if (yPos < lowestY)
         {
