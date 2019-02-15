@@ -18,6 +18,10 @@ public class MomLauncher : MonoBehaviour {
 	float throwTimer;
 	bool timerRunning = false;
 
+	float momAlertTime = 2.5f;
+	float momAlertStaticTime = 0.4f;
+	float momAlertItemPreviewTime = 2f;
+
 	public Vector3[] momPositions;
 	float momMoveSpeed = 0.35f;
 
@@ -50,6 +54,7 @@ public class MomLauncher : MonoBehaviour {
 	void OnDisable()
 	{
 		UIController.OnStartGame 	-= StartMomGame;
+		LeanTween.cancel(this.gameObject);
 	}
 
 	void Awake()
@@ -121,13 +126,13 @@ public class MomLauncher : MonoBehaviour {
 	void MomAlert()
 	{
 		Television.ShowStatic(true);
-		LeanTween.delayedCall(0.4f, ()=>{
+		LeanTween.delayedCall(momAlertStaticTime, ()=>{
 			Television.ShowStatic(false);
 		});
-		LeanTween.delayedCall(0.5f, ()=>{
+		LeanTween.delayedCall(momAlertTime - momAlertItemPreviewTime, ()=>{
 			MomChooseObject();
 		});
-		LeanTween.delayedCall(1.5f, ()=>{
+		LeanTween.delayedCall(momAlertTime, ()=>{
 			MomEnterRoom();
 		});
 	}
