@@ -70,7 +70,11 @@ public class MomLauncher : MonoBehaviour {
 			throwablePreviews.Add(throwableObjects[i], throwableObjects[i].GetComponent<ThrownObject>().PreviewSprite);
 		}
 
-		MomChooseObject();
+		if (OnMomChooseObjectPreview != null)
+		{
+			OnMomChooseObjectPreview(null);
+		}
+		//MomChooseObject();
 
 //		LeanTween.delayedCall (momDelay, ()=>{
 //			MomEnterRoom();
@@ -81,7 +85,7 @@ public class MomLauncher : MonoBehaviour {
 	void StartMomGame()
 	{
 		LeanTween.delayedCall (momDelay, ()=>{
-			MomEnterRoom();
+			MomAlert();
 			timerRunning = true;
 		});
 	}
@@ -99,11 +103,7 @@ public class MomLauncher : MonoBehaviour {
 				throwInterval = newThrowInterval;
 				throwTimer = throwInterval;
 
-				MomEnterRoom ();
-
-				LeanTween.delayedCall (1f, ()=>{
-					timerRunning = true;
-				});
+				MomAlert();
 			}
 		}
 
@@ -116,6 +116,20 @@ public class MomLauncher : MonoBehaviour {
 		{
 			Time.timeScale = 1f;
 		}
+	}
+
+	void MomAlert()
+	{
+		Television.ShowStatic(true);
+		LeanTween.delayedCall(0.4f, ()=>{
+			Television.ShowStatic(false);
+		});
+		LeanTween.delayedCall(0.5f, ()=>{
+			MomChooseObject();
+		});
+		LeanTween.delayedCall(1.5f, ()=>{
+			MomEnterRoom();
+		});
 	}
 
 	void MomEnterRoom()
@@ -134,6 +148,10 @@ public class MomLauncher : MonoBehaviour {
 		LeanTween.moveLocal (this.gameObject, momPositions[1], momMoveSpeed).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
 			// open door rotation y at 9.5f
 			ThrowObject();
+
+			LeanTween.delayedCall (1f, ()=>{
+				timerRunning = true;
+			});
 		});
 	}
 
@@ -148,6 +166,8 @@ public class MomLauncher : MonoBehaviour {
 			{
 				OnDoorClosed();
 			}
+
+			Television.ShowStatic(false);
 		});
 	}
 
@@ -166,9 +186,7 @@ public class MomLauncher : MonoBehaviour {
 		sRenderer.sprite = momsprites [1];
 
 		LeanTween.delayedCall (0.5f, ()=>{
-			// Debug.Log ("Mom throws a thing!!!");
 			GameObject objToThrow = Instantiate(nextThrownObject);
-			Debug.Log("Mom throws a " + objToThrow.name + "!!!", objToThrow);
 
 			objToThrow.transform.position = throwStart.transform.position;
 			Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
@@ -207,7 +225,6 @@ public class MomLauncher : MonoBehaviour {
 
 			throwCount++;
 			lastThrowPosition = currThrowPosition;
-			MomChooseObject();
 
 			LeanTween.delayedCall (1f, ()=>{
 				MomLeaveRoom();
@@ -219,12 +236,8 @@ public class MomLauncher : MonoBehaviour {
 	void MomChooseObject()
 	{
 		nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
-		Debug.Log("Mom chose next object: " + nextThrownObject.name);
 
 		Television.ShowStatic(false);
-//		LeanTween.delayedCall(1f, ()=>{
-//				Television.ShowStatic(false);
-//			});
 
 //		if (OnMomChooseObject != null)
 //		{
@@ -234,9 +247,7 @@ public class MomLauncher : MonoBehaviour {
 		{
 			Sprite nextPreview = null;
 			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
-			LeanTween.delayedCall(1f, ()=>{
-					OnMomChooseObjectPreview(nextPreview);
-				});
+			OnMomChooseObjectPreview(nextPreview);
 //			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
 		}
 	}
