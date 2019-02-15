@@ -10,6 +10,9 @@ public class MomLauncher : MonoBehaviour {
 
 	private Dictionary<GameObject, Sprite> throwablePreviews;
 
+	private GameObject[] throwableObjectsShuffleBag;
+	private int shuffleBagIndex;
+
 	SpriteRenderer sRenderer;
 	public Sprite[] momsprites;
 
@@ -74,6 +77,9 @@ public class MomLauncher : MonoBehaviour {
 		{
 			throwablePreviews.Add(throwableObjects[i], throwableObjects[i].GetComponent<ThrownObject>().PreviewSprite);
 		}
+
+		throwableObjectsShuffleBag = (GameObject[])throwableObjects.Clone();
+		shuffleBagIndex = throwableObjectsShuffleBag.Length - 1;
 
 		if (OnMomChooseObjectPreview != null)
 		{
@@ -240,7 +246,27 @@ public class MomLauncher : MonoBehaviour {
 
 	void MomChooseObject()
 	{
-		nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
+		//nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
+
+		/// Shuffle Bag for Throwable Objects
+		if (shuffleBagIndex > 0)
+		{
+			int index = Random.Range(0, shuffleBagIndex + 1);
+			if (index != shuffleBagIndex)
+			{
+				// Swap Items
+				GameObject currentGO = throwableObjectsShuffleBag[index];
+				throwableObjectsShuffleBag[index] = throwableObjectsShuffleBag[shuffleBagIndex];
+				throwableObjectsShuffleBag[shuffleBagIndex] = currentGO;
+			}
+		}
+
+		nextThrownObject = throwableObjectsShuffleBag[shuffleBagIndex];
+		shuffleBagIndex--;
+		if (shuffleBagIndex < 0)
+		{
+			shuffleBagIndex = throwableObjectsShuffleBag.Length - 1;
+		}
 
 		Television.ShowStatic(false);
 
