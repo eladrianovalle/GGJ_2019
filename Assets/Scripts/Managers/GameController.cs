@@ -91,6 +91,14 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
+#if UNITY_EDITOR
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			IS_INVULNERABLE = !IS_INVULNERABLE;
+			isInvulnerable = !isInvulnerable;
+		}
+#endif
+
 		inputX = 0f;
 		inputX = playerController.GetAxis(1);
 
