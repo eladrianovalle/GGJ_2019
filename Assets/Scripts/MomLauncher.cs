@@ -60,8 +60,6 @@ public class MomLauncher : MonoBehaviour {
 
 	void Start () 
 	{
-//		InvokeRepeating ("ThrowObject", throwInterval, throwInterval);
-
 		MomLeaveRoom ();
 
 		throwablePreviews = new Dictionary<GameObject, Sprite>();
@@ -203,15 +201,23 @@ public class MomLauncher : MonoBehaviour {
 			sRenderer.sprite = momsprites [2];
 			LeanTween.delayedCall(0.03f, ()=>{
 				Time.timeScale = 0f;
-			});
 
-			throwCount++;
-			lastThrowPosition = currThrowPosition;
-			MomChooseObject();
+                throwCount++;
+                lastThrowPosition = currThrowPosition;
+                MomChooseObject();
 
-			LeanTween.delayedCall (1f, ()=>{
-				MomLeaveRoom();
-			});
+                LeanTween.delayedCall(1f, () => {
+                    MomLeaveRoom();
+                });
+            });
+
+			//throwCount++;
+			//lastThrowPosition = currThrowPosition;
+			//MomChooseObject();
+
+			//LeanTween.delayedCall (1f, ()=>{
+			//	MomLeaveRoom();
+			//});
 		});
 
 	}
