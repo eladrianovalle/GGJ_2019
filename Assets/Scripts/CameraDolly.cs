@@ -41,7 +41,9 @@ public class CameraDolly : MonoBehaviour {
 
 		targetPosition = new Vector3(targetTransform.position.x, height, targetTransform.position.z - distance);
 
-		transform.position = Vector3.Lerp (transform.position, targetPosition, (1 - Mathf.Exp(-20 * Time.unscaledDeltaTime)) * followDamping);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.fixedUnscaledDeltaTime * followDamping);
+
+        //transform.position = Vector3.Lerp (transform.position, targetPosition, (1 - Mathf.Exp(-20 * Time.unscaledDeltaTime)) * followDamping);
 
         //(1 - Mathf.Exp(-20 * Time.unscaledDeltaTime))     crazy algorithm to replace vanilla time.deltatime
     }

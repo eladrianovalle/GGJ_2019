@@ -852,7 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 1242200308}
-  followDamping: 8
+  followDamping: 28
   keepOriginalRotation: 1
   followBehind: 1
 --- !u!1 &1242200305 stripped
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfaf647f801444074beea13d404507ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  breathingRadius: 0.075
+  breathingRadius: 0.095
   breathingDamping: 0.015
 --- !u!1 &1475148064
 GameObject:

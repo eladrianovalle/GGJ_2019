@@ -19,12 +19,13 @@ public class CameraBreathing : MonoBehaviour {
 
 	void LateUpdate ()
 	{
-		
-		//targetPosition = new Vector3(targetTransform.position.x, transform.position.y, transform.position.z);
 
-		currTime += (1 - Mathf.Exp(-20 * Time.unscaledDeltaTime)) * breathingDamping;
+        //targetPosition = new Vector3(targetTransform.position.x, transform.position.y, transform.position.z);
 
-		transform.localPosition = Vector3.Lerp (lastLocalPosition, targetLocalPosition, currTime);
+        currTime += (1 - Mathf.Exp(-20 * Time.fixedUnscaledDeltaTime)) * breathingDamping;
+        //currTime += Time.fixedDeltaTime * breathingDamping;
+
+        transform.localPosition = Vector3.Lerp (lastLocalPosition, targetLocalPosition, currTime);
 		if (transform.localPosition == targetLocalPosition)
 		{
 			currTime = 0f;
