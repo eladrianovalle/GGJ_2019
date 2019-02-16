@@ -52,7 +52,6 @@ public class UIController : MonoBehaviour {
 
     void ShowStartButtons()
     {
-        Debug.Log("AudioController event come through");
         SetupButtons();
         panelShowing = true;
     }

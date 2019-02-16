@@ -151,7 +151,6 @@ public class FMODAudioController : MonoBehaviour {
 	void PlayGameMusic()
 	{
 		GameplayMusic.start ();
-		Debug.Log ("Music Started!");
 	}
 
 	void PlayYouWin()
@@ -167,8 +166,6 @@ public class FMODAudioController : MonoBehaviour {
 		// Turn off SFX so they don't play in background
 		SFXBus.stopAllEvents (FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 		SFXBus.setVolume (0f); 
-
-		Debug.Log ("You Suck!");
 	}
 
 	void PlayRoomAmbience()
@@ -204,7 +201,6 @@ public class FMODAudioController : MonoBehaviour {
 
 	void PlayJumpSound ()
 	{
-		Debug.Log ("You Jumped!");
 		FMODUnity.RuntimeManager.PlayOneShot (PlayerJump, gameObject.transform.position);
 	}
 
