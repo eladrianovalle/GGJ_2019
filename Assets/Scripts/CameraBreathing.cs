@@ -6,12 +6,11 @@ public class CameraBreathing : MonoBehaviour {
 	Vector3 targetLocalPosition;
     private float lowestY;
 
-	public float breathingRadius = 0.3f;
-	public float breathingDamping = 0.2f;
+	public float breathingRadiusX = 0.075f;
+	public float breathingRadiusY = 0.075f;
+	public float breathingDamping = 1f;
 
 	private float currTime = 0f;
-    Vector3 velocity = Vector3.zero;
-    //public float dampTime = 0.3f;
 
 	void Start ()
 	{
@@ -19,28 +18,30 @@ public class CameraBreathing : MonoBehaviour {
 		UpdateTargetPosition();
 	}
 
-	void FixedUpdate ()
+	void LateUpdate ()
 	{
+		
+		//targetPosition = new Vector3(targetTransform.position.x, transform.position.y, transform.position.z);
 
-        //targetPosition = new Vector3(targetTransform.position.x, transform.position.y, transform.position.z);
+//		currTime += (1 - Mathf.Exp(-20 * Time.unscaledDeltaTime)) * breathingDamping;
+//
+//		transform.localPosition = Vector3.Lerp (lastLocalPosition, targetLocalPosition, currTime);
+//		if (transform.localPosition == targetLocalPosition)
+//		{
+//			currTime = 0f;
+//			UpdateTargetPosition();
+//		}
 
-        currTime += (1 - Mathf.Exp(-20 * MH_Time.fixedTimestep)) * breathingDamping;
-        //currTime += Time.fixedDeltaTime * breathingDamping;
-
-        //transform.localPosition = Vector3.SmoothDamp(lastLocalPosition, targetLocalPosition, ref velocity, dampTime);
-
-        //transform.localPosition = Vector3.Lerp (lastLocalPosition, targetLocalPosition, currTime);
-		if (transform.localPosition == targetLocalPosition)
-		{
-			currTime = 0f;
-			UpdateTargetPosition();
-		}
+		float x = Mathf.Sin(Time.time * breathingDamping / 2) * breathingRadiusX;
+		float y = Mathf.Sin(Time.time * breathingDamping) * breathingRadiusY;
+		transform.localPosition = new Vector3(x, y, transform.localPosition.z);
+		//this.transform.position = new Vector3(this.transform.position.x, posY + speed, this.transform.position.z);
 	}
 
 	void UpdateTargetPosition()
 	{
 		lastLocalPosition = transform.localPosition;
-		Vector2 randomPosition = Random.insideUnitCircle * breathingRadius;
+		Vector2 randomPosition = Random.insideUnitCircle * breathingRadiusY;
         float yPos = randomPosition.y;
         if (yPos < lowestY)
         {

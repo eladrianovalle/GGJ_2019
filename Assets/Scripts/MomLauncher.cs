@@ -10,6 +10,9 @@ public class MomLauncher : MonoBehaviour {
 
 	private Dictionary<GameObject, Sprite> throwablePreviews;
 
+	private GameObject[] throwableObjectsShuffleBag;
+	private int shuffleBagIndex;
+
 	SpriteRenderer sRenderer;
 	public Sprite[] momsprites;
 
@@ -17,6 +20,10 @@ public class MomLauncher : MonoBehaviour {
 	float throwInterval = 10.0f;
 	float throwTimer;
 	bool timerRunning = false;
+
+	float momAlertTime = 2.5f;
+	float momAlertStaticTime = 0.4f;
+	float momAlertItemPreviewTime = 2f;
 
 	public Vector3[] momPositions;
 	float momMoveSpeed = 0.35f;
@@ -50,6 +57,7 @@ public class MomLauncher : MonoBehaviour {
 	void OnDisable()
 	{
 		UIController.OnStartGame 	-= StartMomGame;
+		LeanTween.cancel(this.gameObject);
 	}
 
 	void Awake()
@@ -60,6 +68,8 @@ public class MomLauncher : MonoBehaviour {
 
 	void Start () 
 	{
+//		InvokeRepeating ("ThrowObject", throwInterval, throwInterval);
+
 		MomLeaveRoom ();
 
 		throwablePreviews = new Dictionary<GameObject, Sprite>();
@@ -68,7 +78,14 @@ public class MomLauncher : MonoBehaviour {
 			throwablePreviews.Add(throwableObjects[i], throwableObjects[i].GetComponent<ThrownObject>().PreviewSprite);
 		}
 
-		MomChooseObject();
+		throwableObjectsShuffleBag = (GameObject[])throwableObjects.Clone();
+		shuffleBagIndex = throwableObjectsShuffleBag.Length - 1;
+
+		if (OnMomChooseObjectPreview != null)
+		{
+			OnMomChooseObjectPreview(null);
+		}
+		//MomChooseObject();
 
 //		LeanTween.delayedCall (momDelay, ()=>{
 //			MomEnterRoom();
@@ -79,7 +96,7 @@ public class MomLauncher : MonoBehaviour {
 	void StartMomGame()
 	{
 		LeanTween.delayedCall (momDelay, ()=>{
-			MomEnterRoom();
+			MomAlert();
 			timerRunning = true;
 		});
 	}
@@ -97,23 +114,33 @@ public class MomLauncher : MonoBehaviour {
 				throwInterval = newThrowInterval;
 				throwTimer = throwInterval;
 
-				MomEnterRoom ();
-
-				LeanTween.delayedCall (1f, ()=>{
-					timerRunning = true;
-				});
+				MomAlert();
 			}
 		}
 
 		if (Time.timeScale < 1f)
 		{
-			Time.timeScale += MH_Time.fixedTimestep * returnTimescaleSpeed;
+			Time.timeScale += Time.unscaledDeltaTime * returnTimescaleSpeed;
 //			Time.timeScale = Mathf.Lerp(Time.timeScale, 1.0f, Time.unscaledDeltaTime * returnTimescaleSpeed);
 		}
 		else if (Time.timeScale > 1f)
 		{
 			Time.timeScale = 1f;
 		}
+	}
+
+	void MomAlert()
+	{
+		Television.ShowStatic(true);
+		LeanTween.delayedCall(momAlertStaticTime, ()=>{
+			Television.ShowStatic(false);
+		});
+		LeanTween.delayedCall(momAlertTime - momAlertItemPreviewTime, ()=>{
+			MomChooseObject();
+		});
+		LeanTween.delayedCall(momAlertTime, ()=>{
+			MomEnterRoom();
+		});
 	}
 
 	void MomEnterRoom()
@@ -132,6 +159,10 @@ public class MomLauncher : MonoBehaviour {
 		LeanTween.moveLocal (this.gameObject, momPositions[1], momMoveSpeed).setEase(LeanTweenType.easeOutQuint).setOnComplete(()=>{
 			// open door rotation y at 9.5f
 			ThrowObject();
+
+			LeanTween.delayedCall (1f, ()=>{
+				timerRunning = true;
+			});
 		});
 	}
 
@@ -146,6 +177,8 @@ public class MomLauncher : MonoBehaviour {
 			{
 				OnDoorClosed();
 			}
+
+			Television.ShowStatic(false);
 		});
 	}
 
@@ -164,9 +197,7 @@ public class MomLauncher : MonoBehaviour {
 		sRenderer.sprite = momsprites [1];
 
 		LeanTween.delayedCall (0.5f, ()=>{
-			// Debug.Log ("Mom throws a thing!!!");
 			GameObject objToThrow = Instantiate(nextThrownObject);
-			Debug.Log("Mom throws a " + objToThrow.name + "!!!", objToThrow);
 
 			objToThrow.transform.position = throwStart.transform.position;
 			Rigidbody objToThrowRbody = objToThrow.GetComponent<Rigidbody> ();
@@ -201,36 +232,43 @@ public class MomLauncher : MonoBehaviour {
 			sRenderer.sprite = momsprites [2];
 			LeanTween.delayedCall(0.03f, ()=>{
 				Time.timeScale = 0f;
+			});
 
-                throwCount++;
-                lastThrowPosition = currThrowPosition;
-                MomChooseObject();
+			throwCount++;
+			lastThrowPosition = currThrowPosition;
 
-                LeanTween.delayedCall(1f, () => {
-                    MomLeaveRoom();
-                });
-            });
-
-			//throwCount++;
-			//lastThrowPosition = currThrowPosition;
-			//MomChooseObject();
-
-			//LeanTween.delayedCall (1f, ()=>{
-			//	MomLeaveRoom();
-			//});
+			LeanTween.delayedCall (1f, ()=>{
+				MomLeaveRoom();
+			});
 		});
 
 	}
 
 	void MomChooseObject()
 	{
-		nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
-		Debug.Log("Mom chose next object: " + nextThrownObject.name);
+		//nextThrownObject = throwableObjects[Random.Range(0, throwableObjects.Length)];
+
+		/// Shuffle Bag for Throwable Objects
+		if (shuffleBagIndex > 0)
+		{
+			int index = Random.Range(0, shuffleBagIndex + 1);
+			if (index != shuffleBagIndex)
+			{
+				// Swap Items
+				GameObject currentGO = throwableObjectsShuffleBag[index];
+				throwableObjectsShuffleBag[index] = throwableObjectsShuffleBag[shuffleBagIndex];
+				throwableObjectsShuffleBag[shuffleBagIndex] = currentGO;
+			}
+		}
+
+		nextThrownObject = throwableObjectsShuffleBag[shuffleBagIndex];
+		shuffleBagIndex--;
+		if (shuffleBagIndex < 0)
+		{
+			shuffleBagIndex = throwableObjectsShuffleBag.Length - 1;
+		}
 
 		Television.ShowStatic(false);
-//		LeanTween.delayedCall(1f, ()=>{
-//				Television.ShowStatic(false);
-//			});
 
 //		if (OnMomChooseObject != null)
 //		{
@@ -240,9 +278,7 @@ public class MomLauncher : MonoBehaviour {
 		{
 			Sprite nextPreview = null;
 			throwablePreviews.TryGetValue(nextThrownObject, out nextPreview);
-			LeanTween.delayedCall(1f, ()=>{
-					OnMomChooseObjectPreview(nextPreview);
-				});
+			OnMomChooseObjectPreview(nextPreview);
 //			OnMomChooseObjectPreview(throwablePreviews[nextThrownObject]);
 		}
 	}
