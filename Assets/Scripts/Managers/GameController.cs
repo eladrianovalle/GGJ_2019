@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using Rewired;
 
@@ -10,7 +8,6 @@ public class GameController : MonoBehaviour {
 	public bool IS_INVULNERABLE = false;
 
 	private Player playerController;
-	private int JUMP = 1;
 
 	public static Action<bool> OnHandheldMoveLeft;
 	public static Action<bool> OnHandheldMoveRight;
@@ -121,7 +118,6 @@ public class GameController : MonoBehaviour {
 		}
 
 		// separate this from left/right movement so it won't get blocked while dodging mom
-//		if (Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))
 		if (playerController.GetButtonDown(3))
 		{
 			if (OnHandheldButtonPress != null)
@@ -131,7 +127,6 @@ public class GameController : MonoBehaviour {
 		}
 		
 		// Used for making the right button go back up
-//		if (Input.GetKeyUp(KeyCode.RightArrow))
 		if (playerController.GetAxis(1) <= 0)
 		{
 			if (OnRightButtonUp != null)
@@ -141,7 +136,6 @@ public class GameController : MonoBehaviour {
 		}
 
 		// Used for making the left button go back up
-//		if (Input.GetKeyUp(KeyCode.LeftArrow))
 		if (playerController.GetAxis(1) >= 0)
 		{
 			// Left button animation to play
@@ -151,7 +145,6 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
-//		if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.Space))
 		if (playerController.GetButtonUp(3))
 		{
 			if (OnCenterButtonUp != null)

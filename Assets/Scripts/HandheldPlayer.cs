@@ -10,11 +10,16 @@ public class HandheldPlayer : MonoBehaviour {
 	private Vector4 defaultBrightnessVector = Vector4.one;
 	Rigidbody rBody;
 	public float moveSpeed = 3.0f;
+    public float variableMoveSpeed = 0.001f;
+    float baseMoveSpeedMult;
+
 	public const float MOVE_LIMIT = 13.0f;
 	public float maxYRot = 7f;
 	public float maxZRot = 4f;
 	public GameObject handheldWrapper;
     //float timeStep;
+    Vector3 velocity = Vector3.zero;
+    public float dampTime = 3.0f;
 
     private bool isMovingLeft = false;
     private bool isMovingRight = false;
@@ -43,6 +48,8 @@ public class HandheldPlayer : MonoBehaviour {
 	{
 		rBody = GetComponent<Rigidbody> ();
 
+        baseMoveSpeedMult = variableMoveSpeed;
+
 		// Reset all buttton materials to default brightness
 		DefaultButtonColor(leftBtnMat);
 		DefaultButtonColor(centerBtnMat);
@@ -54,31 +61,50 @@ public class HandheldPlayer : MonoBehaviour {
         //timeStep = Time.fixedDeltaTime;
 
 		handheldWrapper.transform.localRotation = Quaternion.Slerp (handheldWrapper.transform.localRotation, Quaternion.identity, MH_Time.timestep * rotationSpeed);
-	}
+
+        if (isMovingLeft || isMovingRight)
+        {
+            variableMoveSpeed += MH_Time.unscaledtimestep;
+            if (variableMoveSpeed > 1f)
+            {
+                variableMoveSpeed = 1f; 
+            }
+        }
+        else
+        {
+            variableMoveSpeed = baseMoveSpeedMult; 
+        }
+    }
 
     private void FixedUpdate()
     {
         //fixedUnscaledDeltaTime = Time.fixedUnscaledDeltaTime;
 
+        HandleMovement();
+
+    }
+
+    void HandleMovement()
+    {
         if (isMovingLeft)
         {
-            MovePositionLeft(); 
+            MovePositionLeft();
         }
+
         if (isMovingRight)
         {
             MovePositionRight();
         }
-
     }
 
-    void MoveLeft(bool isMovingLeft)
+    void MoveLeft(bool movingLeft)
     {
-        this.isMovingLeft = isMovingLeft;
+        this.isMovingLeft = movingLeft;
     }
 
-    void MoveRight(bool isMovingRight)
+    void MoveRight(bool movingRight)
     {
-        this.isMovingRight = isMovingRight;
+        this.isMovingRight = movingRight;
     }
 
     void MovePositionLeft()
@@ -86,36 +112,38 @@ public class HandheldPlayer : MonoBehaviour {
 		leftBtnAnimator.Play("Lbtn_GoDown");
 		HighlightButtonColor(leftBtnMat);
 
-		// Debug.Log ("Move Left");
+        Debug.Log ("Move Left");
 		var targetRot = Quaternion.Euler (0, maxYRot, -maxZRot);
 		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, MH_Time.fixedTimestep * rotationSpeed);
 
-		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * moveSpeed) * MH_Time.fixedTimestep;
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.left * (moveSpeed * variableMoveSpeed)) * MH_Time.fixedTimestep;
 		if (movePosition.x <= -MOVE_LIMIT)
 		{
 			movePosition.x = -MOVE_LIMIT;
 		}
-		rBody.MovePosition (movePosition);
-	}
 
-	void MovePositionRight()
+        rBody.MovePosition (movePosition);
+    }
+
+    void MovePositionRight()
 	{
 		rightBtnAnimator.Play("Btn_GoDown");
 		HighlightButtonColor(rightBtnMat);
 
-		// Debug.Log ("Move Right");
+        Debug.Log ("Move Right");
 		var targetRot = Quaternion.Euler (0, -maxYRot, maxZRot);
 		handheldWrapper.transform.localRotation = Quaternion.Slerp(handheldWrapper.transform.localRotation, targetRot, MH_Time.fixedTimestep * rotationSpeed);
 
-		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * moveSpeed) * MH_Time.fixedTimestep;
+		Vector3 movePosition = this.rBody.transform.position + (Vector3.right * (moveSpeed * variableMoveSpeed)) * MH_Time.fixedTimestep;
 		if (movePosition.x >= MOVE_LIMIT)
 		{
 			movePosition.x = MOVE_LIMIT;
 		}
-		rBody.MovePosition (movePosition);
-	}
 
-	void CenterButtonDown(bool buttonPress)
+        rBody.MovePosition (movePosition);
+    }
+
+    void CenterButtonDown(bool buttonPress)
 	{
 		centerBtnAnimator.Play("Cbtn_GoDown");
 		HighlightButtonColor(centerBtnMat);

@@ -7,9 +7,10 @@ public class MH_Time : MonoBehaviour {
     public static float unscaledtimestep;
     public static float unscaledFixedTimestep;
 
-    private void Start()
+    private void Awake()
     {
         Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 1;
     }
 
     private void Update () 
