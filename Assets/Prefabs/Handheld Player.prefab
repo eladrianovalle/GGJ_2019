@@ -1046,8 +1046,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416652642113826}
-  m_LocalRotation: {x: 0, y: 0.97629607, z: 0.21643952, w: 0}
-  m_LocalPosition: {x: 0, y: 3.16, z: -16.55}
+  m_LocalRotation: {x: -0, y: 0.97629607, z: 0.21643952, w: 0}
+  m_LocalPosition: {x: 0, y: 3.1599998, z: -16.550001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4613565220540650}
@@ -1571,12 +1571,14 @@ MonoBehaviour:
   leftBtnMat: {fileID: 2100000, guid: 8856ea54916e1dc46871b3e2e31ed894, type: 2}
   centerBtnMat: {fileID: 2100000, guid: 71b932f0209667841be2bb9b1099ef16, type: 2}
   rightBtnMat: {fileID: 2100000, guid: cc557f5af870296449a4c3ee55e0e14e, type: 2}
-  rotationSpeed: 7
+  rotationSpeed: 0.075
   brightnessVector: {x: 2, y: 2, z: 2, w: 1}
-  moveSpeed: 13
+  moveSpeed: 0.16
+  variableMoveSpeed: 0.0001
   maxYRot: 7
   maxZRot: 4
   handheldWrapper: {fileID: 1973569058358260}
+  dampTime: 0.005
 --- !u!114 &114640601589322604
 MonoBehaviour:
   m_ObjectHideFlags: 1
